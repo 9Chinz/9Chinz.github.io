@@ -1,13 +1,18 @@
 ---
 title: AI editorial tools
 client: Thai PBS
-year: 2025
-role: Sole backend developer
-summary: News summarisation with Gemini, English audio with Google TTS, and a karaoke-style Read Along built on speech-to-text.
+year: 2024
+role: Backend developer
+summary: Gemini news summaries in several languages from a service I wrote almost entirely, plus Google text-to-speech added alongside the existing Botnoi voices and speech-to-text word timings that drive Read Along highlighting.
 stack:
-  - Node.js
+  - TypeScript
+  - Fastify
   - Google Gemini
-  - Google TTS
-  - STT
-order: 5
+  - Vertex AI
+  - Google Cloud TTS
+  - Google Cloud STT
+  - MongoDB
+  - RabbitMQ
+  - Strapi
+order: 6
 ---

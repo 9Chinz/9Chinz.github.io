@@ -5,7 +5,7 @@ import CopyButton from "@/components/CopyButton.astro";
 import Sketch from "@/components/Sketch.astro";
 import Unfurl from "@/components/Unfurl.astro";
 import { getPosts, getProfile, getWork, postHref, readingMinutes, workHref } from "@/lib/content";
-import { duration, end, isoDay, lowerFirst, monthsBetween, plain } from "@/lib/format";
+import { duration, end, isoDay, lowerFirst, monthsBetween, plain, stripMarkup } from "@/lib/format";
 import { sized, srcset, webp } from "@/lib/image";
 
 const [profile, work, posts] = await Promise.all([getProfile(), getWork(), getPosts()]);
@@ -97,13 +97,13 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
                 ))}
               </ul>
               <ul class="bullets">
-                <li>{lead}</li>
+                <li>{stripMarkup(lead)}</li>
               </ul>
               {rest.length > 0 && (
                 <details class="more-hl">
                   <summary>{rest.length === 1 ? "One more highlight" : `${rest.length} more highlights`}</summary>
                   <ul class="bullets">
-                    {rest.map((h) => <li>{h}</li>)}
+                    {rest.map((h) => <li>{stripMarkup(h)}</li>)}
                   </ul>
                 </details>
               )}

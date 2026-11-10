@@ -2,11 +2,16 @@
 title: Bangkok Governor Election 69 results
 client: Thai PBS
 year: 2026
-role: Frontend and backend
-summary: Live results for the Bangkok Governor and council races, with a 50-district hex-tile map and district search.
+role: Results pipeline and admin features
+summary: Live results for the Bangkok Governor and council races. I built the producers and cron workflow that turned the official election API feed into versioned JSON, admin uploads for candidate images and party logos, and a streamer mode for broadcast.
 stack:
   - TypeScript
-stackToConfirm: the stack.
+  - Node.js
+  - MongoDB
+  - AWS S3
+  - CloudFront
+  - React
+  - TanStack Start
 url: https://www.thaipbs.or.th/bkkelection69/result
 og: /images/og/bkk-election-69.jpg
 photos:

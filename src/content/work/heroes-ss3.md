@@ -1,14 +1,17 @@
 ---
 title: The Heroes SS3
-client: INOX
-year: 2025
-role: Full vertical owner
-summary: Gamification platform with quests, a quiz engine and login streaks, plus the back office and CI/CD behind it.
+client: An insurance company
+year: 2026
+role: Full-stack features
+summary: A game where an insurance company's agents team up on quests and missions and follow their progress, leaderboards and teammates. I built passkey login, the quiz engine, check-in streaks, AI features and a batched notification system.
 stack:
   - TypeScript
-  - ArgoCD
-  - Kustomize
+  - React
+  - TanStack Router
+  - Payload CMS
+  - MongoDB
   - Cloudflare R2
-stackToConfirm: the rest of the stack.
-order: 4
+  - Kustomize
+  - ArgoCD
+order: 5
 ---

@@ -23,7 +23,7 @@ Search (⌘K, then type) only works after `pnpm build`; in `pnpm dev` the index 
 | Experience (roles and highlights) | `experience:` in `src/content/profile.yaml` |
 | Selected Work (one file per project) and Case Studies | `src/content/work/<slug>.md` |
 | Posts | `src/content/posts/<slug>.md` |
-| Resume | `public/resume.pdf` |
+| Resume | `resume:` block in `src/content/profile.yaml`; built into `public/resume.pdf` (see Update the resume) |
 | Images (photo, link-preview images) | `public/images/` |
 | Share image for the whole site | `public/images/og-site.png` |
 
@@ -98,9 +98,14 @@ Never fill a missing fact with filler. Leave it visibly open instead:
 
 When you have the fact, replace the paragraph or field with it.
 
-## Replace the resume
+## Update the resume
 
-Overwrite `public/resume.pdf` with the new PDF, keeping the same name. Every Resume link points there.
+The resume is generated from the site's content, so edit the content, not a Word file.
+
+- Org, roles, dates, education and links come from `profile.yaml`. The longer resume wording (summary, bullets, skills, projects, coursework) is in its `resume:` block, which the site does not show. In the summary and bullets, `**bold**` and `[label](url)` become bold text and links in the PDF (the site shows them as plain text).
+- `pnpm resume` writes the public PDF to `public/resume.pdf`, with no phone number. It needs LibreOffice (`soffice`) and fails if the resume runs past one page. Scratch files and a PNG preview go to `.resume-build/` (git-ignored).
+- `RESUME_PHONE="..." pnpm resume:private` also writes a copy with the phone number to `../rsm/resume-latest.docx` and `.pdf`, outside this repo. The phone number is never stored in the repo.
+- Commit the new `public/resume.pdf`. CI does not run the resume build.
 
 ## Publish
 

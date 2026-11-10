@@ -42,16 +42,17 @@ coreStack:
 # The first log entry under the hero: one system drawn as three nodes joined by pen leads.
 sketch:
   date: 2025-02
-  # Same order as the case-study drawing: the backend serves the public page, and traffic arrives at the page.
+  # Same order as the case-study drawing: the worker publishes to S3 + CloudFront, and readers' traffic arrives there.
   # `points: back` turns the lead before a node around, so it points from that node to the one before it.
+  # TODO(source): Chin is finding the evidence for "500k+ peak concurrent requests".
   nodes:
-    - key: backend
-      value: Built solo
-      detail: TypeScript and Node.js
+    - key: results worker
+      value: Built by me
+      detail: SeaTable to versioned JSON
       own: true
-    - key: public page
+    - key: S3 + CloudFront
       value: "47"
-      detail: provincial chief races, live
+      detail: races served as cached JSON
     - key: traffic
       value: 500k+
       detail: peak concurrent requests
@@ -61,16 +62,12 @@ sketch:
     label: Read the case study
     href: /work/local-election-68
 
-# The only hard numbers on the record, each verbatim from the resume or LinkedIn.
+# The only hard numbers on the record, each backed by the repos or Chin (the 500k+ source is being found).
 facts:
   - value: 500k+
     label: peak concurrent requests on Local Election 68 night
-  - value: "50"
-    label: Bangkok districts on the hex-tile results map
   - value: "47"
     label: provincial chief races reported live in Local Election 68
-  - value: 80%
-    label: less manual newsroom workload from AI editorial tools (LinkedIn)
 
 education:
   school: King Mongkut's Institute of Technology Ladkrabang
@@ -90,11 +87,12 @@ experience:
         start: 2024-05
         end: 2026-09
     highlights:
-      - Built the backend for Local Election 68's real-time reporting platform solo, sustaining 500k+ peak concurrent requests on election night.
-      - Built frontend and backend for the live Bangkok Governor & Council Election 69 results site, including a 50-district hex-tile map.
-      - Migrated Next Station BKK to TypeScript, Vite and TanStack Router; drew a custom SVG district map and set up the BFF layer.
-      - "Owned The Heroes SS3 gamification platform end to end: quests, quiz engine, login streaks, back-office dashboard, ArgoCD/Kustomize CI/CD."
-      - "Built Thai PBS's AI editorial backends solo: Gemini news summarisation, Google TTS audio, and a karaoke-style Read Along."
+      - Built the results worker behind Thai PBS's Local Election 68 live results, which turned hand-entered SeaTable results into versioned JSON on S3 behind CloudFront and held 500k+ peak concurrent requests on election night.
+      - Built the results producers and cron workflow for the Bangkok Governor & Council Election 69 live results, plus admin image uploads and a streamer mode for broadcast.
+      - Moved a designer's prototype of Next Station BKK into a strict TypeScript, React 19 and TanStack Router app and built its BFF.
+      - Added animated vote counters and fixed regional seat-summary filtering on Thai PBS's national Election 69 results.
+      - "Built full-stack features for an insurance company's agent engagement game: passkey login, quiz engine, check-in streaks, AI features and a batched notification system."
+      - Wrote Thai PBS's Gemini news-summary service, and added Google text-to-speech and the speech-to-text word timings behind Read Along to its shared audio service.
   - org: King Mongkut's Institute of Technology Ladkrabang
     place: Lat Krabang, Bangkok
     roles:
@@ -111,3 +109,58 @@ experience:
         end: 2022-12
     highlights:
       - Built a football penalty game web app for The Mall Group's FIFA World Cup Qatar 2022 campaign, integrated with the M Card loyalty app, with zero downtime through the campaign.
+
+# Resume only: the site does not render this block; scripts/build-resume.mjs does (pnpm resume).
+# Org, role titles, dates, email and links come from the fields above. Bullets here are the longer resume wording.
+# Markup allowed in summary and bullets: **bold** and [label](url). The phone number is never stored here.
+resume:
+  summary: >-
+    Mid-level full-stack software developer with 2.5 years at INOX building the systems behind Thai PBS's election
+    coverage (**500k+ peak concurrent requests**), an agent engagement game, and AI newsroom tools. TypeScript and
+    Node.js across the stack, React on the front end, and Kubernetes, CI/CD and AWS, GCP and Cloudflare in production.
+    Open to mid-level software engineer or full-stack roles, hybrid or remote.
+  availability: Open to hybrid/remote
+  website: https://9chinz.github.io
+  experience:
+    - org: Innovative Extremist (INOX)
+      place: Chatuchak, Bangkok
+      bullets:
+        - "Built the results worker for [Local Election 68](https://www.thaipbs.or.th/localelection/home)'s live results (47 provincial chief and 76 council races): cron jobs that turned hand-entered SeaTable results into versioned JSON on **S3 behind CloudFront** (30-day immutable revisions, a 10-second index), serving **500k+ peak concurrent requests** from cache on election night."
+        - Built the results producers and cron workflow for [Bangkok Governor & Council Election 69](https://www.thaipbs.or.th/bkkelection69/result) (official election API to MongoDB to versioned JSON on S3), plus **admin uploads** for candidate images and party logos and a **streamer mode** for broadcast.
+        - Migrated a designer's prototype of [Next Station BKK](https://www.thaipbs.or.th/bkkelection69/review/), Thai PBS's citizen review platform, into a strict **TypeScript, Vite, React 19 and TanStack Router** app with feature-based structure, and built the **BFF contract layer** that wired it to the real API.
+        - Added **animated vote counters** and fixed seat-summary filtering by region on Thai PBS's national [Election 69 results](https://www.thaipbs.or.th/election69/result/geo?region=all&view=area).
+        - "Built full-stack features for an insurance company's **agent engagement game**: passkey login, quiz engine and rewards, check-in streaks, an AI personality quiz and chat dashboard, and an **event-driven notification system** that batches jobs; worked on its **ArgoCD/Kustomize** deployment across Dev, UAT and Production, with media on Cloudflare R2."
+        - Wrote Thai PBS's **Gemini news-summary service** (multi-language, prompts managed in Strapi) and, in the shared audio service, added **Google text-to-speech** alongside Botnoi and **speech-to-text word timings** for Read Along highlighting.
+    - org: King Mongkut's Institute of Technology Ladkrabang
+      place: Lat Krabang, Bangkok
+      bullets:
+        - Assisted teaching STM32 microcontroller courses in C; graded lab assignments and supervised lab exams.
+    - org: Sufcreate co., ltd.
+      place: Bangkok (remote)
+      bullets:
+        - "Subcontracted to build a football penalty game web app for **The Mall Group**'s **FIFA World Cup Qatar 2022** campaign, integrated with the M Card loyalty app. Ran deployment on Ubuntu/DigitalOcean with monitoring and logging: **zero downtime** through the campaign."
+  projects:
+    - title: License Plate Recognition with TrOCR
+      url: https://github.com/9Chinz/LPR-TrOCR
+      start: 2023-08
+      end: 2023-11
+      description: OCR stage of an external LPR system using a TrOCR transformer.
+  skills:
+    - label: Languages
+      items: [TypeScript, JavaScript, Python, Go (basic)]
+    - label: Frontend
+      items: [React, Next.js, TanStack Start, TanStack Router, TanStack Query, Zustand, Tailwind CSS, motion]
+    - label: Backend
+      items: [Node.js, Fastify, tRPC, Payload CMS, Mongoose, Drizzle ORM, RabbitMQ]
+    - label: Databases
+      items: [MongoDB, PostgreSQL, MySQL, Redis]
+    - label: Infrastructure
+      items: [Docker, Kubernetes, "AWS (S3, CloudFront, EC2, Lambda)", "GCP (Vertex AI, Gemini, Cloud TTS/STT)", Cloudflare R2, "CI/CD (GitLab CI, ArgoCD, Kustomize, Jenkins)"]
+    - label: Testing & Tools
+      items: [Vitest, Playwright, Bruno, Strapi, Figma]
+    - label: Certifications
+      items: [Manage Kubernetes in Google Cloud (Skill Badge), Go (Basic)]
+  education:
+    place: Lat Krabang, Bangkok
+    degree: Bachelor of Engineering, Computer Engineering
+    coursework: [Software Process Development, Object-Oriented Programming, Introduction to Cloud Architecture, Deep Learning, Machine Learning]

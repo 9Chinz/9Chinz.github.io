@@ -34,6 +34,9 @@ export const host = (url: string) => new URL(url).hostname.replace(/^www\./, "")
 // ... -> "thaipbs.or.th/localelection/home"
 export const hostPath = (url: string) => `${host(url)}${new URL(url).pathname.replace(/\/$/, "")}`;
 
+// Resume text may carry "**bold**" and "[label](url)"; the site shows it as plain text.
+export const stripMarkup = (s: string) => s.replace(/\*\*(.+?)\*\*/g, "$1").replace(/\[(.+?)\]\(.+?\)/g, "$1");
+
 export const lowerFirst = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
 
 /** Split rendered Markdown HTML at each <h2> into its sections. Text before the first h2 is dropped. */

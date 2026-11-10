@@ -44,6 +44,19 @@ const profile = defineCollection({
         }),
       )
       .min(1),
+    // Resume-only data: the site does not render any of this. scripts/build-resume.mjs reads it.
+    resume: z
+      .strictObject({
+        summary: text,
+        availability: text,
+        website: z.url(),
+        // Resume bullets per employer (matched by `org`). "**bold**" and "[label](url)" are allowed.
+        experience: z.array(z.strictObject({ org: text, place: text, bullets: z.array(text).min(1) })),
+        projects: z.array(z.strictObject({ title: text, url: z.url(), start: month, end: month, description: text })),
+        skills: z.array(z.strictObject({ label: text, items: z.array(text).min(1) })),
+        education: z.strictObject({ place: text, degree: text, coursework: z.array(text).min(1) }),
+      })
+      .optional(),
   }),
 });
 
