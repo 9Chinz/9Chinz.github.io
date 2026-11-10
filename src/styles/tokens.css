@@ -1,0 +1,156 @@
+/* Hallmark · shape: Margin Log (one ruled column, dates hang in the left margin) · genre: modern-minimal · theme: custom · job: hire · idea: "an engineering notebook with instruments clipped onto its pages: a pen sketch of the system, an index card for navigation, a technical drawing for the case study" · vibe: "precise, quiet, ruled, dated, honest, light"
+ * paper: #F1F4EE · accent: #2440C4 pen blue · display: Schibsted Grotesk · body: Schibsted Grotesk · mono: IBM Plex Mono for margin dates, code and drawing labels only · hero: headline, one sentence, three actions, then the 2025-02 log entry drawn as a pen sketch on a graph-paper patch · nav: wordmark, three links, a quiet ⌘K index card, theme toggle · footer: one quiet line · imagery: none (type and line drawings of the real system) · signature: the pen-on-paper system sketch as the first log entry
+ * axes: green-white engineering pad/grotesk/technical-pen blue/pencil drafts · posture: restrained · modes: light first, dark secondary · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · weakest: P, the notebook is quiet by design; the sketch and the drawing carry the argument, solid pen for the record, dashed pencil for what Chin still has to confirm */
+/* Hallmark · waive 26b · no control on these pages can be disabled · links, copy buttons, the index trigger, the theme toggle and drawing nodes are always available */
+/* Hallmark · waive 38iii · .prose h2 .anchor uses color: inherit · the post heading is its own self-link, the hash mark sits in the margin */
+/* Hallmark · waive 77 · one 640px measure with a date margin; only the technical drawing spans margin and measure · the notebook keeps lists narrow on purpose */
+/* Hallmark · waive 39b · each part of the drawing (Results source, Backend, One public page, Traffic) is a button that holds its own label, sub-line and draft chips · tap a part to read its note; every part clears the 44px hit target */
+/* Hallmark · waive 78 · section heads are 20px against a 44px hero head · the margin dates carry the structure */
+
+:root {
+  /* engineering-pad paper, green-black ink, technical-pen blue, pencil graphite for drafts */
+  --color-paper: #F1F4EE;
+  --color-paper-2: #E6ECE2;
+  --color-card: #FAFBF8;
+  --color-ink: #18201B;
+  --color-ink-2: #36423A;
+  --color-muted: #59665E;
+  --color-rule: #CBD6C8;
+  --color-grid: #DFE7DB;
+  --color-accent: #2440C4;
+  --color-accent-ink: #F1F4EE;
+  --color-pen-wash: #E3E8F6;
+  --color-pencil: #66706A;
+  --color-focus: #2440C4;
+  --color-scrim: rgb(24 32 27 / 0.28);
+  --shadow-card: 0 1px 0 rgb(24 32 27 / 0.06), 0 14px 32px -12px rgb(24 32 27 / 0.28);
+
+  --code-fg: #18201B;
+  --code-bg: #E6ECE2;
+  --code-comment: #657169;
+  --code-keyword: #1F5A47;
+  --code-string: #7A4A0E;
+  --code-function: #2A3C99;
+  --code-constant: #7A2E5C;
+  --code-punct: #59665E;
+
+  --font-body: "Schibsted Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-body);
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* type scale: 17px base, ratio 1.2 */
+  --text-2xs: 0.75rem;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-display: clamp(2.125rem, 1.55rem + 1.9vw, 2.75rem);
+  --text-figure: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
+  --leading-body: 1.6;
+  --leading-tight: 1.15;
+  --tracking-display: -0.024em;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-strong: 600;
+
+  --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px;
+
+  /* the sheet: margin column + gutter + measure */
+  --margin: 168px;
+  --margin-gap: 32px;
+  --measure: 640px;
+  --gutter: 32px;
+  --section-gap: 128px;
+
+  --radius: 6px;
+  --radius-sm: 3px;
+  --rule: 1px;
+  --pen: 1.25px;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --dur-micro: 140ms;
+  --dur-short: 180ms;
+  --dur-intro: 320ms;
+  --z-modal: 100;
+
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --color-paper: #111512;
+  --color-paper-2: #1A201C;
+  --color-card: #1C231E;
+  --color-ink: #E4EAE3;
+  --color-ink-2: #C2CCC3;
+  --color-muted: #8F9B92;
+  --color-rule: #2C352F;
+  --color-grid: #1B221D;
+  --color-accent: #9AACFF;
+  --color-accent-ink: #111512;
+  --color-pen-wash: #1F2640;
+  --color-pencil: #9AA59D;
+  --color-focus: #9AACFF;
+  --color-scrim: rgb(4 6 5 / 0.6);
+  --shadow-card: 0 1px 0 rgb(0 0 0 / 0.3), 0 16px 36px -12px rgb(0 0 0 / 0.7);
+  --code-fg: #E4EAE3;
+  --code-bg: #1A201C;
+  --code-comment: #828E86;
+  --code-keyword: #82C9AB;
+  --code-string: #E0B27C;
+  --code-function: #AAB7FF;
+  --code-constant: #E39CC7;
+  --code-punct: #8F9B92;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-paper: #111512;
+    --color-paper-2: #1A201C;
+    --color-card: #1C231E;
+    --color-ink: #E4EAE3;
+    --color-ink-2: #C2CCC3;
+    --color-muted: #8F9B92;
+    --color-rule: #2C352F;
+    --color-grid: #1B221D;
+    --color-accent: #9AACFF;
+    --color-accent-ink: #111512;
+    --color-pen-wash: #1F2640;
+    --color-pencil: #9AA59D;
+    --color-focus: #9AACFF;
+    --color-scrim: rgb(4 6 5 / 0.6);
+    --shadow-card: 0 1px 0 rgb(0 0 0 / 0.3), 0 16px 36px -12px rgb(0 0 0 / 0.7);
+    --code-fg: #E4EAE3;
+    --code-bg: #1A201C;
+    --code-comment: #828E86;
+    --code-keyword: #82C9AB;
+    --code-string: #E0B27C;
+    --code-function: #AAB7FF;
+    --code-constant: #E39CC7;
+    --code-punct: #8F9B92;
+    color-scheme: dark;
+  }
+}
+
+/* Shiki css-variables theme reads these */
+:root {
+  --astro-code-foreground: var(--code-fg);
+  --astro-code-background: var(--code-bg);
+  --astro-code-token-comment: var(--code-comment);
+  --astro-code-token-keyword: var(--code-keyword);
+  --astro-code-token-string: var(--code-string);
+  --astro-code-token-string-expression: var(--code-string);
+  --astro-code-token-function: var(--code-function);
+  --astro-code-token-constant: var(--code-constant);
+  --astro-code-token-parameter: var(--code-fg);
+  --astro-code-token-punctuation: var(--code-punct);
+  --astro-code-token-link: var(--code-function);
+}
+
+@media (max-width: 60rem) {
+  :root { --gutter: 24px; --section-gap: 80px; }
+}
+@media (max-width: 40rem) {
+  :root { --gutter: 16px; --section-gap: 64px; --text-md: 1rem; }
+}

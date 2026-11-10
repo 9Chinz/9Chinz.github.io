@@ -1,16 +1,133 @@
 ---
----
+// Home: hero, Selected Work, Experience, Latest Writing (only once a Post is published), Contact.
+import Layout from "@/components/Layout.astro";
+import CopyButton from "@/components/CopyButton.astro";
+import Sketch from "@/components/Sketch.astro";
+import Unfurl from "@/components/Unfurl.astro";
+import { getPosts, getProfile, getWork, postHref, readingMinutes, workHref } from "@/lib/content";
+import { end, isoDay, lowerFirst, plain } from "@/lib/format";
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+const [profile, work, posts] = await Promise.all([getProfile(), getWork(), getPosts()]);
+const latest = posts.slice(0, 3);
+
+// The hero carries one sentence: the first of the Profile summary. The rest closes Contact.
+const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
+---
+<Layout title={`${profile.name}, ${profile.role}`} home>
+  <section class="row hero" aria-labelledby="hero-title">
+    <h1 id="hero-title">{profile.headline}</h1>
+    <p class="lede">{lede}</p>
+    <div class="actions">
+      <a class="btn btn-primary" href={profile.links.resume}>Resume (PDF)</a>
+      <a class="btn" href={profile.links.github}>GitHub</a>
+      <CopyButton text={profile.email} label="Copy email" />
+    </div>
+    <img class="portrait" src={profile.photo.src} alt={profile.photo.alt} width="320" height="400" decoding="async" fetchpriority="high" />
+    <Sketch sketch={profile.sketch} />
+  </section>
+
+  <section class="row section" id="work" aria-labelledby="work-title">
+    <h2 class="section-head" id="work-title">Selected Work</h2>
+    <ul class="row list">
+      {work.map((w) => {
+        const d = w.data;
+        const href = workHref(w);
+        const caseStudy = d.caseStudy ? `/work/${w.id}` : undefined;
+        return (
+          <li class="entry">
+            <time class="stamp" datetime={d.year}>{d.year}</time>
+            <div class="body">
+              <h3>{href ? <a href={href}>{d.title}</a> : d.title}</h3>
+              <p class="meta">{d.client}, {lowerFirst(d.role)}</p>
+              <p class="desc">{d.summary}</p>
+              {(caseStudy || (d.url && !d.og)) && (
+                <p class="more">
+                  {caseStudy && <a href={caseStudy}>Read the case study</a>}
+                  {d.url && !d.og && <a href={d.url}>Live site</a>}
+                </p>
+              )}
+              {d.url && d.og && <Unfurl url={d.url} og={d.og} title={d.title} alt={d.ogAlt ?? `Share image of the live ${d.title} page`} />}
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+  </section>
+
+  <section class="row section" id="experience" aria-labelledby="exp-title">
+    <h2 class="section-head" id="exp-title">Experience</h2>
+    <ol class="row list">
+      {profile.experience.map((x) => {
+        const first = x.roles[x.roles.length - 1];
+        const last = x.roles[0];
+        const [lead, ...rest] = x.highlights;
+        return (
+          <li class="entry">
+            <p class="stamp">
+              <time datetime={first.start}>{first.start}</time>
+              <span class="to"> to <time>{end(last.end)}</time></span>
+            </p>
+            <div class="body">
+              <h3>{x.org}</h3>
+              <p class="meta">{plain(x.place)}</p>
+              <ul class="roles">
+                {x.roles.map((r) => (
+                  <li>
+                    <span>{r.title}</span>
+                    {x.roles.length > 1 && (
+                      <span class="meta"><time datetime={r.start}>{r.start}</time> to <time>{end(r.end)}</time></span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+              <ul class="bullets">
+                <li>{lead}</li>
+              </ul>
+              {rest.length > 0 && (
+                <details class="more-hl">
+                  <summary>{rest.length === 1 ? "One more highlight" : `${rest.length} more highlights`}</summary>
+                  <ul class="bullets">
+                    {rest.map((h) => <li>{h}</li>)}
+                  </ul>
+                </details>
+              )}
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+    <p class="endnote">Education, the full stack list and dates are in the <a href={profile.links.resume}>resume (PDF)</a>.</p>
+  </section>
+
+  {latest.length > 0 && (
+    <section class="row section" id="writing" aria-labelledby="writing-title">
+      <h2 class="section-head" id="writing-title">Latest Writing</h2>
+      <ul class="row list list-tight">
+        {latest.map((p) => (
+          <li class="entry">
+            <time class="stamp" datetime={isoDay(p.data.date)}>{isoDay(p.data.date)}</time>
+            <div class="body">
+              <h3><a href={postHref(p)}>{p.data.title}</a></h3>
+              <p class="meta"><span class="num">{readingMinutes(p.body)}</span> min read{p.data.draft && ", draft"}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+      {posts.length > latest.length && <p class="endnote"><a href="/blog">All writing</a></p>}
+    </section>
+  )}
+
+  <section class="row section contact" id="contact" aria-labelledby="contact-title">
+    <h2 class="section-head" id="contact-title">Contact</h2>
+    <p class="lede">{profile.availability}. {restSummary.join(" ")}</p>
+    <div class="email">
+      <a href={`mailto:${profile.email}`}>{profile.email}</a>
+      <CopyButton text={profile.email} label="Copy" ariaLabel="Copy email address" />
+    </div>
+    <p class="links">
+      <a href={profile.links.github}>GitHub</a>
+      <a href={profile.links.linkedin}>LinkedIn</a>
+      <a href={profile.links.resume}>Resume (PDF)</a>
+    </p>
+  </section>
+</Layout>

@@ -1,43 +1,111 @@
-# Astro Starter Kit: Minimal
+# 9chinz.github.io
+
+Chin's portfolio and blog, live at https://9chinz.github.io. Astro (static), React islands, Tailwind, Pagefind search.
+
+Everything you normally change is a plain file in `src/content/` or `public/`. You never need to touch layout code to keep the site current.
+
+## Run it locally
 
 ```sh
-pnpm create astro@latest -- --template minimal
+pnpm install
+pnpm dev        # http://localhost:4321, shows Drafts too
+pnpm build      # production build into dist/, then the Pagefind search index
+pnpm preview    # serve dist/ to check the production build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Search (⌘K, then type) only works after `pnpm build`; in `pnpm dev` the index card still lists its sections, pages and actions.
 
-## 🚀 Project Structure
+## Where the content lives
 
-Inside of your Astro project, you'll see the following folders and files:
+| What | File |
+| --- | --- |
+| Profile: name, headline, summary, email, links, photo, the hero sketch, facts, education | `src/content/profile.yaml` |
+| Experience (roles and highlights) | `experience:` in `src/content/profile.yaml` |
+| Selected Work (one file per project) and Case Studies | `src/content/work/<slug>.md` |
+| Posts | `src/content/posts/<slug>.md` |
+| Resume | `public/resume.pdf` |
+| Images (photo, link-preview images) | `public/images/` |
+| Share image for the whole site | `public/images/og-site.png` |
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+The fields are checked when the site builds. A misspelt field name, a date in the wrong shape or a missing required field stops the build with a message naming the file and the field, so a mistake never reaches the live site.
+
+Dates are `YYYY-MM` (`2025-02`) for work and Experience, `YYYY-MM-DD` for Posts. An Experience role that is still going has `end: Present`.
+
+## Add a Post
+
+Create `src/content/posts/my-post-slug.md`. The file name becomes the URL (`/blog/my-post-slug`).
+
+~~~md
+---
+title: My post title
+date: 2026-12-01
+summary: One sentence for the writing index and for link previews.
+draft: true
+---
+
+Opening paragraph.
+
+## A section heading
+
+Each `##` heading goes into the "On this page" list and gets its own link.
+
+```ts title="src/example.ts"
+const answer = 42;
+```
+~~~
+
+- `draft: true` keeps it a Draft: visible in `pnpm dev`, left out of the live site. Delete the line (or set `false`) to publish.
+- Reading time is worked out from the text.
+- Code blocks get syntax colours, a caption and a Copy button. `title="..."` after the language sets the caption to a file name; without it the caption shows the language.
+- The home page's Latest Writing section appears by itself once the first Post is published.
+
+## Add a work item
+
+Create `src/content/work/<slug>.md` with frontmatter only:
+
+```md
+---
+title: Project name
+client: Thai PBS
+year: 2026
+role: Frontend and backend
+summary: One or two sentences about what it is.
+stack:
+  - TypeScript
+stackToConfirm: the rest of the stack.   # optional: shows "Chin to confirm: ..."
+url: https://example.com/live-page       # optional
+og: /images/og/project.jpg               # optional: the live page's own 1200x630 share image
+order: 6                                 # position in Selected Work, lowest first
+---
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+With `url` and `og` the home page shows a link preview; with only `url` it shows a "Live site" link.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Turn a work item into a Case Study
 
-Any static assets, like images, can be placed in the `public/` directory.
+Add a `caseStudy:` block to its frontmatter and write the body in Markdown. That alone creates the page at `/work/<slug>` and adds "Read the case study" on the home page. `src/content/work/local-election-68.md` is the worked example.
 
-## 🧞 Commands
+- Frontmatter: `date` (`YYYY-MM`), `roleDetail`, `outcome`, and optionally `drawing` (the technical drawing: parts A, B, C..., the leads between them, and `after:` naming the section it follows).
+- Body: each `## heading` is one numbered section (01, 02, ...), in the order you write them.
+- In the drawing, `draft: false` is drawn in pen (on the record) and `draft: true` in dashed pencil (still to confirm).
 
-All commands are run from the root of the project, from a terminal:
+## Gaps: TODO and CONFIRM
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+Never fill a missing fact with filler. Leave it visibly open instead:
 
-## 👀 Want to learn more?
+- In Markdown, a paragraph that starts with `TODO:` shows as an open item "Chin to write: ...", and one that starts with `CONFIRM:` shows as "Chin to confirm: ...".
+- In frontmatter, use the optional fields made for it, such as `stackToConfirm` on a work item or `confirm` on a drawing part.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+When you have the fact, replace the paragraph or field with it.
+
+## Replace the resume
+
+Overwrite `public/resume.pdf` with the new PDF, keeping the same name. Every Resume link points there.
+
+## Publish
+
+Push to `main`. GitHub Actions (`.github/workflows/deploy.yml`) builds the site and deploys it to GitHub Pages in a couple of minutes. You can edit any of the files above in GitHub's web editor and commit to `main` to the same effect.
+
+## For design and product decisions
+
+`PRODUCT.md` (what the site is for and what is in scope), `DESIGN.md` (the design system) and `GLOSSARY.md` (the words used here).

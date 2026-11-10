@@ -1,0 +1,77 @@
+---
+// A Case Study: one page for each work item whose frontmatter has a `caseStudy` block.
+// Each `## heading` of the Markdown body is one numbered section; the drawing follows `drawing.after`.
+import Layout from "@/components/Layout.astro";
+import Gap from "@/components/Gap.astro";
+import Unfurl from "@/components/Unfurl.astro";
+import Drawing from "@/components/islands/Drawing";
+import { getCaseStudies, type Work } from "@/lib/content";
+import { host, monthName, splitSections } from "@/lib/format";
+
+export async function getStaticPaths() {
+  const all = await getCaseStudies();
+  return all.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props as { entry: Work };
+const d = entry.data;
+const cs = d.caseStudy!;
+const sections = splitSections(entry.rendered?.html ?? "");
+const drawing = cs.drawing;
+const sheetTitle = `${d.title}, ${d.client}, ${cs.date}. Sheet 1 of 1`;
+const ogAlt = d.ogAlt ?? `Share image of the live ${d.title} page`;
+---
+<Layout title={`${d.title}, a case study`} description={cs.outcome} image={d.og} imageAlt={d.og ? ogAlt : undefined}>
+  <div class="row" data-pagefind-body data-pagefind-meta="kind:Case Study">
+    <div class="row page-head">
+      <p data-pagefind-ignore><a class="back" href="/#work">Back to Selected Work</a></p>
+      <h1>{d.title}</h1>
+      <dl class="facts">
+        <div><dt>Client</dt><dd>{d.client}</dd></div>
+        <div><dt>Date</dt><dd><time datetime={cs.date}>{monthName(cs.date)}</time></dd></div>
+        <div><dt>Role</dt><dd>{cs.roleDetail}</dd></div>
+        <div><dt>Stack</dt><dd>{d.stack.join(", ")}{d.stackToConfirm && <Gap verb="confirm" todo={d.stackToConfirm} />}</dd></div>
+        {d.url && <div><dt>Live site</dt><dd><a href={d.url}>{host(d.url)}</a></dd></div>}
+      </dl>
+      <p class="outcome">{cs.outcome}</p>
+      {d.url && d.og && (
+        <figure class="cs-preview">
+          <Unfurl url={d.url} og={d.og} title={d.title} alt={ogAlt} wide lazy={false} />
+          <figcaption class="meta">The live page's own share image, as it appears when the link is pasted into a chat.</figcaption>
+        </figure>
+      )}
+    </div>
+
+    <ol class="row list section">
+      {sections.map((s, i) => (
+        <li class="entry cs-section">
+          <span class="stamp num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+          <div class="body" set:html={s.html} />
+          {drawing && s.heading === drawing.after && (
+            <div class="cs-drawing">
+              <p class="drawing-help">What is on the record is drawn in pen. Dashed pencil parts are drafts for Chin to confirm. Hover, focus or tap a part to read its note.</p>
+              <Drawing client:visible parts={drawing.parts} links={drawing.links} title={sheetTitle} />
+              <details class="drawing-text">
+                <summary>The drawing as text</summary>
+                <ol>
+                  {drawing.parts.map((p) => (
+                    <li>
+                      <strong>{p.ref}, {p.label}</strong>{p.sub && `: ${p.sub}`}{p.draft && " (draft part, Chin to confirm)"}
+                      {p.chips && <span>. Parts still to confirm: {p.chips.join(", ").replace(/\?/g, "")}.</span>}
+                    </li>
+                  ))}
+                  <li>{drawing.summary}</li>
+                </ol>
+              </details>
+            </div>
+          )}
+        </li>
+      ))}
+    </ol>
+  </div>
+
+  <div class="cs-end">
+    {d.url && <a class="btn btn-primary" href={d.url}>Open the live results</a>}
+    <a class="back" href="/">Back to home</a>
+  </div>
+</Layout>

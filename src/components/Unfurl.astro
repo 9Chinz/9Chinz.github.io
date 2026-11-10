@@ -1,0 +1,13 @@
+---
+// A link preview: the live page's own og:image, pasted in like a link in chat.
+import { hostPath } from "@/lib/format";
+interface Props { url: string; og: string; title: string; alt: string; wide?: boolean; lazy?: boolean }
+const { url, og, title, alt, wide = false, lazy = true } = Astro.props;
+---
+<a class:list={["unfurl", { "unfurl-wide": wide }]} href={url}>
+  <img src={og} alt={alt} width="800" height="420" loading={lazy ? "lazy" : undefined} decoding="async" />
+  <span class="unfurl-text">
+    <span class="unfurl-title">{title}</span>
+    <span class="unfurl-host">{hostPath(url)}</span>
+  </span>
+</a>

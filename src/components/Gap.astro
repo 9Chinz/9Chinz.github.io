@@ -1,0 +1,7 @@
+---
+// An open item: a fact Chin still has to supply, shown as an unchecked entry, never as prose.
+// Markdown gets the same markup from src/lib/markdown.ts (paragraphs starting TODO: or CONFIRM:).
+interface Props { todo: string; verb?: "write" | "confirm" }
+const { todo, verb = "write" } = Astro.props;
+---
+<p class="gap" role="note"><span><strong>Chin to {verb}:</strong> {todo}</span></p>

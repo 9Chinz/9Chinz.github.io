@@ -1,0 +1,137 @@
+---
+// The notebook's shell: share tags, top bar with the index card and theme toggle, footer.
+import "@/styles/global.css";
+import "@/styles/tokens.css";
+import "@/styles/site.css";
+import IndexCard, { type Page, type Section } from "./islands/IndexCard";
+import { getCaseStudies, getPosts, getProfile, postHref } from "@/lib/content";
+
+interface Props { title: string; description?: string; home?: boolean; image?: string; imageAlt?: string }
+const profile = await getProfile();
+const { title, description = profile.summary, home = false, image = "/images/og-site.png", imageAlt = `${profile.name}: ${profile.headline}` } = Astro.props;
+
+const [caseStudies, posts] = await Promise.all([getCaseStudies(), getPosts()]);
+const hasWriting = posts.length > 0;
+const section = (id: string) => (home ? `#${id}` : `/#${id}`);
+const writingHref = hasWriting ? section("writing") : "/blog";
+
+const sections: Section[] = [
+  { id: "work", label: "Selected Work", keywords: "projects case" },
+  { id: "experience", label: "Experience", keywords: "jobs roles inox" },
+  ...(hasWriting ? [{ id: "writing", label: "Latest Writing", keywords: "posts blog" }] : []),
+  { id: "contact", label: "Contact", keywords: "email hire" },
+];
+const pages: Page[] = [
+  ...caseStudies.map((w) => ({ label: `Case Study: ${w.data.title}`, href: `/work/${w.id}`, hint: "Page", keywords: `${w.data.client} ${w.data.stack.join(" ")} architecture` })),
+  ...posts.map((p) => ({ label: `Post: ${p.data.title}`, href: postHref(p), hint: p.data.draft ? "Draft" : "Post", keywords: "blog writing" })),
+  { label: "Writing", href: "/blog", hint: "Page", keywords: "blog posts index" },
+];
+
+const site = Astro.site ?? Astro.url;
+const pageUrl = new URL(Astro.url.pathname, site).href;
+const imageUrl = new URL(image, site).href;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#F1F4EE" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111512" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={pageUrl} />
+    <meta property="og:type" content={home ? "website" : "article"} />
+    <meta property="og:site_name" content={profile.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <script is:inline>
+      document.documentElement.classList.add("js");
+      try {
+        var t = localStorage.getItem("chin-theme");
+        if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+      } catch (e) {}
+      try {
+        if (sessionStorage.getItem("chin-intro")) document.documentElement.dataset.intro = "seen";
+        else sessionStorage.setItem("chin-intro", "1");
+      } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="sheet">
+      <header class="topbar">
+        <a class="wordmark" href="/"><span class="long">{profile.name}</span><span class="short">{profile.shortName}</span></a>
+        <nav aria-label="Main">
+          <a class="nav-link" href={section("work")}>Work</a>
+          <a class="nav-link" href={writingHref}>Writing</a>
+          <a class="nav-link" href={section("contact")}>Contact</a>
+          <IndexCard
+            client:load
+            email={profile.email}
+            github={profile.links.github}
+            linkedin={profile.links.linkedin}
+            resume={profile.links.resume}
+            sections={sections}
+            pages={pages}
+          />
+          <button type="button" class="icon-btn" data-theme-toggle aria-label="Switch colour theme">
+            <svg class="sun" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="3.5" stroke="currentColor" stroke-width="1.4"/><path d="M9 1.5v2M9 14.5v2M1.5 9h2M14.5 9h2M3.7 3.7l1.4 1.4M12.9 12.9l1.4 1.4M3.7 14.3l1.4-1.4M12.9 5.1l1.4-1.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            <svg class="moon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M15 10.6A6.5 6.5 0 0 1 7.4 3a6.5 6.5 0 1 0 7.6 7.6Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          </button>
+        </nav>
+      </header>
+      <main class="row" id="main" tabindex="-1">
+        <slot />
+      </main>
+      <footer class="footer">
+        <span>{profile.name}, {profile.location}</span>
+        <span class="foot-hint">Press <kbd class="kbd">⌘K</kbd> for the index</span>
+      </footer>
+    </div>
+    <p class="visually-hidden" role="status" aria-live="polite" id="nb-live"></p>
+    <script>
+      import { currentTheme, toggleTheme } from "@/scripts/theme";
+      const toggle = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
+      const label = () => toggle?.setAttribute("aria-label", currentTheme() === "dark" ? "Switch to light theme" : "Switch to dark theme");
+      label();
+      addEventListener("themechange", label);
+      toggle?.addEventListener("click", () => toggleTheme());
+
+      // Copy buttons: data-copy holds the text; an empty one copies the <pre> in its <figure>.
+      const live = document.getElementById("nb-live");
+      document.querySelectorAll<HTMLButtonElement>("button[data-copy]").forEach((btn) => {
+        let timer: number | undefined;
+        btn.addEventListener("click", async () => {
+          const text = btn.dataset.copy || btn.closest("figure")?.querySelector("pre")?.textContent || "";
+          try {
+            await navigator.clipboard.writeText(text);
+          } catch {
+            return;
+          }
+          btn.dataset.copied = "";
+          if (live) live.textContent = "Copied to clipboard";
+          clearTimeout(timer);
+          timer = window.setTimeout(() => {
+            delete btn.dataset.copied;
+            if (live) live.textContent = "";
+          }, 1800);
+        });
+      });
+    </script>
+  </body>
+</html>

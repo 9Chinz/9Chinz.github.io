@@ -1,0 +1,39 @@
+---
+// The writing index: every published Post, newest first, dated in the margin.
+import Layout from "@/components/Layout.astro";
+import { getCaseStudies, getPosts, getProfile, postHref, readingMinutes } from "@/lib/content";
+import { isoDay } from "@/lib/format";
+
+const [profile, posts, caseStudies] = await Promise.all([getProfile(), getPosts(), getCaseStudies()]);
+const longest = caseStudies[0];
+---
+<Layout title={`Writing, ${profile.name}`} description={`Posts by ${profile.name}.`}>
+  <div class="row page-head index-head">
+    <p><a class="back" href="/">Back to home</a></p>
+    <h1>Writing</h1>
+  </div>
+
+  {posts.length > 0 ? (
+    <ol class="row list">
+      {posts.map((p) => (
+        <li class="entry">
+          <time class="stamp" datetime={isoDay(p.data.date)}>{isoDay(p.data.date)}</time>
+          <div class="body">
+            <h2 class="entry-title"><a href={postHref(p)}>{p.data.title}</a></h2>
+            <p class="meta"><span class="num">{readingMinutes(p.body)}</span> min read{p.data.draft && ", draft"}</p>
+            <p class="desc">{p.data.summary}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  ) : (
+    <div class="row empty">
+      <div class="entry">
+        <div class="body">
+          <p>No Posts yet.</p>
+          <p>When I publish one, it gets a date in this margin. {longest ? <Fragment>Until then, the longest entry in this notebook is the <a href={`/work/${longest.id}`}>{longest.data.title} case study</a>.</Fragment> : <Fragment>Until then, see the <a href="/#work">Selected Work</a>.</Fragment>}</p>
+        </div>
+      </div>
+    </div>
+  )}
+</Layout>

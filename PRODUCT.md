@@ -48,9 +48,9 @@ A backend-leaning full-stack TypeScript developer (Mid-level Software Developer 
 ## Evidence on Hand
 
 - Resume: `public/resume.pdf` (v2, phone number removed). Source: `../rsm/resume-draft-v2.docx`, built by `../rsm/scripts/build-resume.cjs`.
-- Content: `src/prototype/data.ts` (Profile, facts, Experience, work, Local Election 68 Case Study shell, sample Post).
+- Content: `src/content/` (`profile.yaml` for the Profile, facts and Experience; `work/*.md` for work items and the Local Election 68 Case Study shell; `posts/*.md` for the sample Post, a Draft).
 - Hard facts usable on the site: 500k+ peak concurrent requests (Local Election 68), 47 provincial chief and 76 provincial council races, 50 Bangkok districts on the hex-tile map, and "80% less manual newsroom workload" (LinkedIn only; the resume says "meaningfully reduced", so treat as unconfirmed).
-- Images: profile photo from LinkedIn (`public/prototype/profile.jpg`, crop `profile-portrait.jpg`); the live pages' own og:images for Local Election 68, Bangkok Governor Election 69 and Next Station BKK (`public/prototype/og/`); screenshots of public Thai PBS pages (`public/prototype/shots/`).
+- Images: profile photo from LinkedIn (`public/images/profile.jpg`, crop `profile-portrait.jpg`); the live pages' own og:images for Local Election 68, Bangkok Governor Election 69 and Next Station BKK (`public/images/og/`); screenshots of public Thai PBS pages (not shipped; in git history under `public/prototype/shots/`).
 - Absent, must not be fabricated: Local Election 68 architecture, key decisions, latency/error-rate/cost figures, most project stacks (marked `TODO_CHIN`), testimonials, client logos, real blog Posts (only a sample exists), images for The Heroes SS3 and the AI editorial tools.
 
 ## Product Principles

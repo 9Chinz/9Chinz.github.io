@@ -1,0 +1,110 @@
+# Chin's Profile: who he is and how to reach him. Every page reads from here.
+# Only write facts that are on the resume or LinkedIn. The build fails on a misspelt field.
+
+name: Chinnapat Limprathan
+shortName: Chin
+role: Mid-level Software Developer
+employer: INOX
+location: Bangkok, Thailand
+availability: Open to full-stack or backend roles, hybrid or remote
+headline: I build the systems behind products millions of people use.
+# The first sentence opens the hero; the rest closes the Contact section.
+summary: >-
+  Full-stack TypeScript developer at INOX, building Thai PBS's election platforms,
+  gamification systems and AI newsroom tools. I care about request latency and
+  database queries as much as how a dashboard feels to the person using it.
+exploring: Distributed systems design, event-driven architecture, and GenAI integrations for production workloads.
+email: MR.Chinnapat@hotmail.com
+
+links:
+  github: https://github.com/9Chinz
+  linkedin: https://www.linkedin.com/in/chinnapat
+  resume: /resume.pdf
+
+# 4:5 crop of the LinkedIn photo. The 800x800 original is /images/profile.jpg.
+photo:
+  src: /images/profile-portrait.jpg
+  alt: Chinnapat Limprathan, smiling, outdoors by a pond
+
+coreStack:
+  - TypeScript
+  - React
+  - Node.js
+  - Fastify
+  - MongoDB
+  - Docker
+  - Kubernetes
+  - ArgoCD
+  - AWS
+  - Cloudflare
+  - Python
+
+# The first log entry under the hero: one system drawn as three nodes joined by pen leads.
+sketch:
+  date: 2025-02
+  nodes:
+    - key: traffic
+      value: 500k+
+      detail: peak concurrent requests
+    - key: backend
+      value: Built solo
+      detail: TypeScript and Node.js
+      own: true
+    - key: one public page
+      value: "47"
+      detail: provincial chief races
+  caption: Local Election 68 live results for Thai PBS.
+  link:
+    label: Read the case study
+    href: /work/local-election-68
+
+# The only hard numbers on the record, each verbatim from the resume or LinkedIn.
+facts:
+  - value: 500k+
+    label: peak concurrent requests on Local Election 68 night
+  - value: "50"
+    label: Bangkok districts on the hex-tile results map
+  - value: "47"
+    label: provincial chief races reported live in Local Election 68
+  - value: 80%
+    label: less manual newsroom workload from AI editorial tools (LinkedIn)
+
+education:
+  school: King Mongkut's Institute of Technology Ladkrabang
+  degree: B.Eng. Computer Engineering
+  gpa: "3.6"
+  end: 2024-03
+
+# Newest first. Roles inside one employer are newest first too. Use YYYY-MM, or Present.
+experience:
+  - org: Innovative Extremist (INOX)
+    place: Chatuchak, Bangkok · Hybrid
+    roles:
+      - title: Mid-level Software Developer
+        start: 2026-09
+        end: Present
+      - title: Software Developer
+        start: 2024-05
+        end: 2026-09
+    highlights:
+      - Built the backend for Local Election 68's real-time reporting platform solo, sustaining 500k+ peak concurrent requests on election night.
+      - Built frontend and backend for the live Bangkok Governor & Council Election 69 results site, including a 50-district hex-tile map.
+      - Migrated Next Station BKK to TypeScript, Vite and TanStack Router; drew a custom SVG district map and set up the BFF layer.
+      - "Owned The Heroes SS3 gamification platform end to end: quests, quiz engine, login streaks, back-office dashboard, ArgoCD/Kustomize CI/CD."
+      - "Built Thai PBS's AI editorial backends solo: Gemini news summarisation, Google TTS audio, and a karaoke-style Read Along."
+  - org: King Mongkut's Institute of Technology Ladkrabang
+    place: Lat Krabang, Bangkok
+    roles:
+      - title: Teacher Assistant (part-time)
+        start: 2023-12
+        end: 2024-03
+    highlights:
+      - Assisted teaching STM32 microcontroller courses in C; graded labs and supervised lab exams.
+  - org: Sufcreate co., ltd.
+    place: Bangkok · Remote
+    roles:
+      - title: Freelance Software Developer
+        start: 2022-08
+        end: 2022-12
+    highlights:
+      - Built a football penalty game web app for The Mall Group's FIFA World Cup Qatar 2022 campaign, integrated with the M Card loyalty app, with zero downtime through the campaign.

@@ -1,0 +1,33 @@
+---
+// The hero's first log entry: one system drawn in pen as three nodes. Content: profile.yaml `sketch`.
+// The node Chin owns gets the pen wash; values that start with a digit are set as figures.
+import type { CollectionEntry } from "astro:content";
+type Sketch = CollectionEntry<"profile">["data"]["sketch"];
+interface Props { sketch: Sketch }
+const { sketch } = Astro.props;
+const isFigure = (v: string) => /^\d/.test(v);
+---
+<div class="entry logline">
+  <time class="stamp" datetime={sketch.date}>{sketch.date}</time>
+  <figure class="body sketch" aria-labelledby="sketch-cap">
+    <div class="sk-patch">
+      {sketch.nodes.map((n, i) => (
+        <Fragment>
+          {i > 0 && (
+            <div class="sk-lead" style={`--i:${i * 2 - 1}`} aria-hidden="true">
+              <svg viewBox="0 0 48 12" preserveAspectRatio="none"><line x1="1" y1="6" x2="44" y2="6" /><path d="M39 2l6 4-6 4" /></svg>
+            </div>
+          )}
+          <div class:list={["sk-node", { "sk-own": n.own }]} style={`--i:${i * 2}`}>
+            <span class="sk-k">{n.key}</span>
+            <span class:list={["sk-v", isFigure(n.value) ? "num" : "sk-v-text"]}>{n.value}</span>
+            <span class="sk-d">{n.detail}</span>
+          </div>
+        </Fragment>
+      ))}
+    </div>
+    <figcaption id="sketch-cap" class="sk-cap">
+      {sketch.caption} <a href={sketch.link.href}>{sketch.link.label}</a>
+    </figcaption>
+  </figure>
+</div>
