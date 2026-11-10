@@ -201,7 +201,8 @@ a { color: var(--color-accent); text-decoration-line: underline; text-decoration
 
 /* one load moment: the hero settles once per session, the sketch is inked part by part */
 @media (prefers-reduced-motion: no-preference) {
-  :root:not([data-intro="seen"]) .hero > :not(.logline) { animation: settle var(--dur-intro) var(--ease-out) both; }
+  /* the headline is on the page at first paint; the lines under it settle in after it */
+  :root:not([data-intro="seen"]) .hero > :not(.logline, h1) { animation: settle var(--dur-intro) var(--ease-out) both; }
   :root:not([data-intro="seen"]) .hero > :nth-child(2) { animation-delay: 50ms; }
   :root:not([data-intro="seen"]) .hero > :nth-child(3) { animation-delay: 100ms; }
   :root:not([data-intro="seen"]) .sk-node { animation: settle var(--dur-intro) var(--ease-out) both; animation-delay: calc(var(--i) * 90ms + 200ms); }
@@ -292,8 +293,12 @@ a { color: var(--color-accent); text-decoration-line: underline; text-decoration
 .outcome { margin-top: var(--space-xl); font-size: var(--text-lg); line-height: 1.5; }
 .page-head + .list { margin-top: var(--space-3xl); }
 .cs-section h2 { font-size: var(--text-lg); letter-spacing: -0.01em; }
-.cs-section h2 .anchor { color: inherit; text-decoration: none; }
+/* a heading is its own self-link: the whole head, set as the head */
+h2 .anchor { color: inherit; text-decoration: none; }
 .cs-section .body > p:not(.gap) { margin-top: var(--space-sm); color: var(--color-ink-2); }
+.cs-section .body > ul { margin-top: var(--space-sm); list-style: disc; padding-left: 1.1em; display: grid; gap: var(--space-sm); color: var(--color-ink-2); }
+.cs-section .body > ul li::marker { color: var(--color-muted); }
+.cs-section .body > ul strong { color: var(--color-ink); }
 .cs-end { margin-top: var(--section-gap); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm) var(--space-lg); }
 @media (max-width: 60rem) {
   .facts > div { grid-template-columns: 6.5rem minmax(0, 1fr); column-gap: var(--space-md); }
@@ -319,15 +324,14 @@ a { color: var(--color-accent); text-decoration-line: underline; text-decoration
 .prose > * + * { margin-top: var(--space-lg); }
 .prose p, .prose li { color: var(--color-ink-2); }
 .prose h2 { font-size: var(--text-xl); letter-spacing: -0.015em; line-height: 1.25; margin-top: var(--space-2xl); position: relative; }
-.prose h2 .anchor { color: inherit; text-decoration: none; }
 .prose h2 .anchor::before {
   content: "#"; position: absolute; right: 100%; padding-right: 0.4em;
-  color: var(--color-muted); font-weight: var(--weight-regular); opacity: 0;
-  transition: opacity var(--dur-micro) ease;
+  opacity: 0; transition: opacity var(--dur-micro) ease;
 }
-.prose h2 .anchor:focus-visible::before { opacity: 1; }
+/* the hash is the head's own ink, faded to a pencil weight */
+.prose h2 .anchor:focus-visible::before { opacity: 0.5; }
 @media (hover: hover) and (pointer: fine) {
-  .prose h2:hover .anchor::before { opacity: 1; }
+  .prose h2:hover .anchor::before { opacity: 0.5; }
 }
 .prose ul { list-style: disc; padding-left: 1.1em; display: grid; gap: var(--space-xs); }
 .prose li::marker { color: var(--color-muted); }
@@ -482,9 +486,10 @@ main:focus { outline: none; }
 .dw-part[data-draft="true"] .dw-ref { color: var(--color-pencil); }
 .dw-part .dw-ref { margin-bottom: var(--space-2xs); }
 .dw-label { font-size: var(--text-sm); font-weight: var(--weight-strong); line-height: 1.35; }
-.dw-sub { font-size: var(--text-sm); color: var(--color-ink-2); line-height: 1.4; }
+.dw-sub { font-size: var(--text-sm); color: var(--color-ink-2); line-height: 1.4; text-wrap: pretty; }
 .dw-chips { display: flex; flex-wrap: wrap; gap: var(--space-2xs); margin-top: var(--space-2xs); }
-.dw-chip { font-size: var(--text-xs); padding: 2px var(--space-xs); border: var(--rule) dashed var(--color-pencil); color: var(--color-pencil); border-radius: var(--radius-sm); }
+.dw-chip { font-size: var(--text-xs); padding: 2px var(--space-xs); border: var(--rule) solid var(--color-rule); color: var(--color-ink-2); border-radius: var(--radius-sm); }
+.dw-chip[data-draft="true"] { border-style: dashed; border-color: var(--color-pencil); color: var(--color-pencil); }
 .dw-draft { font-size: var(--text-xs); color: var(--color-pencil); margin-top: var(--space-2xs); }
 .dw-lead { display: grid; align-content: center; justify-items: center; gap: var(--space-2xs); color: var(--color-accent); }
 .dw-lead svg { width: 100%; height: 12px; overflow: visible; fill: none; stroke: currentColor; stroke-width: var(--pen); stroke-linecap: round; stroke-linejoin: round; }
@@ -497,8 +502,22 @@ main:focus { outline: none; }
 .dw-key { display: inline-block; width: 20px; border-top: var(--pen) solid var(--color-accent); }
 .dw-key[data-draft="true"] { border-top-style: dashed; border-top-color: var(--color-pencil); margin-left: var(--space-sm); }
 .dw-title { padding: var(--space-xs) var(--space-lg); border-left: var(--rule) solid var(--color-ink-2); font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--color-ink-2); }
-.dw-note { min-height: 9rem; padding: var(--space-xs) 0 var(--space-xs) var(--space-lg); border-left: var(--rule) solid var(--color-accent); display: grid; align-content: start; }
-.dw-note > div { display: grid; gap: var(--space-sm); }
+/* the pen rule belongs to the note on show, so it ends where that note ends */
+.dw-note { display: grid; align-items: start; }
+.dw-note-page {
+  display: grid; align-content: start; gap: var(--space-sm);
+  padding: var(--space-xs) 0 var(--space-xs) var(--space-lg); border-left: var(--rule) solid var(--color-accent);
+  transition: opacity 160ms var(--ease-out) 60ms, transform 160ms var(--ease-out) 60ms, visibility 0s;
+}
+/* with the island running, every note shares one cell (as tall as the longest) and only the active one shows; without it, all are listed */
+.js .dw-note-page { grid-area: 1 / 1; }
+.js .dw-note-page[data-active="false"] {
+  opacity: 0; visibility: hidden; transform: translateY(3px);
+  transition: opacity 90ms var(--ease-out), transform 90ms var(--ease-out), visibility 0s linear 90ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  .dw-note-page, .js .dw-note-page[data-active="false"] { transform: none; transition-delay: 0s; }
+}
 .dw-note p { color: var(--color-ink-2); }
 .dw-note .gap { margin-top: 0; }
 .dw-note-title { font-size: var(--text-md); display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-sm); align-items: center; }
@@ -525,7 +544,7 @@ main:focus { outline: none; }
   grid-column: margin; grid-row: 1 / span 2;
   justify-self: end; align-self: start;
   width: 128px; height: 128px; margin-top: var(--space-2xs);
-  padding: 4px; background: var(--color-card);
+  padding: var(--space-2xs); background: var(--color-card);
   border: var(--rule) solid var(--color-rule); border-radius: var(--radius-full);
   box-shadow: var(--shadow-card);
 }
@@ -543,7 +562,7 @@ main:focus { outline: none; }
 .onsite picture, .onsite img { display: block; }
 .onsite img {
   width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover;
-  padding: 4px; background: var(--color-card);
+  padding: var(--space-2xs); background: var(--color-card);
   border: var(--rule) solid var(--color-rule); border-radius: var(--radius-sm);
   box-shadow: var(--shadow-card);
 }
@@ -566,13 +585,18 @@ main:focus { outline: none; }
   .unfurl:hover { border-color: var(--color-accent); }
   .unfurl:hover .unfurl-title { color: var(--color-accent); }
 }
+/* compact: a thumbnail beside the title, for entries without a Case Study */
+.unfurl-compact { grid-template-columns: 9rem minmax(0, 1fr); }
+.unfurl-compact img { height: 100%; border-bottom: 0; border-right: var(--rule) solid var(--color-rule); }
+.unfurl-compact .unfurl-text { padding: var(--space-xs) var(--space-sm); align-content: center; }
+@media (max-width: 40rem) { .unfurl-compact { grid-template-columns: 7.5rem minmax(0, 1fr); } }
 .cs-preview { margin: var(--space-xl) 0 0; display: grid; gap: var(--space-xs); }
 .unfurl-wide { max-width: 34rem; margin-top: 0; }
 @media (prefers-reduced-motion: reduce) { .unfurl { transition: none; } }
 
 /* ---------- writing index and the 404 page ---------- */
 .index-head .lede { margin-top: var(--space-md); color: var(--color-ink-2); max-width: 34em; }
-.index-head + .list, .index-head + .empty { margin-top: var(--space-3xl); }
+.index-head + .list, .index-head + .empty { margin-top: var(--section-gap); }
 .entry h2.entry-title { font-size: var(--text-md); line-height: 1.4; }
 .entry h2.entry-title a { color: var(--color-ink); text-decoration-color: var(--color-rule); }
 @media (hover: hover) and (pointer: fine) {
@@ -587,5 +611,8 @@ main:focus { outline: none; }
 :root:not(.js) [data-open-index] { display: none; }
 
 /* ---------- hit areas: inline links grow their tap target vertically without moving the line ---------- */
-.entry h3 a, .entry .more a, .sk-cap a, .endnote a, .cs-end .back, .contact .links a { padding-block: 0.8em; margin-block: -0.8em; }
+/* about 1.15em of glyph box plus this padding makes 44px at any font size */
+.entry h3 a, .entry .more a, .sk-cap a, .endnote a, .cs-end .back, .contact .links a, .cs-section h2 .anchor, .facts dd a, .empty .body a {
+  padding-block: calc((44px - 1.15em) / 2); margin-block: calc((1.15em - 44px) / 2);
+}
 .contact .email a { padding-block: 0.25em; }

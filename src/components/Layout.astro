@@ -45,7 +45,7 @@ const imageDims = imageSize(image);
     <meta name="theme-color" content="#111512" media="(prefers-color-scheme: dark)" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={pageUrl} />}
-    <link rel="preload" href="/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/schibsted-grotesk-core.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="sitemap" href="/sitemap.xml" />
     <meta property="og:type" content={home ? "website" : "article"} />
     <meta property="og:site_name" content={profile.name} />
@@ -70,6 +70,10 @@ const imageDims = imageSize(image);
           document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) { m.setAttribute("content", t === "dark" ? "#111512" : "#F1F4EE"); });
         }
       } catch (e) {}
+      // A tap on Menu before the index card has hydrated is kept, and the card opens once it is ready.
+      document.addEventListener("click", function (e) {
+        if (!window.__ixReady && e.target instanceof Element && e.target.closest(".index-trigger")) window.__ixPending = true;
+      }, true);
       try {
         if (sessionStorage.getItem("chin-intro")) document.documentElement.dataset.intro = "seen";
         else sessionStorage.setItem("chin-intro", "1");

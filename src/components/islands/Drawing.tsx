@@ -1,8 +1,9 @@
 // A Case Study's system as a technical drawing. Hover, focus or tap a part to read its note.
 // Facts on the record are drawn in pen (solid); every guess is a pencil draft (dashed) marked "Chin to confirm".
 // The parts and links come from the work item's `caseStudy.drawing` frontmatter.
-import { useState, type ReactNode } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+// Every note sits in one grid cell, so the panel is as tall as the longest note and never jumps;
+// the active one cross-fades in CSS (site.css, .dw-note).
+import { useEffect, useState, type ReactNode } from "react";
 
 export type Part = {
   id: string;
@@ -12,7 +13,7 @@ export type Part = {
   note?: string;
   confirm?: string; // what Chin still has to confirm about this part
   draft: boolean;
-  chips?: string[]; // draft sub-parts inside a part, unordered
+  chips?: string[]; // sub-parts inside a part, unordered; drawn in pencil when the part is a draft
 };
 export type Link = { from: string; to: string; label?: string; draft: boolean };
 
@@ -45,21 +46,34 @@ const Lead = ({ draft, label, dir }: { draft: boolean; label?: string; dir: "rig
 
 export default function Drawing({ parts, links, title }: Props) {
   const [active, setActive] = useState(parts.find((p) => !p.draft)?.id ?? parts[0].id);
-  const reduce = useReducedMotion();
-  const current = parts.find((p) => p.id === active)!;
+  const hasDraft = parts.some((p) => p.draft);
+  // The island hydrates when it scrolls into view; a part that took keyboard focus before then gets its note.
+  useEffect(() => {
+    const id = (document.activeElement as HTMLElement | null)?.closest<HTMLElement>(".dw-part")?.dataset.part;
+    if (id) setActive(id);
+  }, []);
 
   const partEl = (p: Part): ReactNode => (
     <button
       key={p.id}
       type="button"
       className="dw-part"
+      data-part={p.id}
       data-draft={p.draft}
       data-active={p.id === active}
       aria-pressed={p.id === active}
       aria-controls="dw-note"
       onMouseEnter={() => setActive(p.id)}
       onFocus={() => setActive(p.id)}
-      onClick={() => setActive(p.id)}
+      onClick={(e) => {
+        setActive(p.id);
+        // Stacked on a phone, the note sits under all the parts: a tap brings it into view if it is off screen.
+        const note = document.getElementById("dw-note");
+        if (e.detail > 0 && note && note.getBoundingClientRect().top > innerHeight - 48) {
+          const smooth = !matchMedia("(prefers-reduced-motion: reduce)").matches;
+          note.scrollIntoView({ block: "nearest", behavior: smooth ? "smooth" : "auto" });
+        }
+      }}
     >
       <span className="dw-ref">{p.ref}</span>
       <span className="dw-label">{p.label}</span>
@@ -67,7 +81,7 @@ export default function Drawing({ parts, links, title }: Props) {
       {p.chips && (
         <span className="dw-chips">
           {p.chips.map((c) => (
-            <span className="dw-chip" key={c}>
+            <span className="dw-chip" data-draft={p.draft} key={c}>
               {c}
             </span>
           ))}
@@ -93,29 +107,28 @@ export default function Drawing({ parts, links, title }: Props) {
         <div className="dw-foot">
           <p className="dw-legend" aria-hidden="true">
             <span className="dw-key" data-draft="false" /> on the record
-            <span className="dw-key" data-draft="true" /> pencil draft
+            {hasDraft && (
+              <>
+                <span className="dw-key" data-draft="true" /> pencil draft
+              </>
+            )}
           </p>
           <p className="dw-title">{title}</p>
         </div>
       </div>
       <div className="dw-note" id="dw-note" aria-live="polite">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={current.id}
-            initial={reduce ? { opacity: 0 } : { opacity: 0, y: 3 }}
-            animate={{ opacity: 1, y: 0, transition: { duration: reduce ? 0 : 0.16, ease: [0.23, 1, 0.32, 1] } }}
-            exit={{ opacity: 0, transition: { duration: reduce ? 0 : 0.1 } }}
-          >
+        {parts.map((p) => (
+          <div key={p.id} className="dw-note-page" data-active={p.id === active}>
             <h3 className="dw-note-title">
-              <span className="dw-ref">{current.ref}</span>
-              {current.label}
-              <span className="dw-note-kind" data-draft={current.draft}>
-                {current.draft ? "Draft part" : "From the record"}
+              <span className="dw-ref">{p.ref}</span>
+              {p.label}
+              <span className="dw-note-kind" data-draft={p.draft}>
+                {p.draft ? "Draft part" : "From the record"}
               </span>
             </h3>
-            <Note note={current.note} todo={current.confirm} />
-          </motion.div>
-        </AnimatePresence>
+            <Note note={p.note} todo={p.confirm} />
+          </div>
+        ))}
       </div>
     </div>
   );

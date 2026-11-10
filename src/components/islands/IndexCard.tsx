@@ -35,6 +35,13 @@ export default function IndexCard(props: Props) {
       }
     };
     const onAsk = () => useIndex.getState().setOpen(true);
+    // Layout.astro's inline script remembers a tap that landed before this island hydrated.
+    const w = window as Window & { __ixReady?: boolean; __ixPending?: boolean };
+    w.__ixReady = true;
+    if (w.__ixPending) {
+      w.__ixPending = false;
+      onAsk();
+    }
     addEventListener("keydown", onKey);
     addEventListener("index:open", onAsk);
     return () => {

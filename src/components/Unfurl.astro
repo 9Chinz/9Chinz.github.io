@@ -1,14 +1,19 @@
 ---
 // A link preview: the live page's own og:image, pasted in like a link in chat.
+// `wide` is the Case Study's large clipping; `compact` puts a thumbnail beside the title, for entries
+// whose page lives elsewhere, so the one entry with a Case Study keeps the only large preview on home.
 import { hostPath } from "@/lib/format";
-import { exists, webp } from "@/lib/image";
-interface Props { url: string; og: string; title: string; alt: string; wide?: boolean; lazy?: boolean }
-const { url, og, title, alt, wide = false, lazy = true } = Astro.props;
+import { exists, imageSize, sized, srcset, webp } from "@/lib/image";
+interface Props { url: string; og: string; title: string; alt: string; wide?: boolean; compact?: boolean; lazy?: boolean }
+const { url, og, title, alt, wide = false, compact = false, lazy = true } = Astro.props;
+const { width, height } = imageSize(og) ?? { width: 800, height: 420 };
+const sizes = compact ? "(max-width: 40rem) 7.5rem, 9rem" : wide ? "(max-width: 40rem) calc(100vw - 32px), 34rem" : "(max-width: 40rem) calc(100vw - 32px), 26rem";
+const webpSet = exists(webp(og)) ? srcset([[sized(og, 400), 400], [sized(og, 640), 640], [webp(og), width]]) : undefined;
 ---
-<a class:list={["unfurl", { "unfurl-wide": wide }]} href={url}>
+<a class:list={["unfurl", { "unfurl-wide": wide, "unfurl-compact": compact }]} href={url}>
   <picture>
-    {webp(og) !== og && exists(webp(og)) && <source srcset={webp(og)} type="image/webp" />}
-    <img src={og} alt={alt} width="800" height="420" loading={lazy ? "lazy" : undefined} fetchpriority={lazy ? undefined : "high"} decoding="async" />
+    {webpSet && <source srcset={webpSet} sizes={sizes} type="image/webp" />}
+    <img src={og} alt={alt} width={width} height={height} loading={lazy ? "lazy" : undefined} fetchpriority={lazy ? undefined : "high"} decoding="async" />
   </picture>
   <span class="unfurl-text">
     <span class="unfurl-title">{title}</span>

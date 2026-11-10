@@ -25,7 +25,6 @@ export async function getPosts(): Promise<Post[]> {
   return all.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 }
 
-export const workHref = (w: Work) => (w.data.caseStudy ? `/work/${w.id}` : w.data.url);
 export const postHref = (p: Post) => `/blog/${p.id}`;
 
 /** Minutes to read the body at 220 words a minute, code included, never less than one. */

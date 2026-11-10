@@ -1,10 +1,12 @@
 ---
 // Home: hero, Selected Work, Experience, Latest Writing (only once a Post is published), Contact.
+// A Selected Work entry links each destination once: its Case Study as a text link, its live page as
+// the preview (compact unless the entry has a Case Study) or a "Live site" link. Titles stay plain text.
 import Layout from "@/components/Layout.astro";
 import CopyButton from "@/components/CopyButton.astro";
 import Sketch from "@/components/Sketch.astro";
 import Unfurl from "@/components/Unfurl.astro";
-import { getPosts, getProfile, getWork, postHref, readingMinutes, workHref } from "@/lib/content";
+import { getPosts, getProfile, getWork, postHref, readingMinutes } from "@/lib/content";
 import { duration, end, isoDay, lowerFirst, monthsBetween, plain, stripMarkup } from "@/lib/format";
 import { sized, srcset, webp } from "@/lib/image";
 
@@ -36,13 +38,12 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
     <ul class="row list">
       {work.map((w) => {
         const d = w.data;
-        const href = workHref(w);
         const caseStudy = d.caseStudy ? `/work/${w.id}` : undefined;
         return (
           <li class="entry">
             <time class="stamp" datetime={d.year}>{d.year}</time>
             <div class="body">
-              <h3 id={`work-${w.id}`}>{href ? <a href={href}>{d.title}</a> : d.title}</h3>
+              <h3 id={`work-${w.id}`}>{d.title}</h3>
               <p class="meta">{d.client}, {lowerFirst(d.role)}</p>
               <p class="desc">{d.summary}</p>
               {(caseStudy || (d.url && !d.og)) && (
@@ -51,11 +52,11 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
                   {d.url && !d.og && <a href={d.url}>Live site</a>}
                 </p>
               )}
-              {d.url && d.og && <Unfurl url={d.url} og={d.og} title={d.title} alt={d.ogAlt ?? `Share image of the live ${d.title} page`} />}
+              {d.url && d.og && <Unfurl url={d.url} og={d.og} title={d.title} alt={d.ogAlt ?? `Share image of the live ${d.title} page`} compact={!caseStudy} />}
               {d.photos?.map((ph) => (
                 <figure class="onsite">
                   <picture>
-                    <source srcset={srcset([[sized(ph.src, 800), 800], [sized(ph.src, 1200), 1200], [webp(ph.src), ph.width]])} sizes="(max-width: 40rem) calc(100vw - 32px), 26rem" type="image/webp" />
+                    <source srcset={srcset([[sized(ph.src, 640), 640], [sized(ph.src, 800), 800], [sized(ph.src, 1200), 1200], [webp(ph.src), ph.width]])} sizes="(max-width: 40rem) calc(100vw - 32px), 26rem" type="image/webp" />
                     <img src={ph.src} srcset={srcset([[sized(ph.src, 800, "jpg"), 800], [ph.src, ph.width]])} sizes="(max-width: 40rem) calc(100vw - 32px), 26rem" alt={ph.alt} width={ph.width} height={ph.height} loading="lazy" decoding="async" />
                   </picture>
                   <figcaption>{ph.caption}</figcaption>

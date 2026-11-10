@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-10T10:48:42+00:00",
+  "generatedAt": "2026-11-10T21:14:26+00:00",
   "title": "Design System: Chinnapat Limprathan, portfolio",
   "extensions": {
     "colorMeta": {
@@ -387,7 +387,7 @@
       {
         "name": "ease-out",
         "value": "cubic-bezier(0.23, 1, 0.32, 1)",
-        "purpose": "All enters and presses."
+        "purpose": "All enters, exits and presses."
       },
       {
         "name": "dur-micro",
@@ -397,17 +397,22 @@
       {
         "name": "dur-short",
         "value": "180ms",
-        "purpose": "Index card enter, copy swap, theme cross-fade."
+        "purpose": "Index card and scrim enter, copy swap, theme cross-fade."
       },
       {
         "name": "dur-exit",
         "value": "120ms",
-        "purpose": "Index card exit."
+        "purpose": "Index card and scrim exit."
+      },
+      {
+        "name": "dur-note",
+        "value": "160ms in after 60ms, 90ms out",
+        "purpose": "Technical drawing note cross-fade (3px rise on enter, none under reduced motion)."
       },
       {
         "name": "dur-intro",
         "value": "320ms",
-        "purpose": "The once-per-session hero settle and sketch inking."
+        "purpose": "The once-per-session settle of the hero sentence, actions and print (the headline holds still), and the sketch inking."
       }
     ],
     "breakpoints": [
@@ -462,9 +467,17 @@
       "name": "Link Preview",
       "kind": "card",
       "refersTo": "link-preview",
-      "description": "A project's own og:image pasted in like a link in chat.",
+      "description": "A project's own og:image pasted in like a link in chat; on home, only the entry with a Case Study gets this large one.",
       "html": "<a class=\"ds-unfurl\" href=\"#\"><span class=\"ds-unfurl-img\" aria-hidden=\"true\"></span><span class=\"ds-unfurl-txt\"><span class=\"ds-unfurl-t\">Next Station BKK</span><span class=\"ds-unfurl-h\">thaipbs.or.th/bkkelection69/review</span></span></a>",
       "css": ":host{--color-paper:#F1F4EE;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-grid:#DFE7DB;--color-accent:#2440C4;--color-pen-wash:#E3E8F6;--color-pencil:#66706A;--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-unfurl{display:grid;max-width:26rem;overflow:hidden;border:1px solid var(--color-rule);border-radius:6px;background:var(--color-card);color:var(--color-ink);text-decoration:none;font-family:var(--font-body);transition:border-color 150ms ease} .ds-unfurl-img{display:block;aspect-ratio:40/21;background:var(--color-grid);border-bottom:1px solid var(--color-rule)} .ds-unfurl-txt{display:grid;gap:2px;padding:8px 12px 12px} .ds-unfurl-t{font-size:0.9rem;font-weight:500} .ds-unfurl-h{font-size:0.8125rem;color:var(--color-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .ds-unfurl:hover{border-color:var(--color-accent)} .ds-unfurl:hover .ds-unfurl-t{color:var(--color-accent)} .ds-unfurl:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;} .ds-unfurl:active{transform:scale(0.99)}"
+    },
+    {
+      "name": "Link Preview (compact)",
+      "kind": "card",
+      "refersTo": "link-preview-compact",
+      "description": "The same clipping with a 9rem thumbnail beside the title, for Selected Work entries without a Case Study.",
+      "html": "<a class=\"ds-unfurl-c\" href=\"#\"><span class=\"ds-unfurl-c-img\" aria-hidden=\"true\"></span><span class=\"ds-unfurl-c-txt\"><span class=\"ds-unfurl-c-t\">Election 69 national results</span><span class=\"ds-unfurl-c-h\">thaipbs.or.th/election69/result/geo</span></span></a>",
+      "css": ":host{--color-paper:#F1F4EE;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-grid:#DFE7DB;--color-accent:#2440C4;--color-pen-wash:#E3E8F6;--color-pencil:#66706A;--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-unfurl-c{display:grid;grid-template-columns:9rem minmax(0,1fr);max-width:26rem;overflow:hidden;border:1px solid var(--color-rule);border-radius:6px;background:var(--color-card);color:var(--color-ink);text-decoration:none;font-family:var(--font-body);transition:border-color 150ms ease,transform 140ms cubic-bezier(0.23,1,0.32,1)} .ds-unfurl-c-img{display:block;aspect-ratio:40/21;background:var(--color-grid);border-right:1px solid var(--color-rule)} .ds-unfurl-c-txt{display:grid;align-content:center;gap:2px;padding:8px 12px;min-width:0} .ds-unfurl-c-t{font-size:0.9rem;font-weight:500} .ds-unfurl-c-h{font-size:0.8125rem;color:var(--color-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .ds-unfurl-c:hover{border-color:var(--color-accent)} .ds-unfurl-c:hover .ds-unfurl-c-t{color:var(--color-accent)} .ds-unfurl-c:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px} .ds-unfurl-c:active{transform:scale(0.99)}"
     },
     {
       "name": "Open Item",
@@ -540,19 +553,19 @@
       }
     ],
     "dos": [
-      "**Do** hang every date, number or sequence marker in the 168px margin, in IBM Plex Mono with tabular figures.",
+      "**Do** hang every date, number or sequence marker in the 168px margin, in IBM Plex Mono with tabular figures, including how long a role lasted (LinkedIn-style \"2 yrs 7 mos\", both months counted).",
       "**Do** keep one filled pen-blue primary button per screen; everything else is outline or a link.",
       "**Do** draw unconfirmed facts in dashed pencil graphite and label them \"Chin to confirm\".",
       "**Do** show missing content as an Open Item with an empty checkbox.",
       "**Do** animate only `transform` and `opacity`, under 300ms for UI (enter ease-out, exit faster), with a `prefers-reduced-motion` fallback for everything.",
-      "**Do** keep hover effects inside `@media (hover: hover) and (pointer: fine)` and every target at 44px.",
+      "**Do** keep hover effects inside `@media (hover: hover) and (pointer: fine)` and every target at 44px; an inline link grows its hit area vertically (padding of `(44px - 1.15em) / 2`, cancelled by a negative margin) so the line never moves.",
       "**Do** use a project's own og:image for its preview, and only screenshots of public pages."
     ],
     "donts": [
       "**Don't** introduce a second accent colour, gradients or tinted section backgrounds.",
       "**Don't** use mono for labels, nav, buttons or tags.",
       "**Don't** put a shadow on anything that is part of the page; only clipped-on objects lift.",
-      "**Don't** use pills, large radii, card grids of identical rounded boxes, or cards inside cards.",
+      "**Don't** use pills, large radii (the round portrait is the only exception), card grids of identical rounded boxes, or cards inside cards.",
       "**Don't** add eyebrow labels, tracked capitals, middle-dot meta strings or arrows glued to link text.",
       "**Don't** invent a number, quote, logo, latency figure or architecture detail to fill a gap.",
       "**Don't** make dark mode a different design; it is the same notebook at night."

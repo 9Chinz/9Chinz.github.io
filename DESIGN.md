@@ -100,6 +100,11 @@ components:
     textColor: "{colors.green-black-ink}"
     rounded: "{rounded.md}"
     width: "26rem"
+  link-preview-compact:
+    backgroundColor: "{colors.clipped-card}"
+    textColor: "{colors.green-black-ink}"
+    rounded: "{rounded.md}"
+    width: "26rem"
   open-item:
     backgroundColor: "transparent"
     textColor: "{colors.ink-soft}"
@@ -174,6 +179,8 @@ A green-white pad, green-black ink and a single technical-pen blue; graphite is 
 **Body Font:** Schibsted Grotesk
 **Label/Mono Font:** IBM Plex Mono (with ui-monospace, SFMono-Regular)
 
+Both are self-hosted WOFF2 Latin subsets with `font-display: swap`. Schibsted Grotesk is one variable file (400 to 600) split in two: a core file (ASCII and the punctuation the site sets), preloaded, and the rest of Latin-1, which a page fetches only when it uses one of those letters.
+
 **Character:** One sturdy, slightly editorial grotesk for everything a person reads, and a plain engineering mono for everything a person would log: dates, figures, code. The contrast between the two is the system's whole typographic voice.
 
 ### Hierarchy
@@ -196,7 +203,9 @@ The page is a sheet: a 168px margin column, a 32px gap, and a 640px measure, cen
 
 Sections are separated by large gaps (128px desktop, 80px under 60rem, 64px under 40rem) rather than rules; entries within a list are 64px apart. Under 60rem the margin collapses into the column: dates sit above their entry, left-aligned, and the sheet becomes one column.
 
-The hero is the headline, one sentence and three actions, then the first log entry. On desktop the photo print hangs in the margin beside the headline; on small screens it sits above it.
+The hero is the headline, one sentence and three actions, then the first log entry. On desktop the photo print hangs in the margin beside the headline; on small screens it sits above it. The headline is on the page at first paint and never animates; the sentence, the actions and the print settle in under it (320ms ease-out, 50ms apart), once per session.
+
+Selected Work is a long list, so size carries its hierarchy: the entry with a Case Study gets the only large link preview, every other entry with a live page gets the compact one, and an on-site print stays at its own size. Each destination is linked once per entry: titles are plain text, the Case Study is a "Read the case study" text link, and the live page is its preview (or a "Live site" link when there is no share image).
 
 ### Named Rules
 **The Margin Carries It Rule.** If a piece of content has a date, a number or a sequence, that marker goes in the margin. Nothing else does.
@@ -228,7 +237,8 @@ Precise and quiet.
 ### Link Preview (clipping)
 The live page's own og:image pasted in like a link in chat.
 - **Shape:** 6px corners, 1px Ruled Line border, Clipped Card surface, max 26rem wide (34rem on a Case Study).
-- **Content:** the 1200×630 share image (shown 40:21), then the project title and the host plus path in Margin Grey, truncated on one line.
+- **Content:** the share image (shown 40:21, cropped to fit), then the project title and the host plus path in Margin Grey, truncated on one line. The image is WebP at 400, 640 and full width with a `sizes` hint, a JPEG fallback, and its real pixel size as `width`/`height`.
+- **Compact:** the same clipping with a 9rem thumbnail (7.5rem on phones) beside the title and host, the image filling the card's height. Used on home for every entry that has no Case Study.
 - **States:** hover turns the border and title Technical Pen Blue (fine pointers); press scales to 0.99.
 - Shown only for projects with a public URL and a real og:image; otherwise a plain "Live site" text link.
 
@@ -240,13 +250,15 @@ An honest hole in the record.
 ### Navigation
 - **Top bar:** wordmark (name, shortened to "Chin" under 24rem), then Work, Writing, Contact in body-small Ink Soft, the "Index ⌘K" trigger and the theme toggle. All targets 44px.
 - **Mobile:** the section links hide and the same trigger reads "Menu"; without JS the plain links stay.
-- **Index card (⌘K):** a 560px Clipped Card with the clipped-on shadow, a pen-blue rule under the search field, entries on ruled lines grouped "Go to" and "Open"; the selected row gets Pen Wash and a 2px pen-blue edge. Enters in 180ms ease-out (fade + scale 0.97), exits in 120ms; opacity only under reduced motion. Full keyboard support, focus trapped and returned.
+- **Index card (⌘K):** a 560px Clipped Card with the clipped-on shadow, a pen-blue rule under the search field, entries on ruled lines grouped "Go to" and "Open"; the selected row gets Pen Wash and a 2px pen-blue edge. Enters in 180ms ease-out (fade, scale 0.98, 6px drop) with its scrim on the same timing, exits in 120ms; opacity only under reduced motion. Full keyboard support, focus trapped and returned. A tap on "Menu" before the card's island has hydrated is kept and opens the card once it is ready.
 
 ### Pen Sketch (signature)
-The system drawn as the first log entry: three nodes on a graph-paper patch joined by pen leads (Traffic 500k+ → Backend, built solo → One public page, 47 races). The node Chin owns gets Pen Wash. Nodes settle in one by one and leads ink in left to right, once per session. Stacks vertically on phones.
+The system drawn as the first log entry: three nodes on a graph-paper patch joined by pen leads (Results worker, built by me → S3 + CloudFront, 47 races served as cached JSON ← Traffic, 500k+), the same flow as the Case Study's drawing. The node Chin owns gets Pen Wash. Nodes settle in one by one and leads ink in left to right, once per session. Stacks vertically on phones.
 
 ### Technical Drawing (Case Study)
-A drafting sheet spanning margin and measure: lettered parts A–D as buttons (44px+), pen for facts, dashed pencil for drafts, a legend and a title block, a note panel that cross-fades in 160ms when a part is hovered, focused or tapped (the other parts recede: pen lines fade and their text drops to Margin Grey, never below 4.5:1), and "The drawing as text" disclosure as the accessible equivalent.
+A drafting sheet spanning margin and measure: lettered parts A–D as buttons (44px+), pen for facts, dashed pencil for drafts, a legend and a title block, a note panel that changes when a part is hovered, focused or tapped (the other parts recede: pen lines fade and their text drops to Margin Grey, never below 4.5:1), and "The drawing as text" disclosure as the accessible equivalent.
+- **Chips** inside a part follow the part: a solid Ruled Line border and Ink Soft text on the record, dashed Pencil Graphite in a draft. The legend and the help line mention pencil only when the drawing has a draft part.
+- **Note panel:** every note sits in one grid cell, so the panel is as tall as the longest note and nothing below it moves; the 1px pen rule belongs to the note on show and ends where it ends. The old note fades out in 90ms, the new one fades in with a 3px rise in 160ms after 60ms (ease-out; no rise under reduced motion). Without scripting every note is listed. On a phone, where the parts stack, a tap brings the note into view when it is off screen.
 
 ### Photo Print
 Chin's portrait as a round print clipped into the margin: a 128px circle (`full` radius) with a 4px Clipped Card mount and the clipped-on shadow; 88px above the headline on small screens. The circle is the one exception to the small-corner rule, reserved for the portrait.
@@ -262,7 +274,7 @@ A real photo from the work (on site, on set) clipped onto a Selected Work entry 
 - **Do** draw unconfirmed facts in dashed pencil graphite and label them "Chin to confirm".
 - **Do** show missing content as an Open Item with an empty checkbox.
 - **Do** animate only `transform` and `opacity`, under 300ms for UI (enter ease-out, exit faster), with a `prefers-reduced-motion` fallback for everything.
-- **Do** keep hover effects inside `@media (hover: hover) and (pointer: fine)` and every target at 44px.
+- **Do** keep hover effects inside `@media (hover: hover) and (pointer: fine)` and every target at 44px; an inline link grows its hit area vertically (padding of `(44px - 1.15em) / 2`, cancelled by a negative margin) so the line never moves.
 - **Do** use a project's own og:image for its preview, and only screenshots of public pages.
 
 ### Don't:
