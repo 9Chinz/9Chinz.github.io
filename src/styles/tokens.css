@@ -66,6 +66,7 @@
 
   --radius: 6px;
   --radius-sm: 3px;
+  --radius-full: 999px;
   --rule: 1px;
   --pen: 1.25px;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);

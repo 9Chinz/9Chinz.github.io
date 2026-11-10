@@ -67,6 +67,7 @@ typography:
 rounded:
   sm: "3px"
   md: "6px"
+  full: "999px"
 spacing:
   2xs: "4px"
   xs: "8px"
@@ -202,17 +203,17 @@ The hero is the headline, one sentence and three actions, then the first log ent
 
 ## Elevation & Depth
 
-The page is flat. Depth comes from 1px ruled lines, the graph-grid patch, and borders. Exactly one lifted layer exists, for objects clipped onto the page: the index card (⌘K), the photo print, and any future overlay. Link previews and open items stay flat with a border.
+The page is flat. Depth comes from 1px ruled lines, the graph-grid patch, and borders. Exactly one lifted layer exists, for objects clipped onto the page: the index card (⌘K), the photo print, on-site prints, and any future overlay. Link previews and open items stay flat with a border.
 
 ### Shadow Vocabulary
-- **Clipped-on** (`box-shadow: 0 1px 0 rgb(24 32 27 / 0.06), 0 14px 32px -12px rgb(24 32 27 / 0.28)`; night: `0 1px 0 rgb(0 0 0 / 0.3), 0 16px 36px -12px rgb(0 0 0 / 0.7)`): the index card and the photo print only.
+- **Clipped-on** (`box-shadow: 0 1px 0 rgb(24 32 27 / 0.06), 0 14px 32px -12px rgb(24 32 27 / 0.28)`; night: `0 1px 0 rgb(0 0 0 / 0.3), 0 16px 36px -12px rgb(0 0 0 / 0.7)`): the index card, the photo print and on-site prints only.
 
 ### Named Rules
 **The Clipped-On Rule.** A shadow means "this object sits on top of the notebook." If it is part of the page, it gets a border, not a shadow.
 
 ## Shapes
 
-Corners are small and practical: 6px (`md`) for buttons, cards, previews and open items; 3px (`sm`) for sketch nodes, drawing parts and the photo mount. Lines are 1px rules and 1.25px pen strokes with round caps. Drafts are dashed. The technical drawing has a double frame (a 1px ink border with a 3px-offset ruled outline), a title block and lettered circular part markers. No pills, no large radii, no blobs.
+Corners are small and practical: 6px (`md`) for buttons, cards, previews and open items; 3px (`sm`) for sketch nodes, drawing parts and on-site prints. Only the portrait is round (`full`). Lines are 1px rules and 1.25px pen strokes with round caps. Drafts are dashed. The technical drawing has a double frame (a 1px ink border with a 3px-offset ruled outline), a title block and lettered circular part markers. No pills, no large radii, no blobs.
 
 ## Components
 
@@ -248,12 +249,15 @@ The system drawn as the first log entry: three nodes on a graph-paper patch join
 A drafting sheet spanning margin and measure: lettered parts A–D as buttons (44px+), pen for facts, dashed pencil for drafts, a legend and a title block, a note panel that cross-fades in 160ms when a part is hovered, focused or tapped (other parts dim to 0.55), and "The drawing as text" disclosure as the accessible equivalent.
 
 ### Photo Print
-Chin's portrait as a small print clipped into the margin: 128×160 crop, 4px Clipped Card mount, 3px corners, the clipped-on shadow. 88px square above the headline on small screens.
+Chin's portrait as a round print clipped into the margin: a 128px circle (`full` radius) with a 4px Clipped Card mount and the clipped-on shadow; 88px above the headline on small screens. The circle is the one exception to the small-corner rule, reserved for the portrait.
+
+### On-site Print
+A real photo from the work (on site, on set) clipped onto a Selected Work entry below its link preview: 4:3, max 26rem, 4px Clipped Card mount, 3px corners, the clipped-on shadow, and a one-line caption in Margin Grey. Served as WebP with a JPEG fallback, lazy-loaded with fixed dimensions.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** hang every date, number or sequence marker in the 168px margin, in IBM Plex Mono with tabular figures.
+- **Do** hang every date, number or sequence marker in the 168px margin, in IBM Plex Mono with tabular figures, including how long a role lasted (LinkedIn-style "2 yrs 7 mos", both months counted).
 - **Do** keep one filled pen-blue primary button per screen; everything else is outline or a link.
 - **Do** draw unconfirmed facts in dashed pencil graphite and label them "Chin to confirm".
 - **Do** show missing content as an Open Item with an empty checkbox.
@@ -265,7 +269,7 @@ Chin's portrait as a small print clipped into the margin: 128×160 crop, 4px Cli
 - **Don't** introduce a second accent colour, gradients or tinted section backgrounds.
 - **Don't** use mono for labels, nav, buttons or tags.
 - **Don't** put a shadow on anything that is part of the page; only clipped-on objects lift.
-- **Don't** use pills, large radii, card grids of identical rounded boxes, or cards inside cards.
+- **Don't** use pills, large radii (the round portrait is the only exception), card grids of identical rounded boxes, or cards inside cards.
 - **Don't** add eyebrow labels, tracked capitals, middle-dot meta strings or arrows glued to link text.
 - **Don't** invent a number, quote, logo, latency figure or architecture detail to fill a gap.
 - **Don't** make dark mode a different design; it is the same notebook at night.

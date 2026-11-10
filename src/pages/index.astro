@@ -5,7 +5,9 @@ import CopyButton from "@/components/CopyButton.astro";
 import Sketch from "@/components/Sketch.astro";
 import Unfurl from "@/components/Unfurl.astro";
 import { getPosts, getProfile, getWork, postHref, readingMinutes, workHref } from "@/lib/content";
-import { end, isoDay, lowerFirst, plain } from "@/lib/format";
+import { duration, end, isoDay, lowerFirst, monthsBetween, plain } from "@/lib/format";
+
+const webp = (src: string) => src.replace(/\.(jpe?g|png)$/, ".webp");
 
 const [profile, work, posts] = await Promise.all([getProfile(), getWork(), getPosts()]);
 const latest = posts.slice(0, 3);
@@ -22,7 +24,10 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
       <a class="btn" href={profile.links.github}>GitHub</a>
       <CopyButton text={profile.email} label="Copy email" />
     </div>
-    <img class="portrait" src={profile.photo.src} alt={profile.photo.alt} width="320" height="400" decoding="async" fetchpriority="high" />
+    <picture class="portrait">
+      <source srcset={webp(profile.photo.src)} type="image/webp" />
+      <img src={profile.photo.src} alt={profile.photo.alt} width="400" height="400" decoding="async" fetchpriority="high" />
+    </picture>
     <Sketch sketch={profile.sketch} />
   </section>
 
@@ -47,6 +52,15 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
                 </p>
               )}
               {d.url && d.og && <Unfurl url={d.url} og={d.og} title={d.title} alt={d.ogAlt ?? `Share image of the live ${d.title} page`} />}
+              {d.photos?.map((ph) => (
+                <figure class="onsite">
+                  <picture>
+                    <source srcset={webp(ph.src)} type="image/webp" />
+                    <img src={ph.src} alt={ph.alt} width={ph.width} height={ph.height} loading="lazy" decoding="async" />
+                  </picture>
+                  <figcaption>{ph.caption}</figcaption>
+                </figure>
+              ))}
             </div>
           </li>
         );
@@ -61,11 +75,13 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
         const first = x.roles[x.roles.length - 1];
         const last = x.roles[0];
         const [lead, ...rest] = x.highlights;
+        const total = duration(monthsBetween(first.start, last.end));
         return (
           <li class="entry">
             <p class="stamp">
               <time datetime={first.start}>{first.start}</time>
               <span class="to"> to <time>{end(last.end)}</time></span>
+              <span class="dur">{total}</span>
             </p>
             <div class="body">
               <h3>{x.org}</h3>
@@ -75,7 +91,7 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
                   <li>
                     <span>{r.title}</span>
                     {x.roles.length > 1 && (
-                      <span class="meta"><time datetime={r.start}>{r.start}</time> to <time>{end(r.end)}</time></span>
+                      <span class="meta"><time datetime={r.start}>{r.start}</time> to <time>{end(r.end)}</time>, {duration(monthsBetween(r.start, r.end))}</span>
                     )}
                   </li>
                 ))}

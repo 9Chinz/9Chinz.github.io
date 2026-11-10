@@ -21,9 +21,9 @@ links:
   linkedin: https://www.linkedin.com/in/chinnapat
   resume: /resume.pdf
 
-# 4:5 crop of the LinkedIn photo. The 800x800 original is /images/profile.jpg.
+# Square crop of the LinkedIn photo, shown as a circle (a .webp twin sits next to it). The 800x800 original is /images/profile.jpg.
 photo:
-  src: /images/profile-portrait.jpg
+  src: /images/profile-circle.jpg
   alt: Chinnapat Limprathan, smiling, outdoors by a pond
 
 coreStack:

@@ -85,6 +85,10 @@ const work = defineCollection({
     url: z.url().optional(),
     og: image.optional(),
     ogAlt: text.optional(),
+    // Real photos from the work (on site, on set). Each src has a .webp twin next to it.
+    photos: z
+      .array(z.strictObject({ src: image, alt: text, caption: text, width: z.number().int(), height: z.number().int() }))
+      .optional(),
     order: z.number().int(),
     caseStudy: z
       .strictObject({
