@@ -158,7 +158,9 @@ export default function Card({ open, onClose, email, github, linkedin, resume, s
         data.map((d, i) => {
           const sub = d.sub_results?.find((s) => s.url !== d.url && s.title !== d.meta.title);
           const href = sub?.url ?? d.url;
-          return { id: `found-${i}`, group: "Search results", label: d.meta.title ?? href, hint: sub?.title ?? d.meta.kind ?? "Page", keywords: "", icon: Icon.search, run: () => location.assign(href) };
+          // Selected Work lives on the home page, so name the entry, not the page.
+          const onHome = new URL(d.url, location.origin).pathname === "/" && sub;
+          return { id: `found-${i}`, group: "Search results", label: onHome ? sub.title : d.meta.title ?? href, hint: onHome ? "Selected Work" : sub?.title ?? d.meta.kind ?? "Page", keywords: "", icon: Icon.search, run: () => location.assign(href) };
         }),
       );
       setSearching(false);
