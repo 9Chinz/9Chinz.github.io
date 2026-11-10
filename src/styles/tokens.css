@@ -8,6 +8,13 @@
 /* Hallmark · waive 39b · each part of the drawing (Results source, Backend, One public page, Traffic) is a button that holds its own label, sub-line and draft chips · tap a part to read its note; every part clears the 44px hit target */
 /* Hallmark · waive 78 · section heads are 20px against a 44px hero head · the margin dates carry the structure */
 
+/* Self-hosted Latin subsets (SIL OFL), so no third-party stylesheet blocks the first paint.
+ * Schibsted Grotesk is one variable file for 400-600; the upright face is preloaded in Layout.astro. */
+@font-face { font-family: "Schibsted Grotesk"; font-style: normal; font-weight: 400 600; font-display: swap; src: url("/fonts/schibsted-grotesk-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Schibsted Grotesk"; font-style: italic; font-weight: 400; font-display: swap; src: url("/fonts/schibsted-grotesk-italic-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("/fonts/ibm-plex-mono-400-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("/fonts/ibm-plex-mono-500-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
 :root {
   /* engineering-pad paper, green-black ink, technical-pen blue, pencil graphite for drafts */
   --color-paper: #F1F4EE;
@@ -28,7 +35,7 @@
 
   --code-fg: #18201B;
   --code-bg: #E6ECE2;
-  --code-comment: #657169;
+  --code-comment: #5C6860;
   --code-keyword: #1F5A47;
   --code-string: #7A4A0E;
   --code-function: #2A3C99;

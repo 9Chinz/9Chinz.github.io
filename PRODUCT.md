@@ -32,7 +32,7 @@ A backend-leaning full-stack TypeScript developer (Mid-level Software Developer 
 ## Capabilities and Constraints
 
 - Pages: home (single scroll: hero, Selected Work, Experience, Latest Writing, Contact), `/work/[slug]` Case Studies, `/blog` and `/blog/[slug]` Posts, `/resume.pdf`, 404.
-- Blog at launch: Markdown/MDX Posts, highlighted code with filename and copy, reading time, sticky TOC with scrollspy, heading anchors, prev/next, draft flag; ⌘K search across Posts and Case Studies (Pagefind). Not at launch: tags, RSS, sitemap, comments.
+- Blog at launch: Markdown/MDX Posts, highlighted code with filename and copy, reading time, sticky TOC with scrollspy, heading anchors, prev/next, draft flag; ⌘K search across Posts and Case Studies (Pagefind). Also shipped: `sitemap.xml` and `robots.txt` (static, drafts excluded). Not at launch: tags, RSS, comments.
 - Contact: email with click-to-copy, GitHub, LinkedIn. No contact form, no backend.
 - No analytics at launch.
 - Static hosting only: no server routes, no runtime secrets.

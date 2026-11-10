@@ -5,10 +5,11 @@ import "@/styles/tokens.css";
 import "@/styles/site.css";
 import IndexCard, { type Page, type Section } from "./islands/IndexCard";
 import { getCaseStudies, getPosts, getProfile, postHref } from "@/lib/content";
+import { imageSize } from "@/lib/image";
 
-interface Props { title: string; description?: string; home?: boolean; image?: string; imageAlt?: string }
+interface Props { title: string; description?: string; home?: boolean; image?: string; imageAlt?: string; noindex?: boolean }
 const profile = await getProfile();
-const { title, description = profile.summary, home = false, image = "/images/og-site.png", imageAlt = `${profile.name}: ${profile.headline}` } = Astro.props;
+const { title, description = profile.summary, home = false, image = "/images/og-site.png", imageAlt = `${profile.name}: ${profile.headline}`, noindex = false } = Astro.props;
 
 const [caseStudies, posts] = await Promise.all([getCaseStudies(), getPosts()]);
 const hasWriting = posts.length > 0;
@@ -30,6 +31,7 @@ const pages: Page[] = [
 const site = Astro.site ?? Astro.url;
 const pageUrl = new URL(Astro.url.pathname, site).href;
 const imageUrl = new URL(image, site).href;
+const imageDims = imageSize(image);
 ---
 <!doctype html>
 <html lang="en">
@@ -42,34 +44,37 @@ const imageUrl = new URL(image, site).href;
     <meta name="theme-color" content="#F1F4EE" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#111512" media="(prefers-color-scheme: dark)" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={pageUrl} />
+    {noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={pageUrl} />}
+    <link rel="preload" href="/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="sitemap" href="/sitemap.xml" />
     <meta property="og:type" content={home ? "website" : "article"} />
     <meta property="og:site_name" content={profile.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={pageUrl} />
     <meta property="og:image" content={imageUrl} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    {imageDims && <meta property="og:image:width" content={String(imageDims.width)} />}
+    {imageDims && <meta property="og:image:height" content={String(imageDims.height)} />}
     <meta property="og:image:alt" content={imageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={imageAlt} />
     <script is:inline>
       document.documentElement.classList.add("js");
       try {
         var t = localStorage.getItem("chin-theme");
-        if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+        if (t === "light" || t === "dark") {
+          document.documentElement.dataset.theme = t;
+          document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) { m.setAttribute("content", t === "dark" ? "#111512" : "#F1F4EE"); });
+        }
       } catch (e) {}
       try {
         if (sessionStorage.getItem("chin-intro")) document.documentElement.dataset.intro = "seen";
         else sessionStorage.setItem("chin-intro", "1");
       } catch (e) {}
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -78,10 +83,10 @@ const imageUrl = new URL(image, site).href;
         <a class="wordmark" href="/"><span class="long">{profile.name}</span><span class="short">{profile.shortName}</span></a>
         <nav aria-label="Main">
           <a class="nav-link" href={section("work")}>Work</a>
-          <a class="nav-link" href={writingHref}>Writing</a>
+          <a class="nav-link" href={writingHref} aria-current={Astro.url.pathname.startsWith("/blog") ? "page" : undefined}>Writing</a>
           <a class="nav-link" href={section("contact")}>Contact</a>
           <IndexCard
-            client:load
+            client:idle
             email={profile.email}
             github={profile.links.github}
             linkedin={profile.links.linkedin}
@@ -100,16 +105,26 @@ const imageUrl = new URL(image, site).href;
       </main>
       <footer class="footer">
         <span>{profile.name}, {profile.location}</span>
-        <span class="foot-hint">Press <kbd class="kbd">⌘K</kbd> for the index</span>
+        <span class="foot-hint">Press <kbd class="kbd" data-shortcut>⌘K</kbd> for the index</span>
       </footer>
     </div>
     <p class="visually-hidden" role="status" aria-live="polite" id="nb-live"></p>
     <script>
       import { currentTheme, toggleTheme } from "@/scripts/theme";
       const toggle = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
-      const label = () => toggle?.setAttribute("aria-label", currentTheme() === "dark" ? "Switch to light theme" : "Switch to dark theme");
+      // The toggle's name and the browser chrome colour follow the theme the visitor picked.
+      const label = () => {
+        const dark = currentTheme() === "dark";
+        toggle?.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
+        document.querySelectorAll('meta[name="theme-color"]').forEach((m) => m.setAttribute("content", dark ? "#111512" : "#F1F4EE"));
+      };
       label();
       addEventListener("themechange", label);
+
+      // The footer names the shortcut the way the index trigger does: ⌘K on Apple devices, Ctrl K elsewhere.
+      if (!/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) {
+        document.querySelectorAll("[data-shortcut]").forEach((k) => (k.textContent = "Ctrl K"));
+      }
       toggle?.addEventListener("click", () => toggleTheme());
 
       // Copy buttons: data-copy holds the text; an empty one copies the <pre> in its <figure>.

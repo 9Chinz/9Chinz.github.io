@@ -1,1 +1,2 @@
-@import "tailwindcss";
+/* Preflight only: the site writes its own classes, so Tailwind scans no sources for utilities. */
+@import "tailwindcss" source(none);

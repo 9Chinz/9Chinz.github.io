@@ -246,7 +246,7 @@ An honest hole in the record.
 The system drawn as the first log entry: three nodes on a graph-paper patch joined by pen leads (Traffic 500k+ → Backend, built solo → One public page, 47 races). The node Chin owns gets Pen Wash. Nodes settle in one by one and leads ink in left to right, once per session. Stacks vertically on phones.
 
 ### Technical Drawing (Case Study)
-A drafting sheet spanning margin and measure: lettered parts A–D as buttons (44px+), pen for facts, dashed pencil for drafts, a legend and a title block, a note panel that cross-fades in 160ms when a part is hovered, focused or tapped (other parts dim to 0.55), and "The drawing as text" disclosure as the accessible equivalent.
+A drafting sheet spanning margin and measure: lettered parts A–D as buttons (44px+), pen for facts, dashed pencil for drafts, a legend and a title block, a note panel that cross-fades in 160ms when a part is hovered, focused or tapped (the other parts recede: pen lines fade and their text drops to Margin Grey, never below 4.5:1), and "The drawing as text" disclosure as the accessible equivalent.
 
 ### Photo Print
 Chin's portrait as a round print clipped into the margin: a 128px circle (`full` radius) with a 4px Clipped Card mount and the clipped-on shadow; 88px above the headline on small screens. The circle is the one exception to the small-corner rule, reserved for the portrait.

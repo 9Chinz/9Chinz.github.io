@@ -6,8 +6,7 @@ import Sketch from "@/components/Sketch.astro";
 import Unfurl from "@/components/Unfurl.astro";
 import { getPosts, getProfile, getWork, postHref, readingMinutes, workHref } from "@/lib/content";
 import { duration, end, isoDay, lowerFirst, monthsBetween, plain } from "@/lib/format";
-
-const webp = (src: string) => src.replace(/\.(jpe?g|png)$/, ".webp");
+import { sized, srcset, webp } from "@/lib/image";
 
 const [profile, work, posts] = await Promise.all([getProfile(), getWork(), getPosts()]);
 const latest = posts.slice(0, 3);
@@ -25,8 +24,8 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
       <CopyButton text={profile.email} label="Copy email" />
     </div>
     <picture class="portrait">
-      <source srcset={webp(profile.photo.src)} type="image/webp" />
-      <img src={profile.photo.src} alt={profile.photo.alt} width="400" height="400" decoding="async" fetchpriority="high" />
+      <source srcset={srcset([[sized(profile.photo.src, 256), 256], [webp(profile.photo.src), 400]])} sizes="(max-width: 60rem) 88px, 128px" type="image/webp" />
+      <img src={profile.photo.src} srcset={srcset([[sized(profile.photo.src, 256, "jpg"), 256], [profile.photo.src, 400]])} sizes="(max-width: 60rem) 88px, 128px" alt={profile.photo.alt} width="400" height="400" decoding="async" />
     </picture>
     <Sketch sketch={profile.sketch} />
   </section>
@@ -55,8 +54,8 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
               {d.photos?.map((ph) => (
                 <figure class="onsite">
                   <picture>
-                    <source srcset={webp(ph.src)} type="image/webp" />
-                    <img src={ph.src} alt={ph.alt} width={ph.width} height={ph.height} loading="lazy" decoding="async" />
+                    <source srcset={srcset([[sized(ph.src, 800), 800], [sized(ph.src, 1200), 1200], [webp(ph.src), ph.width]])} sizes="(max-width: 40rem) calc(100vw - 32px), 26rem" type="image/webp" />
+                    <img src={ph.src} srcset={srcset([[sized(ph.src, 800, "jpg"), 800], [ph.src, ph.width]])} sizes="(max-width: 40rem) calc(100vw - 32px), 26rem" alt={ph.alt} width={ph.width} height={ph.height} loading="lazy" decoding="async" />
                   </picture>
                   <figcaption>{ph.caption}</figcaption>
                 </figure>
@@ -80,7 +79,7 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
           <li class="entry">
             <p class="stamp">
               <time datetime={first.start}>{first.start}</time>
-              <span class="to"> to <time>{end(last.end)}</time></span>
+              <span class="to"> to {last.end === "Present" ? end(last.end) : <time datetime={last.end}>{last.end}</time>}</span>
               <span class="dur">{total}</span>
             </p>
             <div class="body">
@@ -91,7 +90,7 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
                   <li>
                     <span>{r.title}</span>
                     {x.roles.length > 1 && (
-                      <span class="meta"><time datetime={r.start}>{r.start}</time> to <time>{end(r.end)}</time>, {duration(monthsBetween(r.start, r.end))}</span>
+                      <span class="meta"><time datetime={r.start}>{r.start}</time> to {r.end === "Present" ? end(r.end) : <time datetime={r.end}>{r.end}</time>}, {duration(monthsBetween(r.start, r.end))}</span>
                     )}
                   </li>
                 ))}
