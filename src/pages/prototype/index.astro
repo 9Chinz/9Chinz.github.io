@@ -1,0 +1,35 @@
+---
+// PROTOTYPE. Four design directions for the portfolio, each at /prototype/<a-d>/,
+// with the same three pages: home, the Local Election 68 case study, a sample post.
+const variants = [
+  { key: "a", name: "Engineer's notebook", note: "Minimal typographic, one column, quiet motion" },
+  { key: "b", name: "Systems console", note: "Terminal/engineering, dark-first, ⌘K at the centre" },
+  { key: "c", name: "Editorial magazine", note: "Serif display, numbered sections, typographic timeline" },
+  { key: "d", name: "Playful interactive", note: "React Bits / Magic UI accents, bento of systems" },
+];
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio prototype</title>
+    <style>
+      body { font: 16px/1.5 system-ui, sans-serif; max-width: 640px; margin: 48px auto; padding: 0 16px; }
+      li { margin: 12px 0; }
+      a { color: #0645ad; }
+      small { color: #555; display: block; }
+    </style>
+  </head>
+  <body>
+    <h1>Portfolio prototype</h1>
+    <p>Pick a direction. On any page, use the bar at the bottom or ← → to flip directions while staying on the same page.</p>
+    <ul>
+      {variants.map((v) => (
+        <li>
+          <a href={`/prototype/${v.key}/`}>{v.key.toUpperCase()}: {v.name}</a>
+          <small>{v.note} · <a href={`/prototype/${v.key}/work/local-election-68`}>case study</a> · <a href={`/prototype/${v.key}/blog/sample-post`}>post</a></small>
+        </li>
+      ))}
+    </ul>
+  </body>
+</html>
