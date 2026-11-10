@@ -14,7 +14,7 @@ const isFigure = (v: string) => /^\d/.test(v);
       {sketch.nodes.map((n, i) => (
         <Fragment>
           {i > 0 && (
-            <div class="sk-lead" style={`--i:${i * 2 - 1}`} aria-hidden="true">
+            <div class:list={["sk-lead", { "sk-back": n.points === "back" }]} style={`--i:${i * 2 - 1}`} aria-hidden="true">
               <svg viewBox="0 0 48 12" preserveAspectRatio="none"><line x1="1" y1="6" x2="44" y2="6" /><path d="M39 2l6 4-6 4" /></svg>
             </div>
           )}

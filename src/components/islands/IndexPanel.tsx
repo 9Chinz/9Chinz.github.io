@@ -284,6 +284,7 @@ export default function Card({ open, onClose, email, github, linkedin, resume, s
             </div>
 
             <div ref={listRef} id="ix-list" role="listbox" aria-label="Index entries" className="ix-list">
+              {groups.length === 0 && searching && <p className="ix-empty">Searching…</p>}
               {groups.length === 0 && !searching && <p className="ix-empty">Nothing matches “{query}”. Try “work”, “resume” or “email”.</p>}
               {groups.map(({ g, items }) => (
                 <div role="group" aria-labelledby={`ix-g-${g.replace(/\s/g, "")}`} key={g} className="ix-group">

@@ -83,7 +83,7 @@ const imageDims = imageSize(image);
         <a class="wordmark" href="/"><span class="long">{profile.name}</span><span class="short">{profile.shortName}</span></a>
         <nav aria-label="Main">
           <a class="nav-link" href={section("work")}>Work</a>
-          <a class="nav-link" href={writingHref} aria-current={Astro.url.pathname.startsWith("/blog") ? "page" : undefined}>Writing</a>
+          {hasWriting && <a class="nav-link" href={writingHref} aria-current={Astro.url.pathname.startsWith("/blog") ? "page" : undefined}>Writing</a>}
           <a class="nav-link" href={section("contact")}>Contact</a>
           <IndexCard
             client:idle

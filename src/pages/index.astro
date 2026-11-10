@@ -21,6 +21,7 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
     <div class="actions">
       <a class="btn btn-primary" href={profile.links.resume}>Resume (PDF)</a>
       <a class="btn" href={profile.links.github}>GitHub</a>
+      <a class="btn" href={profile.links.linkedin}>LinkedIn</a>
       <CopyButton text={profile.email} label="Copy email" />
     </div>
     <picture class="portrait">
@@ -30,7 +31,7 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
     <Sketch sketch={profile.sketch} />
   </section>
 
-  <section class="row section" id="work" aria-labelledby="work-title">
+  <section class="row section" id="work" aria-labelledby="work-title" data-pagefind-body data-pagefind-meta="kind:Selected Work, title:Selected Work">
     <h2 class="section-head" id="work-title">Selected Work</h2>
     <ul class="row list">
       {work.map((w) => {
@@ -41,7 +42,7 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
           <li class="entry">
             <time class="stamp" datetime={d.year}>{d.year}</time>
             <div class="body">
-              <h3>{href ? <a href={href}>{d.title}</a> : d.title}</h3>
+              <h3 id={`work-${w.id}`}>{href ? <a href={href}>{d.title}</a> : d.title}</h3>
               <p class="meta">{d.client}, {lowerFirst(d.role)}</p>
               <p class="desc">{d.summary}</p>
               {(caseStudy || (d.url && !d.og)) && (

@@ -183,12 +183,14 @@ a { color: var(--color-accent); text-decoration-line: underline; text-decoration
 .sk-d { font-size: var(--text-xs); line-height: 1.4; color: var(--color-ink-2); }
 .sk-lead { display: grid; place-items: center; color: var(--color-accent); }
 .sk-lead svg { width: 100%; height: 12px; overflow: visible; fill: none; stroke: currentColor; stroke-width: var(--pen); stroke-linecap: round; stroke-linejoin: round; transform-origin: 0 50%; }
+.sk-back svg { transform: scaleX(-1); transform-origin: 50% 50%; }
 .sk-cap { margin-top: var(--space-sm); font-size: var(--text-sm); color: var(--color-ink-2); }
 .sk-cap a { white-space: nowrap; }
 @media (max-width: 40rem) {
   .sk-patch { grid-template-columns: minmax(0, 1fr); padding: var(--space-sm); }
   .sk-lead { height: 28px; }
   .sk-lead svg { width: 28px; transform: rotate(90deg); transform-origin: 50% 50%; }
+  .sk-back svg { transform: rotate(-90deg); }
   .sk-node { grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; column-gap: var(--space-sm); }
   .sk-node .sk-k { grid-column: 1; grid-row: 1; }
   .sk-node .sk-v { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
@@ -583,3 +585,7 @@ main:focus { outline: none; }
 .lost .lede { margin-top: var(--space-lg); font-size: var(--text-lg); line-height: 1.5; color: var(--color-ink-2); max-width: 34em; }
 .lost .stamp { padding-top: 0.9em; }
 :root:not(.js) [data-open-index] { display: none; }
+
+/* ---------- hit areas: inline links grow their tap target vertically without moving the line ---------- */
+.entry h3 a, .entry .more a, .sk-cap a, .endnote a, .cs-end .back, .contact .links a { padding-block: 0.8em; margin-block: -0.8em; }
+.contact .email a { padding-block: 0.25em; }

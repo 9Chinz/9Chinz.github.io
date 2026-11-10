@@ -42,17 +42,20 @@ coreStack:
 # The first log entry under the hero: one system drawn as three nodes joined by pen leads.
 sketch:
   date: 2025-02
+  # Same order as the case-study drawing: the backend serves the public page, and traffic arrives at the page.
+  # `points: back` turns the lead before a node around, so it points from that node to the one before it.
   nodes:
-    - key: traffic
-      value: 500k+
-      detail: peak concurrent requests
     - key: backend
       value: Built solo
       detail: TypeScript and Node.js
       own: true
-    - key: one public page
+    - key: public page
       value: "47"
-      detail: provincial chief races
+      detail: provincial chief races, live
+    - key: traffic
+      value: 500k+
+      detail: peak concurrent requests
+      points: back
   caption: Local Election 68 live results for Thai PBS.
   link:
     label: Read the case study

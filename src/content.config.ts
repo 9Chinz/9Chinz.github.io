@@ -27,7 +27,7 @@ const profile = defineCollection({
     sketch: z.strictObject({
       date: month,
       nodes: z
-        .array(z.strictObject({ key: text, value: text, detail: text, own: z.boolean().optional() }))
+        .array(z.strictObject({ key: text, value: text, detail: text, own: z.boolean().optional(), points: z.enum(["forward", "back"]).optional() }))
         .length(3, "The sketch has exactly three nodes"),
       caption: text,
       link: z.strictObject({ label: text, href: sitePath }),
