@@ -21,4 +21,5 @@ photos:
     width: 1600
     height: 1200
 order: 2
+group: elections
 ---

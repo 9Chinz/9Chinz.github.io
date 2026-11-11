@@ -14,4 +14,5 @@ stack:
   - Kustomize
   - ArgoCD
 order: 5
+group: other
 ---

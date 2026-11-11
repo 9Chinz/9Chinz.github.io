@@ -3,7 +3,8 @@ title: Local Election 68 live results
 client: Thai PBS
 year: 2025
 role: Results worker (backend)
-summary: Live results for 47 provincial chief races and 76 provincial councils. I built the worker that published them as cached JSON, which held 500k+ peak concurrent requests on election night.
+# Home only. The sketch above it already shows the 47 races and 500k+, so this says how the worker did it.
+summary: Live results for the provincial chief and council races. My worker turned hand-entered SeaTable results into versioned JSON on S3, each update a new path cached for 30 days, with only a small index refreshed every 10 seconds, so every reader was served from CloudFront.
 stack:
   - TypeScript
   - Node.js
@@ -15,6 +16,7 @@ url: https://www.thaipbs.or.th/localelection/home
 og: /images/og/local-election-68.jpg
 ogAlt: Share image of the live Local Election 68 results page
 order: 1
+group: elections
 
 # Having this block is what gives the work item its own Case Study page at /work/local-election-68.
 # TODO(source): Chin is finding the evidence for "500k+ peak concurrent requests" (CloudFront metrics or the team's report).

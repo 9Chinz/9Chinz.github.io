@@ -15,4 +15,5 @@ stack:
 url: https://www.thaipbs.or.th/bkkelection69/review/
 og: /images/og/next-station-bkk.jpg
 order: 4
+group: elections
 ---

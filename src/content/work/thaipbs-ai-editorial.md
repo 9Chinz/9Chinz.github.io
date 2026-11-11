@@ -15,4 +15,5 @@ stack:
   - RabbitMQ
   - Strapi
 order: 6
+group: other
 ---

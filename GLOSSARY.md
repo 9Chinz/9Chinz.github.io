@@ -25,7 +25,7 @@ An in-depth write-up of one piece of shipped work: the problem, Chinnapat's role
 _Avoid_: Project page, portfolio item, work item
 
 **Selected Work**:
-The short, curated set of Case Studies featured on the home page.
+The short, curated set of shipped work featured on the home page, in two groups: Election coverage and Other work. An entry links its Case Study when it has one.
 _Avoid_: Featured projects, highlights
 
 ### Writing

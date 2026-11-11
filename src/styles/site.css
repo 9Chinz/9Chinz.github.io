@@ -17,7 +17,7 @@ body {
 }
 ::selection { background: color-mix(in oklab, var(--color-accent) 22%, transparent); color: var(--color-ink); }
 :focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; border-radius: var(--radius-sm); }
-h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: var(--weight-strong); color: var(--color-ink); overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); font-weight: var(--weight-strong); color: var(--color-ink); overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
 p { margin: 0; text-wrap: pretty; }
 ul, ol { margin: 0; padding: 0; }
 img, svg { display: block; }
@@ -226,12 +226,12 @@ a { color: var(--color-accent); text-decoration-line: underline; text-decoration
 .list-tight { row-gap: var(--space-md); }
 @media (max-width: 40rem) { .list { row-gap: var(--space-xl); } .list-tight { row-gap: var(--space-md); } }
 
-.entry h3 { font-size: var(--text-md); line-height: 1.4; }
+.entry :is(h3, h4) { font-size: var(--text-md); line-height: 1.4; }
 /* the entry with a Case Study leads the list: its title steps up one size */
-.entry-lead h3 { font-size: var(--text-xl); line-height: 1.25; letter-spacing: -0.015em; }
-.entry h3 a { color: var(--color-ink); text-decoration-color: var(--color-rule); }
+.entry-lead h4 { font-size: var(--text-xl); line-height: 1.25; letter-spacing: -0.015em; }
+.entry :is(h3, h4) a { color: var(--color-ink); text-decoration-color: var(--color-rule); }
 @media (hover: hover) and (pointer: fine) {
-  .entry h3 a:hover { color: var(--color-accent); text-decoration-color: var(--color-accent); }
+  .entry :is(h3, h4) a:hover { color: var(--color-accent); text-decoration-color: var(--color-accent); }
 }
 .meta { color: var(--color-muted); font-size: var(--text-sm); }
 .entry .meta { margin-top: 2px; }
@@ -250,6 +250,18 @@ a { color: var(--color-accent); text-decoration-line: underline; text-decoration
 .more-hl[open] summary::after { content: "\2212"; }
 .more-hl .bullets { margin-top: var(--space-2xs); }
 .endnote { margin-top: var(--space-xl); color: var(--color-ink-2); }
+
+/* Selected Work comes in groups: a quiet ruled head on the measure, like a divider in the notebook */
+.work-group + .work-group { margin-top: var(--space-3xl); }
+.group-head {
+  font-size: var(--text-md); line-height: 1.4; color: var(--color-ink-2);
+  padding-top: var(--space-sm); border-top: var(--rule) solid var(--color-rule);
+  margin-bottom: var(--space-xl);
+}
+/* entries with no live page to show sit closer together */
+.list-near { row-gap: var(--space-xl); }
+@media (max-width: 60rem) { .work-group + .work-group { margin-top: var(--space-2xl); } }
+@media (max-width: 40rem) { .group-head { margin-bottom: var(--space-lg); } .list-near { row-gap: var(--space-lg); } }
 
 /* Contact closes the page on a second blueprint sheet, the bookend to the sketch */
 .contact-sheet {
@@ -657,7 +669,7 @@ main:focus { outline: none; }
 
 /* ---------- hit areas: inline links grow their tap target vertically without moving the line ---------- */
 /* about 1.15em of glyph box plus this padding makes 44px at any font size */
-.entry h3 a, .entry .more a, .sk-cap a, .endnote a, .contact .links a, .cs-section h2 .anchor, .facts dd a, .empty .body a {
+.entry :is(h3, h4) a, .entry .more a, .sk-cap a, .endnote a, .contact .links a, .cs-section h2 .anchor, .facts dd a, .empty .body a {
   padding-block: calc((44px - 1.15em) / 2); margin-block: calc((1.15em - 44px) / 2);
 }
 .contact .email a { padding-block: 0.25em; }

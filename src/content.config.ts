@@ -103,6 +103,8 @@ const work = defineCollection({
       .array(z.strictObject({ src: image, alt: text, caption: text, width: z.number().int(), height: z.number().int() }))
       .optional(),
     order: z.number().int(),
+    // Selected Work on home is grouped: the election coverage for Thai PBS first, everything else after.
+    group: z.enum(["elections", "other"]),
     caseStudy: z
       .strictObject({
         date: month,

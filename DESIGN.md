@@ -226,7 +226,9 @@ Sections are separated by large gaps (128px desktop, 80px under 60rem, 64px unde
 
 The hero is the headline, one sentence and the actions, then the first log entry. On desktop the margin beside the headline holds who and where: the photo print, then the location and availability in small type, right-aligned. On small screens the print (72px) and that note sit side by side above the headline. The headline is on the page at first paint and never animates; the sentence, the actions and the print settle in under it (320ms ease-out, 50ms apart), once per session.
 
-Selected Work is a long list, so size carries its hierarchy: the entry with a Case Study gets a Headline-size title and the only large link preview, every other entry with a live page gets the compact one, and an on-site print stays at its own size. Each destination is linked once per entry: titles are plain text, the Case Study is a "Read the case study" text link, and the live page is its preview (or a "Live site" link when there is no share image).
+Selected Work comes in two groups, each under a quiet group head on the measure (body size, 600, Ink Soft, with a 1px Ruled Line above it): "Election coverage" (the Thai PBS election work, with the previews and the Case Study) and "Other work" (entries with no live page to show, set closer together: 40px apart, 24px on phones). Groups sit 96px apart (64px under 60rem). Within a group, size carries the hierarchy: the entry with a Case Study gets a Headline-size title and the only large link preview, every other entry with a live page gets the compact one, and an on-site print stays at its own size. Each destination is linked once per entry: titles are plain text, the Case Study is a "Read the case study" text link, and the live page is its preview (or a "Live site" link when there is no share image).
+
+The sketch and the Selected Work entry for the same project never repeat each other: the sketch carries the figures (47 races, 500k+), so the entry says how the system worked.
 
 ### Named Rules
 **The Margin Carries It Rule.** If a piece of content has a date, a number or a sequence, that marker goes in the margin. Nothing else does.

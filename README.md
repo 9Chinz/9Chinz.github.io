@@ -76,6 +76,7 @@ stackToConfirm: the rest of the stack.   # optional: shows "Chin to confirm: ...
 url: https://example.com/live-page       # optional
 og: /images/og/project.jpg               # optional: the live page's own 1200x630 share image
 order: 6                                 # position in Selected Work, lowest first
+group: other                             # elections (Election coverage) or other (Other work), the two groups on home
 ---
 ```
 

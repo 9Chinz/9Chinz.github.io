@@ -13,4 +13,5 @@ url: https://www.thaipbs.or.th/election69/result/geo?region=all&view=area
 og: /images/og/election-69.jpg
 ogAlt: Share image of the live Election 69 national results page
 order: 3
+group: elections
 ---
