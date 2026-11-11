@@ -30,6 +30,7 @@
   --color-ink-2: #36423A;
   --color-muted: #59665E;
   --color-rule: #CBD6C8;
+  --color-control-edge: #8E9B90;
   --color-grid: #DFE7DB;
   --color-accent: #1E34B4;
   --color-accent-ink: #F6F8FF;
@@ -108,6 +109,7 @@
   --color-ink-2: #C2CCC3;
   --color-muted: #8F9B92;
   --color-rule: #2C352F;
+  --color-control-edge: #5A675E;
   --color-grid: #1B221D;
   --color-accent: #9AACFF;
   --color-accent-ink: #111512;
@@ -141,6 +143,7 @@
     --color-ink-2: #C2CCC3;
     --color-muted: #8F9B92;
     --color-rule: #2C352F;
+    --color-control-edge: #5A675E;
     --color-grid: #1B221D;
     --color-accent: #9AACFF;
     --color-accent-ink: #111512;

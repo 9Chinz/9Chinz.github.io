@@ -86,9 +86,10 @@ experience:
       - title: Software Developer
         start: 2024-05
         end: 2026-09
+    # The first highlight is the one shown before "more highlights"; Local Election 68 already leads the sketch and Selected Work, so another project leads here.
     highlights:
-      - Built the results worker behind Thai PBS's Local Election 68 live results, which turned hand-entered SeaTable results into versioned JSON on S3 behind CloudFront and held 500k+ peak concurrent requests on election night.
       - Built the results producers and cron workflow for the Bangkok Governor & Council Election 69 live results, plus admin image uploads and a streamer mode for broadcast.
+      - Built the results worker behind Thai PBS's Local Election 68 live results, which turned hand-entered SeaTable results into versioned JSON on S3 behind CloudFront and held 500k+ peak concurrent requests on election night.
       - Moved a designer's prototype of Next Station BKK into a strict TypeScript, React 19 and TanStack Router app and built its BFF.
       - Added animated vote counters and fixed regional seat-summary filtering on Thai PBS's national Election 69 results.
       - "Built full-stack features for an insurance company's agent engagement game: passkey login, quiz engine, check-in streaks, AI features and a batched notification system."

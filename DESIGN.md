@@ -9,6 +9,7 @@ colors:
   ink-soft: "#36423A"
   margin-grey: "#59665E"
   ruled-line: "#CBD6C8"
+  control-edge: "#8E9B90"
   graph-grid: "#DFE7DB"
   technical-pen-blue: "#1E34B4"
   pen-wash: "#E0E5F7"
@@ -177,7 +178,8 @@ A green-white pad, green-black ink and a single blueprint ultramarine (the brand
 - **Green-Black Ink** (`green-black-ink`): headings and primary text.
 - **Ink Soft** (`ink-soft`): body copy, descriptions, Experience highlights.
 - **Margin Grey** (`margin-grey`): margin dates, meta lines, captions, the muted "+" of disclosures.
-- **Ruled Line** (`ruled-line`): 1px rules, outline-button borders, card borders, the TOC rail.
+- **Ruled Line** (`ruled-line`): 1px rules, card borders, the TOC rail.
+- **Control Edge** (`control-edge`): the border of outline buttons, dark enough (2.6:1, 3.1:1 at night) that a low-vision visitor sees the button's edge, not just its label.
 - **Graph Grid** (`graph-grid`): the 16px grid inside sketches and technical drawings only.
 - **Pencil Graphite** (`pencil-graphite`): dashed draft parts, draft chips and draft links in drawings.
 
@@ -248,9 +250,9 @@ Corners are small and practical: 6px (`md`) for buttons, cards, previews and ope
 ### Buttons
 Precise and quiet.
 - **Shape:** gently squared (6px), 44px tall, 16px side padding, body-small medium weight.
-- **Primary:** Blueprint fill with Blueprint Ink text. One per screen: "Resume (PDF)" on home, "Open the live results" at a Case Study's end.
-- **Outline:** transparent with a Ruled Line border and ink text (GitHub, Copy email).
-- **States:** press scales to 0.97 in 140ms ease-out; outline hover darkens the border to Margin Grey (fine pointers only); focus is a 2px pen-blue ring at 3px offset, instant.
+- **Primary:** Blueprint fill with Blueprint Ink text. One per screen: "Resume (PDF)" on home, "Copy email" at a Case Study's end.
+- **Outline:** transparent with a Control Edge border and ink text (GitHub, Copy email).
+- **States:** press scales to 0.97 in 140ms ease-out; outline hover darkens the border to Ink Soft (fine pointers only); focus is a 2px pen-blue ring at 3px offset, instant.
 - **Copy button:** the label and "Copied" share one grid cell so width never jumps; the swap is a 180ms fade-and-nudge, announced to screen readers.
 
 ### Link Preview (clipping)
@@ -268,7 +270,7 @@ An honest hole in the record.
 
 ### Navigation
 - **Top bar:** wordmark (name, shortened to "Chin" under 24rem), then Work, Writing, Contact in body-small Ink Soft, the "Index ⌘K" trigger and the theme toggle. All targets 44px.
-- **Mobile:** the section links hide and the same trigger reads "Menu"; without JS the plain links stay.
+- **Mobile:** the section links hide and the same trigger reads "Menu"; without JS the plain links stay. On touch the card opens without focusing the search field (so the keyboard stays down) and lists the "Do" group (Copy email address, theme) first; long labels wrap. The writing index appears in the card only once a Post exists, like the nav link.
 - **Index card (⌘K):** a 560px Clipped Card with the clipped-on shadow, a pen-blue rule under the search field, entries on ruled lines grouped "Go to" and "Open"; the selected row gets Pen Wash and a 2px pen-blue edge. Enters in 180ms ease-out (fade, scale 0.98, 6px drop) with its scrim on the same timing, exits in 120ms; opacity only under reduced motion. Full keyboard support, focus trapped and returned. A tap on "Menu" before the card's island has hydrated is kept and opens the card once it is ready.
 
 ### Pen Sketch (signature)
@@ -276,6 +278,9 @@ The system drawn as the first log entry, on a blueprint sheet: three nodes in wh
 
 ### Contact Sheet
 The page's closing bookend, a second blueprint sheet on the measure: the "Contact" head in Blueprint Ink, the availability and closing summary in Blueprint Soft, the email set large (clamp 1.5–2.5rem, 600) as a white underlined link with an outline Copy email button beside it, then GitHub, LinkedIn and Resume (PDF) as white links. Focus rings and selection turn white on the sheet. 40px padding (24/16px on phones).
+
+### Case Study End
+Where a convinced reader acts. A ruled line, then "Talk to me about this system" at Headline size, then Copy email (the one primary), Resume (PDF) and LinkedIn as buttons, then "Open the live results" and "Back to home" as text links.
 
 ### Technical Drawing (Case Study)
 A drafting sheet spanning margin and measure: lettered parts A–D as buttons (44px+), pen for facts, dashed pencil for drafts, a legend and a title block, a note panel that changes when a part is hovered, focused or tapped (the other parts recede: pen lines fade and their text drops to Margin Grey, never below 4.5:1), and "The drawing as text" disclosure as the accessible equivalent.

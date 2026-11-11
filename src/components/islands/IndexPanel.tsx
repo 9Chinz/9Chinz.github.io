@@ -84,6 +84,8 @@ export default function Card({ open, onClose, email, github, linkedin, resume, s
   const cardRef = useRef<HTMLDivElement>(null);
   // On touch, opening the card must not raise the on-screen keyboard over the list: focus the card, not the input.
   const finePointer = matchMedia("(pointer: fine)").matches;
+  // As the phone Menu, the card leads with what a visitor came to do (copy the email), above the scroll.
+  const order: readonly Group[] = finePointer ? GROUPS : ["Do", "Go to", "Open", "Search results"];
   useEffect(() => {
     if (open && !finePointer) cardRef.current?.focus({ preventScroll: true });
   }, [open, finePointer]);
@@ -128,7 +130,7 @@ export default function Card({ open, onClose, email, github, linkedin, resume, s
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return commands;
+    if (!q) return [...commands].sort((a, b) => order.indexOf(a.group) - order.indexOf(b.group));
     const words = q.split(/\s+/);
     // Grouped in display order so the arrow keys follow the list; within a group,
     // label hits rank above keyword hits and ties keep the list order.
@@ -140,10 +142,10 @@ export default function Card({ open, onClose, email, github, linkedin, resume, s
         return { c, i, score: words.filter((w) => label.includes(w)).length };
       })
       .filter((x) => x !== null)
-      .sort((a, b) => GROUPS.indexOf(a.c.group) - GROUPS.indexOf(b.c.group) || b.score - a.score || a.i - b.i)
+      .sort((a, b) => order.indexOf(a.c.group) - order.indexOf(b.c.group) || b.score - a.score || a.i - b.i)
       .map((x) => x.c);
     return [...matches, ...found];
-  }, [commands, query, found]);
+  }, [commands, query, found, finePointer]);
 
   // Full-text search over Case Studies and Posts. Fails silently where there is no index (astro dev).
   useEffect(() => {
@@ -232,7 +234,7 @@ export default function Card({ open, onClose, email, github, linkedin, resume, s
     }
   };
 
-  const groups = GROUPS
+  const groups = order
     .map((g) => ({ g, items: results.filter((c) => c.group === g) }))
     .filter((x) => x.items.length);
   const optionId = (c: Command) => `ix-opt-${c.id}`;

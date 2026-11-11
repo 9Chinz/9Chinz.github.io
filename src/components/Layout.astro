@@ -25,7 +25,8 @@ const sections: Section[] = [
 const pages: Page[] = [
   ...caseStudies.map((w) => ({ label: `Case Study: ${w.data.title}`, href: `/work/${w.id}`, hint: "Page", keywords: `${w.data.client} ${w.data.stack.join(" ")} architecture` })),
   ...posts.map((p) => ({ label: `Post: ${p.data.title}`, href: postHref(p), hint: p.data.draft ? "Draft" : "Post", keywords: "blog writing" })),
-  { label: "Writing", href: "/blog", hint: "Page", keywords: "blog posts index" },
+  // The writing index joins the card once there is something to read, the same rule as the nav link.
+  ...(hasWriting ? [{ label: "Writing", href: "/blog", hint: "Page", keywords: "blog posts index" }] : []),
 ];
 
 const site = Astro.site ?? Astro.url;

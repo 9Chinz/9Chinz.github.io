@@ -2,10 +2,11 @@
 // A Case Study: one page for each work item whose frontmatter has a `caseStudy` block.
 // Each `## heading` of the Markdown body is one numbered section; the drawing follows `drawing.after`.
 import Layout from "@/components/Layout.astro";
+import CopyButton from "@/components/CopyButton.astro";
 import Gap from "@/components/Gap.astro";
 import Unfurl from "@/components/Unfurl.astro";
 import Drawing from "@/components/islands/Drawing";
-import { getCaseStudies, type Work } from "@/lib/content";
+import { getCaseStudies, getProfile, type Work } from "@/lib/content";
 import { host, monthName, splitSections } from "@/lib/format";
 
 export async function getStaticPaths() {
@@ -14,6 +15,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props as { entry: Work };
+const profile = await getProfile();
 const d = entry.data;
 const cs = d.caseStudy!;
 const sections = splitSections(entry.rendered?.html ?? "");
@@ -71,8 +73,17 @@ const ogAlt = d.ogAlt ?? `Share image of the live ${d.title} page`;
     </ol>
   </div>
 
-  <div class="cs-end">
-    {d.url && <a class="btn btn-primary" href={d.url}>Open the live results</a>}
-    <a class="back" href="/">Back to home</a>
-  </div>
+  <!-- The page ends where a convinced reader acts: the contact actions, then the live page and the way home as text links. -->
+  <section class="cs-end" aria-labelledby="cs-end-title">
+    <h2 class="cs-end-title" id="cs-end-title">Talk to me about this system</h2>
+    <div class="actions">
+      <CopyButton text={profile.email} label="Copy email" class="btn btn-primary" />
+      <a class="btn" href={profile.links.resume}>Resume (PDF)</a>
+      <a class="btn" href={profile.links.linkedin}>LinkedIn</a>
+    </div>
+    <p class="cs-end-links">
+      {d.url && <a href={d.url}>Open the live results</a>}
+      <a class="back" href="/">Back to home</a>
+    </p>
+  </section>
 </Layout>
