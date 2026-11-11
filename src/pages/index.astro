@@ -26,10 +26,13 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
       <a class="btn" href={profile.links.linkedin}>LinkedIn</a>
       <CopyButton text={profile.email} label="Copy email" />
     </div>
-    <picture class="portrait">
-      <source srcset={srcset([[sized(profile.photo.src, 256), 256], [webp(profile.photo.src), 400]])} sizes="(max-width: 60rem) 88px, 128px" type="image/webp" />
-      <img src={profile.photo.src} srcset={srcset([[sized(profile.photo.src, 256, "jpg"), 256], [profile.photo.src, 400]])} sizes="(max-width: 60rem) 88px, 128px" alt={profile.photo.alt} width="400" height="400" decoding="async" />
-    </picture>
+    <div class="hero-id">
+      <picture class="portrait">
+        <source srcset={srcset([[sized(profile.photo.src, 256), 256], [webp(profile.photo.src), 400]])} sizes="(max-width: 60rem) 72px, 128px" type="image/webp" />
+        <img src={profile.photo.src} srcset={srcset([[sized(profile.photo.src, 256, "jpg"), 256], [profile.photo.src, 400]])} sizes="(max-width: 60rem) 72px, 128px" alt={profile.photo.alt} width="400" height="400" decoding="async" />
+      </picture>
+      <p class="hero-where"><span>{profile.location}</span> <span>{profile.availability}</span></p>
+    </div>
     <Sketch sketch={profile.sketch} />
   </section>
 
@@ -40,7 +43,7 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
         const d = w.data;
         const caseStudy = d.caseStudy ? `/work/${w.id}` : undefined;
         return (
-          <li class="entry">
+          <li class:list={["entry", caseStudy && "entry-lead"]}>
             <time class="stamp" datetime={d.year}>{d.year}</time>
             <div class="body">
               <h3 id={`work-${w.id}`}>{d.title}</h3>
@@ -56,8 +59,8 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
               {d.photos?.map((ph) => (
                 <figure class="onsite">
                   <picture>
-                    <source srcset={srcset([[sized(ph.src, 640), 640], [sized(ph.src, 800), 800], [sized(ph.src, 1200), 1200], [webp(ph.src), ph.width]])} sizes="(max-width: 40rem) calc(100vw - 32px), 26rem" type="image/webp" />
-                    <img src={ph.src} srcset={srcset([[sized(ph.src, 800, "jpg"), 800], [ph.src, ph.width]])} sizes="(max-width: 40rem) calc(100vw - 32px), 26rem" alt={ph.alt} width={ph.width} height={ph.height} loading="lazy" decoding="async" />
+                    <source srcset={srcset([[sized(ph.src, 640), 640], [sized(ph.src, 800), 800], [sized(ph.src, 1200), 1200], [webp(ph.src), ph.width]])} sizes="(max-width: 40rem) calc(100vw - 32px), 20rem" type="image/webp" />
+                    <img src={ph.src} srcset={srcset([[sized(ph.src, 800, "jpg"), 800], [ph.src, ph.width]])} sizes="(max-width: 40rem) calc(100vw - 32px), 20rem" alt={ph.alt} width={ph.width} height={ph.height} loading="lazy" decoding="async" />
                   </picture>
                   <figcaption>{ph.caption}</figcaption>
                 </figure>
@@ -135,16 +138,18 @@ const [lede, ...restSummary] = profile.summary.split(/(?<=\.)\s+/);
   )}
 
   <section class="row section contact" id="contact" aria-labelledby="contact-title">
-    <h2 class="section-head" id="contact-title">Contact</h2>
-    <p class="lede">{profile.availability}. {restSummary.join(" ")}</p>
-    <div class="email">
-      <a href={`mailto:${profile.email}`}>{profile.email}</a>
-      <CopyButton text={profile.email} label="Copy" ariaLabel="Copy email address" />
+    <div class="contact-sheet">
+      <h2 class="section-head" id="contact-title">Contact</h2>
+      <p class="lede">{profile.availability}. {restSummary.join(" ")}</p>
+      <div class="email">
+        <a href={`mailto:${profile.email}`}>{profile.email}</a>
+        <CopyButton text={profile.email} label="Copy email" ariaLabel="Copy email address" />
+      </div>
+      <p class="links">
+        <a href={profile.links.github}>GitHub</a>
+        <a href={profile.links.linkedin}>LinkedIn</a>
+        <a href={profile.links.resume}>Resume (PDF)</a>
+      </p>
     </div>
-    <p class="links">
-      <a href={profile.links.github}>GitHub</a>
-      <a href={profile.links.linkedin}>LinkedIn</a>
-      <a href={profile.links.resume}>Resume (PDF)</a>
-    </p>
   </section>
 </Layout>

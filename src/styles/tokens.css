@@ -1,5 +1,5 @@
 /* Hallmark · shape: Margin Log (one ruled column, dates hang in the left margin) · genre: modern-minimal · theme: custom · job: hire · idea: "an engineering notebook with instruments clipped onto its pages: a pen sketch of the system, an index card for navigation, a technical drawing for the case study" · vibe: "precise, quiet, ruled, dated, honest, light"
- * paper: #F1F4EE · accent: #2440C4 pen blue · display: Schibsted Grotesk · body: Schibsted Grotesk · mono: IBM Plex Mono for margin dates, code and drawing labels only · hero: headline, one sentence, three actions, then the 2025-02 log entry drawn as a pen sketch on a graph-paper patch · nav: wordmark, three links, a quiet ⌘K index card, theme toggle · footer: one quiet line · imagery: none (type and line drawings of the real system) · signature: the pen-on-paper system sketch as the first log entry
+ * paper: #F1F4EE · accent: #1E34B4 blueprint ultramarine, the brand colour, which also owns the sketch and Contact sheets · display: Schibsted Grotesk · body: Schibsted Grotesk · mono: IBM Plex Mono for margin dates, code and drawing labels only · hero: headline, one sentence, three actions, then the 2025-02 log entry drawn as a pen sketch on a graph-paper patch · nav: wordmark, three links, a quiet ⌘K index card, theme toggle · footer: one quiet line · imagery: none (type and line drawings of the real system) · signature: the pen-on-paper system sketch as the first log entry
  * axes: green-white engineering pad/grotesk/technical-pen blue/pencil drafts · posture: restrained · modes: light first, dark secondary · copy: verbatim (facts in src/content are fixed and checked against git; layout presents them, never trims them) · contrast: pass · fold: pass · v2.0.0 */
 /* Hallmark · pre-emit critique: P4 H5 E4 S5 R5 V4 · weakest: P, the notebook is quiet by design; the sketch and the drawing carry the argument, solid pen for the record, dashed pencil for what Chin still has to confirm */
 /* Hallmark · waive 26b · no control on these pages can be disabled · links, copy buttons, the index trigger, the theme toggle and drawing nodes are always available */
@@ -9,7 +9,7 @@
 /* Hallmark · waive 44c · a Case Study, the writing index and the 404 open on a page title and its facts, like a notebook page · these are reading pages; only home carries a hero */
 /* Hallmark · dismissed 41 · the portrait print holds only the photo, no text, so its surface needs no text colour */
 /* Hallmark · dismissed F25 · the drawing's notes are the same at every width; which one shows follows the part under the pointer or focus, so a probe at two widths sees two different notes */
-/* Hallmark · waive 78 · section heads are 20px against a 44px hero head · the margin dates carry the structure */
+/* Hallmark · waive 78 · section heads are 24px against a 72px hero head · the margin dates carry the structure */
 
 /* Self-hosted Latin subsets (SIL OFL), so no third-party stylesheet blocks the first paint.
  * Schibsted Grotesk is variable (400-600) and split in two: a core file (ASCII and the punctuation the site sets),
@@ -31,11 +31,19 @@
   --color-muted: #59665E;
   --color-rule: #CBD6C8;
   --color-grid: #DFE7DB;
-  --color-accent: #2440C4;
-  --color-accent-ink: #F1F4EE;
-  --color-pen-wash: #E3E8F6;
+  --color-accent: #1E34B4;
+  --color-accent-ink: #F6F8FF;
+  --color-pen-wash: #E0E5F7;
   --color-pencil: #66706A;
-  --color-focus: #2440C4;
+  --color-focus: #1E34B4;
+  /* blueprint: the brand ultramarine as a sheet; white pen lines and soft-blue secondary text on it */
+  --color-blueprint: #1E34B4;
+  --color-blueprint-ink: #F6F8FF;
+  --color-blueprint-soft: #C9D2FF;
+  --color-blueprint-line: rgb(246 248 255 / 0.14);
+  --color-blueprint-own: #2C43C6;
+  --color-blueprint-rule: rgb(246 248 255 / 0.48);
+  --color-blueprint-select: rgb(246 248 255 / 0.3);
   --color-scrim: rgb(24 32 27 / 0.28);
   --shadow-card: 0 1px 0 rgb(24 32 27 / 0.06), 0 14px 32px -12px rgb(24 32 27 / 0.28);
 
@@ -60,6 +68,7 @@
   --text-lg: 1.25rem;
   --text-xl: 1.5rem;
   --text-display: clamp(2.125rem, 1.55rem + 1.9vw, 2.75rem);
+  --text-hero: clamp(2.5rem, 1.35rem + 3.9vw, 4.5rem);
   --text-figure: clamp(1.75rem, 1.4rem + 1.2vw, 2.25rem);
   --leading-body: 1.6;
   --leading-tight: 1.15;
@@ -105,6 +114,11 @@
   --color-pen-wash: #1F2640;
   --color-pencil: #9AA59D;
   --color-focus: #9AACFF;
+  --color-blueprint: #2A3FBF;
+  --color-blueprint-ink: #F6F8FF;
+  --color-blueprint-soft: #CDD5FF;
+  --color-blueprint-line: rgb(246 248 255 / 0.12);
+  --color-blueprint-own: #3247C9;
   --color-scrim: rgb(4 6 5 / 0.6);
   --shadow-card: 0 1px 0 rgb(0 0 0 / 0.3), 0 16px 36px -12px rgb(0 0 0 / 0.7);
   --code-fg: #E4EAE3;
@@ -133,6 +147,11 @@
     --color-pen-wash: #1F2640;
     --color-pencil: #9AA59D;
     --color-focus: #9AACFF;
+    --color-blueprint: #2A3FBF;
+    --color-blueprint-ink: #F6F8FF;
+    --color-blueprint-soft: #CDD5FF;
+    --color-blueprint-line: rgb(246 248 255 / 0.12);
+    --color-blueprint-own: #3247C9;
     --color-scrim: rgb(4 6 5 / 0.6);
     --shadow-card: 0 1px 0 rgb(0 0 0 / 0.3), 0 16px 36px -12px rgb(0 0 0 / 0.7);
     --code-fg: #E4EAE3;

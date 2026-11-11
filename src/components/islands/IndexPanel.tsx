@@ -82,6 +82,11 @@ export default function Card({ open, onClose, email, github, linkedin, resume, s
   const [searching, setSearching] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+  // On touch, opening the card must not raise the on-screen keyboard over the list: focus the card, not the input.
+  const finePointer = matchMedia("(pointer: fine)").matches;
+  useEffect(() => {
+    if (open && !finePointer) cardRef.current?.focus({ preventScroll: true });
+  }, [open, finePointer]);
 
   const commands: Command[] = useMemo(
     () => [
@@ -250,6 +255,7 @@ export default function Card({ open, onClose, email, github, linkedin, resume, s
             role="dialog"
             aria-modal="true"
             aria-label="Index"
+            tabIndex={-1}
             className="ix"
             onKeyDown={onKeyDown}
             initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.98, y: -6 }}
@@ -265,7 +271,7 @@ export default function Card({ open, onClose, email, github, linkedin, resume, s
               </label>
               <input
                 id="ix-input"
-                autoFocus
+                autoFocus={finePointer}
                 type="text"
                 role="combobox"
                 aria-expanded="true"

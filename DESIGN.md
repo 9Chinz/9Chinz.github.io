@@ -10,8 +10,12 @@ colors:
   margin-grey: "#59665E"
   ruled-line: "#CBD6C8"
   graph-grid: "#DFE7DB"
-  technical-pen-blue: "#2440C4"
-  pen-wash: "#E3E8F6"
+  technical-pen-blue: "#1E34B4"
+  pen-wash: "#E0E5F7"
+  blueprint: "#1E34B4"
+  blueprint-ink: "#F6F8FF"
+  blueprint-soft: "#C9D2FF"
+  blueprint-own: "#2C43C6"
   pencil-graphite: "#66706A"
   engineering-pad-dark: "#111512"
   pad-shade-dark: "#1A201C"
@@ -23,7 +27,16 @@ colors:
   technical-pen-blue-dark: "#9AACFF"
   pen-wash-dark: "#1F2640"
   pencil-graphite-dark: "#9AA59D"
+  blueprint-dark: "#2A3FBF"
+  blueprint-soft-dark: "#CDD5FF"
+  blueprint-own-dark: "#3247C9"
 typography:
+  hero:
+    fontFamily: "Schibsted Grotesk, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(2.5rem, 1.35rem + 3.9vw, 4.5rem)"
+    fontWeight: 600
+    lineHeight: 1.02
+    letterSpacing: "-0.035em"
   display:
     fontFamily: "Schibsted Grotesk, ui-sans-serif, system-ui, sans-serif"
     fontSize: "clamp(2.125rem, 1.55rem + 1.9vw, 2.75rem)"
@@ -82,8 +95,8 @@ spacing:
   section-gap: "128px"
 components:
   button-primary:
-    backgroundColor: "{colors.technical-pen-blue}"
-    textColor: "{colors.engineering-pad}"
+    backgroundColor: "{colors.blueprint}"
+    textColor: "{colors.blueprint-ink}"
     typography: "{typography.body-small}"
     rounded: "{rounded.md}"
     padding: "0 16px"
@@ -121,8 +134,8 @@ components:
     textColor: "{colors.green-black-ink}"
     height: "44px"
   sketch-node:
-    backgroundColor: "{colors.engineering-pad}"
-    textColor: "{colors.green-black-ink}"
+    backgroundColor: "{colors.blueprint}"
+    textColor: "{colors.blueprint-ink}"
     rounded: "{rounded.sm}"
     padding: "12px"
 ---
@@ -133,27 +146,29 @@ components:
 
 **Creative North Star: "The Engineering Notebook"**
 
-The site is a well-kept engineering pad. Every entry is dated in the left margin, the way a working log is kept, and the writing sits on one narrow ruled column beside it. What is on the record is drawn in technical pen; what Chin still has to confirm is drawn in pencil and left visibly open. Instruments are clipped onto the pages rather than built into them: an index card for navigation (⌘K), a pen sketch of the system on a graph-paper patch, a technical drawing with lettered parts for a Case Study, a small print of Chin himself, and link previews pasted in like clippings.
+The site is a well-kept engineering pad. Every entry is dated in the left margin, the way a working log is kept, and the writing sits on one narrow ruled column beside it. What is on the record is drawn in technical pen; what Chin still has to confirm is drawn in pencil and left visibly open. Instruments are clipped onto the pages rather than built into them: an index card for navigation (⌘K), a white-pen sketch of the system on a blueprint sheet, a technical drawing with lettered parts for a Case Study, a small print of Chin himself, and link previews pasted in like clippings.
 
-The mood is precise, honest and unhurried. Type does almost all the work; colour is nearly absent except for one pen blue. The page holds still: motion only settles the first view once and answers what the visitor does. Density is low on purpose: one idea per entry, generous gaps between sections, and the margin dates carrying the structure so headings can stay small.
+The mood is precise, honest and unhurried. Type does most of the work, and one colour carries the brand: blueprint ultramarine, used as ink for links and the primary action and as a full sheet twice, for the system sketch that opens the page and the Contact block that closes it. The page holds still: motion only settles the first view once and answers what the visitor does. Density is low on purpose: one idea per entry, generous gaps between sections, and the margin dates carrying the structure so headings can stay small.
 
 Honesty is a visual rule here, not just a content rule. A missing fact is drawn as an open item (an unchecked box with "Chin to write" or "Chin to confirm"), never smoothed over with filler.
 
 **Key Characteristics:**
 - One 640px measure with a 168px date margin; everything hangs off that sheet.
 - Light first (engineering pad); dark is the same notebook at night, never a different world.
-- One accent: technical pen blue, for links, the single primary action and pen strokes.
+- One brand colour: blueprint ultramarine `#1E34B4`, as pen ink (links, the primary action, drawing strokes) and as two blueprint sheets on home (the sketch and Contact).
 - Pen (solid) means on the record; pencil (dashed, graphite) means draft.
 - Mono only where an engineer would write mono: margin dates, figures, code, drawing labels.
 - Flat pages; only clipped-on objects lift.
 
 ## Colors
 
-A green-white pad, green-black ink and a single technical-pen blue; graphite is reserved for drafts.
+A green-white pad, green-black ink and a single blueprint ultramarine (the brand colour, also used on the resume and share card); graphite is reserved for drafts.
 
 ### Primary
 - **Technical Pen Blue** (`technical-pen-blue`): links, the one filled primary button per screen, pen strokes in sketches and drawings, the selected rule on the index card, focus rings. Lightens to `technical-pen-blue-dark` at night.
-- **Pen Wash** (`pen-wash`): the faint blue fill behind a selected index-card row, the active drawing part and the backend node in the sketch. Never a section background.
+- **Pen Wash** (`pen-wash`): the faint blue fill behind a selected index-card row and the active drawing part. Never a section background.
+- **Blueprint** (`blueprint`): the brand ultramarine as a surface. Exactly two sheets on home carry it: the system sketch and the Contact block, with a white 16px grid (`blueprint-line`, 14% white). Also the fill of the primary button in both themes (deepens to `blueprint-dark` at night so white text holds 7.7:1).
+- **Blueprint Ink / Soft / Own** (`blueprint-ink`, `blueprint-soft`, `blueprint-own`): white pen lines and primary text on a blueprint sheet (9.0:1), soft-blue secondary text (6.4:1), and the lighter fill of the node Chin built (secondary text on it stays at 5.2:1, 5.0:1 at night).
 
 ### Neutral
 - **Engineering Pad** (`engineering-pad`): the page. Also the text colour on the primary button.
@@ -167,7 +182,9 @@ A green-white pad, green-black ink and a single technical-pen blue; graphite is 
 - **Pencil Graphite** (`pencil-graphite`): dashed draft parts, draft chips and draft links in drawings.
 
 ### Named Rules
-**The One Pen Rule.** Technical Pen Blue is the only chromatic colour on the page. If something else wants colour, it gets ink weight instead.
+**The One Colour Rule.** Blueprint ultramarine is the only chromatic colour on the page, as ink or as a sheet. If something else wants colour, it gets ink weight instead.
+
+**The Two Sheets Rule.** The blueprint surface appears twice on home and nowhere else: the opening sketch and the closing Contact block, so the page starts and ends on the brand colour. A third blue region dilutes both.
 
 **The Pen and Pencil Rule.** Solid pen blue marks a fact that is on the record; dashed pencil graphite marks a draft for Chin to confirm. Never use pencil for decoration or pen for a guess.
 
@@ -184,18 +201,20 @@ Both are self-hosted WOFF2 Latin subsets with `font-display: swap`. Schibsted Gr
 **Character:** One sturdy, slightly editorial grotesk for everything a person reads, and a plain engineering mono for everything a person would log: dates, figures, code. The contrast between the two is the system's whole typographic voice.
 
 ### Hierarchy
-- **Display** (600, clamp 2.125–2.75rem, 1.15, -0.024em): the hero headline and page titles of Case Studies and Posts. Balanced wrapping, about 18ch wide.
+- **Hero** (600, clamp 2.5–4.5rem, 1.02, -0.035em): the home headline only, about 15ch wide, the loudest type on the site.
+- **Display** (600, clamp 2.125–2.75rem, 1.15, -0.024em): page titles of Case Studies and Posts. Balanced wrapping, about 18ch wide.
 - **Headline** (600, 1.5rem, 1.25): section headings inside a Post.
-- **Title** (600, 1.25rem, 1.4): home section heads (Selected Work, Experience) and Case Study section heads. Small on purpose; the margin carries the structure.
+- **Headline** on home (600, 1.5rem): home section heads (Selected Work, Experience, Contact) and the title of the Selected Work entry that has a Case Study.
+- **Title** (600, 1.25rem, 1.4): Case Study section heads. Small on purpose; the margin carries the structure.
 - **Body** (400, 1.0625rem / 17px, 1.6): all reading text, set on the 640px measure. Drops to 16px under 40rem.
 - **Body small** (400, 0.9rem, 1.5): meta lines, buttons, captions, open items.
 - **Margin date** (IBM Plex Mono 400, 0.8125rem, tabular figures): ISO dates (`2025-02`) right-aligned in the margin; Case Study section numbers `01`–`06`.
-- **Figure** (IBM Plex Mono 500, clamp 1.75–2.25rem, -0.03em): real numbers drawn in sketches (500k+, 47).
+- **Figure** (IBM Plex Mono 500, clamp 2.25–3.25rem in the home sketch, 1.75–2.25rem elsewhere, -0.035em): real numbers drawn in sketches (500k+, 47).
 
 ### Named Rules
 **The Logbook Mono Rule.** Mono appears only for margin dates, figures, code and drawing part letters. Labels, nav, buttons and tags are always the body face.
 
-**The Quiet Heading Rule.** Section heads stay at Title size against a Display hero. Hierarchy comes from the margin and the gaps, not from shouting.
+**The Quiet Heading Rule.** Section heads stay at Headline size against a Hero headline three times their size. Hierarchy comes from that jump, the margin and the gaps, not from shouting.
 
 ## Layout
 
@@ -203,9 +222,9 @@ The page is a sheet: a 168px margin column, a 32px gap, and a 640px measure, cen
 
 Sections are separated by large gaps (128px desktop, 80px under 60rem, 64px under 40rem) rather than rules; entries within a list are 64px apart. Under 60rem the margin collapses into the column: dates sit above their entry, left-aligned, and the sheet becomes one column.
 
-The hero is the headline, one sentence and three actions, then the first log entry. On desktop the photo print hangs in the margin beside the headline; on small screens it sits above it. The headline is on the page at first paint and never animates; the sentence, the actions and the print settle in under it (320ms ease-out, 50ms apart), once per session.
+The hero is the headline, one sentence and the actions, then the first log entry. On desktop the margin beside the headline holds who and where: the photo print, then the location and availability in small type, right-aligned. On small screens the print (72px) and that note sit side by side above the headline. The headline is on the page at first paint and never animates; the sentence, the actions and the print settle in under it (320ms ease-out, 50ms apart), once per session.
 
-Selected Work is a long list, so size carries its hierarchy: the entry with a Case Study gets the only large link preview, every other entry with a live page gets the compact one, and an on-site print stays at its own size. Each destination is linked once per entry: titles are plain text, the Case Study is a "Read the case study" text link, and the live page is its preview (or a "Live site" link when there is no share image).
+Selected Work is a long list, so size carries its hierarchy: the entry with a Case Study gets a Headline-size title and the only large link preview, every other entry with a live page gets the compact one, and an on-site print stays at its own size. Each destination is linked once per entry: titles are plain text, the Case Study is a "Read the case study" text link, and the live page is its preview (or a "Live site" link when there is no share image).
 
 ### Named Rules
 **The Margin Carries It Rule.** If a piece of content has a date, a number or a sequence, that marker goes in the margin. Nothing else does.
@@ -229,7 +248,7 @@ Corners are small and practical: 6px (`md`) for buttons, cards, previews and ope
 ### Buttons
 Precise and quiet.
 - **Shape:** gently squared (6px), 44px tall, 16px side padding, body-small medium weight.
-- **Primary:** Technical Pen Blue fill with pad-coloured text. One per screen: "Resume (PDF)" on home, "Open the live results" at a Case Study's end.
+- **Primary:** Blueprint fill with Blueprint Ink text. One per screen: "Resume (PDF)" on home, "Open the live results" at a Case Study's end.
 - **Outline:** transparent with a Ruled Line border and ink text (GitHub, Copy email).
 - **States:** press scales to 0.97 in 140ms ease-out; outline hover darkens the border to Margin Grey (fine pointers only); focus is a 2px pen-blue ring at 3px offset, instant.
 - **Copy button:** the label and "Copied" share one grid cell so width never jumps; the swap is a 180ms fade-and-nudge, announced to screen readers.
@@ -253,7 +272,10 @@ An honest hole in the record.
 - **Index card (⌘K):** a 560px Clipped Card with the clipped-on shadow, a pen-blue rule under the search field, entries on ruled lines grouped "Go to" and "Open"; the selected row gets Pen Wash and a 2px pen-blue edge. Enters in 180ms ease-out (fade, scale 0.98, 6px drop) with its scrim on the same timing, exits in 120ms; opacity only under reduced motion. Full keyboard support, focus trapped and returned. A tap on "Menu" before the card's island has hydrated is kept and opens the card once it is ready.
 
 ### Pen Sketch (signature)
-The system drawn as the first log entry: three nodes on a graph-paper patch joined by pen leads (Results worker, built by me → S3 + CloudFront, 47 races served as cached JSON ← Traffic, 500k+), the same flow as the Case Study's drawing. The node Chin owns gets Pen Wash. Nodes settle in one by one and leads ink in left to right, once per session. Stacks vertically on phones.
+The system drawn as the first log entry, on a blueprint sheet: three nodes in white pen joined by white leads (Results worker, built by me → S3 + CloudFront, 47 races served as cached JSON ← Traffic, 500k+), the same flow as the Case Study's drawing. Node fills match the sheet so the grid stops at their edges and the figures read clean; the node Chin built gets the lighter Blueprint Own fill. Nodes settle in one by one and leads ink in left to right, once per session. Stacks vertically on phones.
+
+### Contact Sheet
+The page's closing bookend, a second blueprint sheet on the measure: the "Contact" head in Blueprint Ink, the availability and closing summary in Blueprint Soft, the email set large (clamp 1.5–2.5rem, 600) as a white underlined link with an outline Copy email button beside it, then GitHub, LinkedIn and Resume (PDF) as white links. Focus rings and selection turn white on the sheet. 40px padding (24/16px on phones).
 
 ### Technical Drawing (Case Study)
 A drafting sheet spanning margin and measure: lettered parts A–D as buttons (44px+), pen for facts, dashed pencil for drafts, a legend and a title block, a note panel that changes when a part is hovered, focused or tapped (the other parts recede: pen lines fade and their text drops to Margin Grey, never below 4.5:1), and "The drawing as text" disclosure as the accessible equivalent.
