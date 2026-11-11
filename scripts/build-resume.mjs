@@ -1,6 +1,6 @@
 // Builds the resume (.docx, then .pdf) from src/content/profile.yaml.
 //   pnpm resume                                   public PDF, no phone  -> public/resume.pdf
-//   RESUME_PHONE="..." pnpm resume:private        also ../rsm/resume-latest.docx/.pdf, WITH the phone
+//   RESUME_PHONE="..." pnpm resume:private        also private/resume/resume-latest.docx/.pdf (git-ignored), WITH the phone
 // The phone number is read from the environment only. It is never stored in this repo.
 import { execFileSync } from "node:child_process";
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -13,7 +13,7 @@ import {
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const buildDir = join(root, ".resume-build"); // git-ignored scratch: docx, pdf, preview PNG
-const privateDir = resolve(root, "../rsm");
+const privateDir = resolve(root, "private/resume");
 const wantPrivate = process.argv.includes("--private");
 
 const profile = parse(readFileSync(join(root, "src/content/profile.yaml"), "utf8"));
@@ -23,7 +23,7 @@ if (!r) throw new Error("profile.yaml has no resume: block");
 const phone = process.env.RESUME_PHONE?.trim();
 if (wantPrivate && !phone) throw new Error('resume:private needs RESUME_PHONE="..." in the environment');
 
-// ---- docx helpers (same look as the old rsm/scripts/build-resume.cjs) ----
+// ---- docx helpers (same look as the old generator, kept in private/scripts/build-resume.cjs) ----
 const FONT = "Calibri";
 const LINK = "1F4E79";
 const RIGHT = 10440;
@@ -167,7 +167,7 @@ if (wantPrivate) {
   mkdirSync(privateDir, { recursive: true });
   copyFileSync(docxPath, join(privateDir, "resume-latest.docx"));
   copyFileSync(pdfPath, join(privateDir, "resume-latest.pdf"));
-  console.log(`wrote ${join(privateDir, "resume-latest.docx")} and .pdf (with phone, outside the repo)`);
+  console.log(`wrote ${join(privateDir, "resume-latest.docx")} and .pdf (with phone, git-ignored)`);
 } else {
   copyFileSync(pdfPath, join(root, "public/resume.pdf"));
   console.log("wrote public/resume.pdf (no phone)");

@@ -1,6 +1,6 @@
 # The site's content files are the single source of truth
 
-The same career facts lived in three places that drifted apart: the resume script (`rsm/scripts/build-resume.cjs`), the site content (`src/content/profile.yaml`, `src/content/work/*.md`), and LinkedIn. We decided (2026-11-10, Chin's call in grill round 1) that `src/content/` is the only place facts are edited: the resume PDF is generated from it, and LinkedIn text is generated from it for Chin to approve and apply section by section.
+The same career facts lived in three places that drifted apart: the old resume script (now `private/scripts/build-resume.cjs`), the site content (`src/content/profile.yaml`, `src/content/work/*.md`), and LinkedIn. We decided (2026-11-10, Chin's call in grill round 1) that `src/content/` is the only place facts are edited: the resume PDF is generated from it, and LinkedIn text is generated from it for Chin to approve and apply section by section.
 
 ## Considered Options
 

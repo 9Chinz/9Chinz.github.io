@@ -104,7 +104,7 @@ The resume is generated from the site's content, so edit the content, not a Word
 
 - Org, roles, dates, education and links come from `profile.yaml`. The longer resume wording (summary, bullets, skills, projects, coursework) is in its `resume:` block, which the site does not show. In the summary and bullets, `**bold**` and `[label](url)` become bold text and links in the PDF (the site shows them as plain text).
 - `pnpm resume` writes the public PDF to `public/resume.pdf`, with no phone number. It needs LibreOffice (`soffice`) and fails if the resume runs past one page. Scratch files and a PNG preview go to `.resume-build/` (git-ignored).
-- `RESUME_PHONE="..." pnpm resume:private` also writes a copy with the phone number to `../rsm/resume-latest.docx` and `.pdf`, outside this repo. The phone number is never stored in the repo.
+- `RESUME_PHONE="..." pnpm resume:private` also writes a copy with the phone number to `private/resume/resume-latest.docx` and `.pdf`. `private/` is git-ignored, so the phone number never reaches the repo.
 - Commit the new `public/resume.pdf`. CI does not run the resume build.
 
 ## Publish

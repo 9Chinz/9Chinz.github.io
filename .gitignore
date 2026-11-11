@@ -26,3 +26,7 @@ pnpm-debug.log*
 
 # resume generator scratch (docx, pdf, previews)
 .resume-build/
+
+# private working files: resume drafts, grill rounds, LinkedIn drafts, phone-number resume. Never published.
+private/
+CLAUDE.local.md
