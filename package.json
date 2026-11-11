@@ -12,7 +12,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "resume": "node scripts/build-resume.mjs",
-    "resume:private": "node scripts/build-resume.mjs --private"
+    "resume:private": "node scripts/build-resume.mjs --private",
+    "brand": "node scripts/build-brand.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "0.4.7",

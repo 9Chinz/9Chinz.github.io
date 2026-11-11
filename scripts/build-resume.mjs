@@ -25,9 +25,10 @@ if (wantPrivate && !phone) throw new Error('resume:private needs RESUME_PHONE=".
 
 // ---- docx helpers (same look as the old generator, kept in private/scripts/build-resume.cjs) ----
 const FONT = "Calibri";
-const LINK = "1F4E79";
+const BLUEPRINT = "1E34B4"; // the brand colour (DESIGN.md): name, section heads and rules, links
+const LINK = BLUEPRINT;
 const RIGHT = 10440;
-const run = (text, o = {}) => new TextRun({ text, font: FONT, size: o.size ?? 20, bold: o.bold ?? false });
+const run = (text, o = {}) => new TextRun({ text, font: FONT, size: o.size ?? 20, bold: o.bold ?? false, color: o.color });
 const link = (text, url, o = {}) =>
   new ExternalHyperlink({ link: url, children: [new TextRun({ text, font: FONT, size: o.size ?? 20, bold: o.bold ?? false, color: LINK })] });
 
@@ -47,9 +48,9 @@ function rich(s) {
 
 const section = (title) =>
   new Paragraph({
-    border: { bottom: { style: BorderStyle.SINGLE, size: 8, color: "000000", space: 2 } },
+    border: { bottom: { style: BorderStyle.SINGLE, size: 8, color: BLUEPRINT, space: 2 } },
     spacing: { before: 110, after: 40 },
-    children: [run(title, { bold: true, size: 21 })],
+    children: [run(title, { bold: true, size: 21, color: BLUEPRINT })],
   });
 const twoCol = (left, right, before, after = 0) =>
   new Paragraph({ tabStops: [{ type: TabStopType.RIGHT, position: RIGHT }], spacing: { before, after }, children: [run(left, { bold: true }), run(`\t${right}`)] });
@@ -94,11 +95,11 @@ const projects = r.projects.map(
 
 const ed = profile.education;
 const children = [
-  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 40 }, children: [run(profile.name, { bold: true, size: 36 })] }),
+  new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 40 }, children: [run(profile.name, { bold: true, size: 36, color: BLUEPRINT })] }),
   new Paragraph({
     alignment: AlignmentType.CENTER,
     spacing: { after: 0 },
-    border: { bottom: { style: BorderStyle.SINGLE, size: 8, color: "000000", space: 4 } },
+    border: { bottom: { style: BorderStyle.SINGLE, size: 8, color: BLUEPRINT, space: 4 } },
     children: contact,
   }),
   section("Summary"),

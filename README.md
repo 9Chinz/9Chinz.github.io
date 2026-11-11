@@ -25,7 +25,7 @@ Search (⌘K, then type) only works after `pnpm build`; in `pnpm dev` the index 
 | Posts | `src/content/posts/<slug>.md` |
 | Resume | `resume:` block in `src/content/profile.yaml`; built into `public/resume.pdf` (see Update the resume) |
 | Images (photo, link-preview images) | `public/images/` |
-| Share image for the whole site | `public/images/og-site.png` |
+| Share image for the whole site | `public/images/og-site.png`, drawn from `scripts/og-site.html` (see Update the brand images) |
 
 The fields are checked when the site builds. A misspelt field name, a date in the wrong shape or a missing required field stops the build with a message naming the file and the field, so a mistake never reaches the live site.
 
@@ -106,6 +106,16 @@ The resume is generated from the site's content, so edit the content, not a Word
 - `pnpm resume` writes the public PDF to `public/resume.pdf`, with no phone number. It needs LibreOffice (`soffice`) and fails if the resume runs past one page. Scratch files and a PNG preview go to `.resume-build/` (git-ignored).
 - `RESUME_PHONE="..." pnpm resume:private` also writes a copy with the phone number to `private/resume/resume-latest.docx` and `.pdf`. `private/` is git-ignored, so the phone number never reaches the repo.
 - Commit the new `public/resume.pdf`. CI does not run the resume build.
+
+## Update the brand images
+
+The share card and the LinkedIn banner are HTML pages in `scripts/`, drawn in the brand colour (blueprint ultramarine `#1E34B4`, see DESIGN.md) with the site's fonts.
+
+- `pnpm brand` renders them with headless Chrome (set `CHROME_PATH` if Chrome is not in `/Applications`):
+  - `scripts/og-site.html` becomes `public/images/og-site.png` (1200x630), the share image for every page without its own.
+  - `scripts/linkedin-banner.html` becomes `private/brand/linkedin-banner.png` (1584x396, git-ignored), uploaded to LinkedIn by hand.
+- The figures on them (47 races, 500k+) are the same as the home sketch. Change both together.
+- Commit the new `og-site.png`. CI does not run this build.
 
 ## Publish
 
