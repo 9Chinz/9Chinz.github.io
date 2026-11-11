@@ -10,6 +10,7 @@ export type Part = {
   ref: string; // drawing reference, e.g. "A"
   label: string;
   sub?: string;
+  own?: boolean; // the part Chin built; the drawing opens on it
   note?: string;
   confirm?: string; // what Chin still has to confirm about this part
   draft: boolean;
@@ -45,7 +46,8 @@ const Lead = ({ draft, label, dir }: { draft: boolean; label?: string; dir: "rig
 );
 
 export default function Drawing({ parts, links, title }: Props) {
-  const [active, setActive] = useState(parts.find((p) => !p.draft)?.id ?? parts[0].id);
+  // Open on the part Chin built, else the first part on the record.
+  const [active, setActive] = useState((parts.find((p) => p.own && !p.draft) ?? parts.find((p) => !p.draft) ?? parts[0]).id);
   const hasDraft = parts.some((p) => p.draft);
   // The island hydrates when it scrolls into view; a part that took keyboard focus before then gets its note.
   useEffect(() => {

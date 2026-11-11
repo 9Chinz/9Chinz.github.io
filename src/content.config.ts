@@ -65,6 +65,8 @@ const part = z.strictObject({
   ref: z.string().regex(/^[A-Z]$/, "A drawing reference is one capital letter"),
   label: text,
   sub: text.optional(),
+  // The part Chin built. The drawing opens with its note showing.
+  own: z.boolean().optional(),
   draft: z.boolean(),
   chips: z.array(text).optional(),
   note: text.optional(),

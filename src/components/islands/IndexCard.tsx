@@ -62,7 +62,7 @@ export default function IndexCard(props: Props) {
         onFocus={() => void loadPanel()}
         onClick={() => setOpen(true)}
       >
-        <span className="wide">Index</span>
+        <span className="wide">Search</span>
         <span className="narrow">Menu</span>
         <kbd className="kbd wide">{mac ? "⌘K" : "Ctrl K"}</kbd>
       </button>

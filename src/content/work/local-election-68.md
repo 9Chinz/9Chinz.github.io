@@ -28,6 +28,7 @@ caseStudy:
   # The technical drawing, shown after the section named in `after`.
   # draft: false is drawn in pen (on the record); draft: true in dashed pencil (Chin to confirm).
   # `note` is what the note panel says for a part; `confirm` adds a "Chin to confirm" open item.
+  # `own: true` marks the part Chin built; the drawing opens with its note showing.
   drawing:
     after: Architecture
     parts:
@@ -41,6 +42,7 @@ caseStudy:
         ref: B
         label: Results worker
         sub: Built by Chin
+        own: true
         draft: false
         chips:
           - cron

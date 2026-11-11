@@ -1,350 +1,453 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-10T21:14:26+00:00",
+  "generatedAt": "2026-11-11T15:33:54+00:00",
   "title": "Design System: Chinnapat Limprathan, portfolio",
   "extensions": {
     "colorMeta": {
       "engineering-pad": {
         "role": "neutral",
         "displayName": "Engineering Pad",
-        "canonical": "#F1F4EE",
-        "oklch": "oklch(96.3% 0.009 129)",
+        "canonical": "oklch(96.3% 0.009 128.6)",
         "tonalRamp": [
           "#0B0B0A",
-          "#242623",
-          "#41433F",
-          "#60625D",
-          "#81837E",
-          "#A4A6A1",
-          "#C8CAC6",
-          "#EDEFEC"
+          "#232422",
+          "#3F403D",
+          "#5C5E5A",
+          "#7F817C",
+          "#A3A5A1",
+          "#C9CBC8",
+          "#EEEFED"
         ]
       },
       "pad-shade": {
         "role": "neutral",
         "displayName": "Pad Shade",
-        "canonical": "#E6ECE2",
-        "oklch": "oklch(93.6% 0.015 132)",
+        "canonical": "oklch(93.6% 0.015 132.5)",
         "tonalRamp": [
           "#0A0C09",
-          "#232621",
-          "#40433D",
-          "#5E635B",
-          "#7F847C",
-          "#A2A79F",
-          "#C7CAC4",
+          "#222521",
+          "#3E413B",
+          "#5B5F58",
+          "#7D827A",
+          "#A2A69F",
+          "#C8CCC6",
           "#EDEFEB"
         ]
       },
       "clipped-card": {
         "role": "neutral",
         "displayName": "Clipped Card",
-        "canonical": "#FAFBF8",
-        "oklch": "oklch(98.6% 0.004 122)",
+        "canonical": "oklch(98.6% 0.004 121.6)",
         "tonalRamp": [
-          "#0B0B0A",
-          "#252524",
-          "#424240",
-          "#61615F",
-          "#828380",
-          "#A5A5A3",
-          "#C9C9C7",
-          "#EEEFED"
+          "#0B0B0B",
+          "#242423",
+          "#3F403E",
+          "#5D5E5C",
+          "#80807E",
+          "#A4A5A3",
+          "#CACBC9",
+          "#EEEEED"
         ]
       },
       "green-black-ink": {
         "role": "neutral",
         "displayName": "Green-Black Ink",
-        "canonical": "#18201B",
-        "oklch": "oklch(23.4% 0.015 158)",
+        "canonical": "oklch(23.4% 0.015 157.6)",
         "tonalRamp": [
           "#090C0A",
-          "#212723",
-          "#3D4440",
-          "#5B645E",
-          "#7C857F",
+          "#212522",
+          "#3B423D",
+          "#58605B",
+          "#7A837D",
           "#9FA7A2",
-          "#C4CBC7",
-          "#EBF0EC"
+          "#C6CCC8",
+          "#EBF0ED"
         ]
       },
       "ink-soft": {
         "role": "neutral",
         "displayName": "Ink Soft",
-        "canonical": "#36423A",
-        "oklch": "oklch(36.6% 0.021 156)",
+        "canonical": "oklch(36.6% 0.021 156.1)",
         "tonalRamp": [
-          "#080C09",
-          "#202722",
-          "#3B453E",
-          "#59655D",
-          "#7A867E",
+          "#090C0A",
+          "#202622",
+          "#3A423C",
+          "#566159",
+          "#77847B",
           "#9DA8A1",
-          "#C3CCC6",
-          "#E9F1EC"
+          "#C5CDC7",
+          "#EAF0EC"
         ]
       },
       "margin-grey": {
         "role": "neutral",
         "displayName": "Margin Grey",
-        "canonical": "#59665E",
-        "oklch": "oklch(49.7% 0.020 159)",
+        "canonical": "oklch(49.7% 0.020 158.6)",
         "tonalRamp": [
-          "#080C0A",
-          "#202723",
-          "#3B453F",
-          "#59655D",
-          "#79867E",
+          "#090C0A",
+          "#202622",
+          "#3A423D",
+          "#55615A",
+          "#77847C",
           "#9DA8A1",
-          "#C3CCC6",
-          "#E9F1EC"
+          "#C5CDC8",
+          "#EAF0EC"
         ]
       },
       "ruled-line": {
         "role": "neutral",
         "displayName": "Ruled Line",
-        "canonical": "#CBD6C8",
-        "oklch": "oklch(86.4% 0.022 139)",
+        "canonical": "oklch(86.4% 0.022 139.0)",
         "tonalRamp": [
-          "#090C08",
-          "#222720",
-          "#3D443B",
-          "#5B6459",
-          "#7C867A",
-          "#A0A89D",
-          "#C5CBC3",
-          "#EBF0E9"
+          "#090C09",
+          "#212620",
+          "#3B423A",
+          "#586156",
+          "#7A8378",
+          "#9FA79D",
+          "#C7CDC5",
+          "#ECF0EA"
+        ]
+      },
+      "control-edge": {
+        "role": "neutral",
+        "displayName": "Control Edge",
+        "canonical": "oklch(67.6% 0.022 149.9)",
+        "tonalRamp": [
+          "#090C09",
+          "#202621",
+          "#3A423B",
+          "#566158",
+          "#78847A",
+          "#9EA89F",
+          "#C5CDC6",
+          "#EBF0EC"
         ]
       },
       "graph-grid": {
         "role": "neutral",
         "displayName": "Graph Grid",
-        "canonical": "#DFE7DB",
-        "oklch": "oklch(91.9% 0.018 135)",
+        "canonical": "oklch(91.9% 0.018 134.9)",
         "tonalRamp": [
-          "#0A0C08",
-          "#232621",
-          "#3F443C",
-          "#5D635A",
-          "#7E857B",
+          "#0A0C09",
+          "#222520",
+          "#3D413A",
+          "#5A6057",
+          "#7C8379",
           "#A1A79E",
-          "#C6CBC3",
-          "#ECF0EA"
+          "#C8CCC6",
+          "#ECEFEB"
         ]
       },
       "technical-pen-blue": {
         "role": "primary",
         "displayName": "Technical Pen Blue",
-        "canonical": "#2440C4",
-        "oklch": "oklch(44.7% 0.206 267)",
+        "canonical": "oklch(40.8% 0.201 267.5)",
         "tonalRamp": [
-          "#020035",
-          "#0B1863",
-          "#1D3596",
-          "#3253CC",
-          "#5077F3",
-          "#789FFF",
-          "#A3C6FF",
-          "#D0EDFF"
+          "#02052A",
+          "#0E1C58",
+          "#1F358B",
+          "#3251C1",
+          "#5075ED",
+          "#7C9FFF",
+          "#ABC8FF",
+          "#D8EEFF"
         ]
       },
       "pen-wash": {
         "role": "primary",
         "displayName": "Pen Wash",
-        "canonical": "#E3E8F6",
-        "oklch": "oklch(93.1% 0.020 270)",
+        "canonical": "oklch(92.3% 0.025 273.5)",
         "tonalRamp": [
           "#0A0B0F",
-          "#23252B",
-          "#3F424A",
-          "#5D616C",
-          "#7E828E",
-          "#A1A5AF",
-          "#C6C9D2",
+          "#22242B",
+          "#3C3F4A",
+          "#595D6B",
+          "#7B808E",
+          "#A1A4B0",
+          "#C7CAD4",
           "#ECEEF5"
         ]
       },
+      "blueprint": {
+        "role": "primary",
+        "displayName": "Blueprint",
+        "canonical": "oklch(40.8% 0.201 267.5)",
+        "tonalRamp": [
+          "#02052A",
+          "#0E1C58",
+          "#1F358B",
+          "#3251C1",
+          "#5075ED",
+          "#7C9FFF",
+          "#ABC8FF",
+          "#D8EEFF"
+        ]
+      },
+      "blueprint-ink": {
+        "role": "primary",
+        "displayName": "Blueprint Ink",
+        "canonical": "oklch(98.0% 0.010 273.4)",
+        "tonalRamp": [
+          "#0B0B0D",
+          "#232427",
+          "#3E4043",
+          "#5C5D63",
+          "#7E8086",
+          "#A3A4A9",
+          "#C9CACE",
+          "#EDEEF1"
+        ]
+      },
+      "blueprint-soft": {
+        "role": "primary",
+        "displayName": "Blueprint Soft",
+        "canonical": "oklch(87.2% 0.063 276.1)",
+        "tonalRamp": [
+          "#080A15",
+          "#1F2335",
+          "#393E58",
+          "#555B7E",
+          "#767EA3",
+          "#9CA3C2",
+          "#C4C9E2",
+          "#EAEEFF"
+        ]
+      },
+      "blueprint-own": {
+        "role": "primary",
+        "displayName": "Blueprint Own",
+        "canonical": "oklch(45.7% 0.204 268.6)",
+        "tonalRamp": [
+          "#03052B",
+          "#0F1B59",
+          "#21348C",
+          "#354FC2",
+          "#5374EF",
+          "#7E9FFF",
+          "#ACC8FF",
+          "#D9EDFF"
+        ]
+      },
       "pencil-graphite": {
-        "role": "neutral",
+        "role": "tertiary",
         "displayName": "Pencil Graphite",
-        "canonical": "#66706A",
-        "oklch": "oklch(53.5% 0.015 160)",
+        "canonical": "oklch(53.5% 0.015 159.6)",
         "tonalRamp": [
           "#090C0A",
-          "#212723",
-          "#3D4440",
-          "#5B645E",
-          "#7B857F",
+          "#212523",
+          "#3B423E",
+          "#57605B",
+          "#79837D",
           "#9FA7A2",
-          "#C4CBC7",
-          "#EAF0ED"
+          "#C6CCC8",
+          "#EBF0ED"
         ]
       },
       "engineering-pad-dark": {
         "role": "neutral",
         "displayName": "Engineering Pad (night)",
-        "canonical": "#111512",
-        "oklch": "oklch(19.0% 0.009 153)",
+        "canonical": "oklch(19.0% 0.009 153.1)",
         "tonalRamp": [
           "#0A0C0A",
-          "#232624",
-          "#3F4340",
-          "#5E635F",
-          "#7F8480",
+          "#222523",
+          "#3D413E",
+          "#5A5F5B",
+          "#7D827E",
           "#A2A6A3",
-          "#C6CAC7",
-          "#ECEFED"
+          "#C8CBC9",
+          "#EDEFED"
         ]
       },
       "pad-shade-dark": {
         "role": "neutral",
         "displayName": "Pad Shade (night)",
-        "canonical": "#1A201C",
-        "oklch": "oklch(23.6% 0.012 156)",
+        "canonical": "oklch(23.6% 0.012 156.2)",
         "tonalRamp": [
-          "#090C0A",
-          "#222624",
-          "#3E4340",
-          "#5D635F",
-          "#7D8480",
-          "#A1A7A3",
-          "#C5CBC7",
-          "#ECF0ED"
+          "#0A0C0A",
+          "#222523",
+          "#3C413E",
+          "#595F5B",
+          "#7B827D",
+          "#A0A6A2",
+          "#C7CCC9",
+          "#ECEFED"
         ]
       },
       "clipped-card-dark": {
         "role": "neutral",
         "displayName": "Clipped Card (night)",
-        "canonical": "#1C231E",
-        "oklch": "oklch(24.7% 0.014 154)",
+        "canonical": "oklch(24.7% 0.014 154.2)",
         "tonalRamp": [
-          "#090C0A",
-          "#222623",
-          "#3E443F",
-          "#5C635E",
-          "#7D857F",
-          "#A0A7A2",
-          "#C5CBC6",
-          "#EBF0EC"
+          "#0A0C0A",
+          "#212522",
+          "#3C413D",
+          "#58605A",
+          "#7B837D",
+          "#A0A6A2",
+          "#C7CCC8",
+          "#ECEFED"
         ]
       },
       "green-black-ink-dark": {
         "role": "neutral",
         "displayName": "Green-Black Ink (night)",
-        "canonical": "#E4EAE3",
-        "oklch": "oklch(93.1% 0.011 141)",
+        "canonical": "oklch(93.1% 0.011 141.3)",
         "tonalRamp": [
           "#0A0C0A",
-          "#232623",
-          "#3F433F",
-          "#5E635D",
-          "#7F847E",
+          "#222522",
+          "#3D413D",
+          "#5B5F5A",
+          "#7D827C",
           "#A2A6A1",
-          "#C7CAC6",
-          "#ECEFEC"
+          "#C8CBC8",
+          "#EDEFEC"
         ]
       },
       "ink-soft-dark": {
         "role": "neutral",
         "displayName": "Ink Soft (night)",
-        "canonical": "#C2CCC3",
-        "oklch": "oklch(83.5% 0.016 148)",
+        "canonical": "oklch(83.5% 0.016 148.4)",
         "tonalRamp": [
-          "#090C09",
-          "#222722",
-          "#3E443E",
-          "#5C645C",
-          "#7C857D",
-          "#A0A7A1",
-          "#C5CBC5",
-          "#EBF0EB"
+          "#090C0A",
+          "#212522",
+          "#3C423C",
+          "#586059",
+          "#7A837B",
+          "#A0A7A0",
+          "#C7CCC7",
+          "#ECF0EC"
         ]
       },
       "margin-grey-dark": {
         "role": "neutral",
         "displayName": "Margin Grey (night)",
-        "canonical": "#8F9B92",
-        "oklch": "oklch(67.7% 0.019 153)",
+        "canonical": "oklch(67.7% 0.019 153.4)",
         "tonalRamp": [
-          "#080C09",
-          "#212722",
-          "#3C443E",
-          "#5A645D",
-          "#7B867D",
-          "#9EA8A1",
-          "#C4CBC5",
-          "#EAF0EC"
+          "#090C0A",
+          "#202622",
+          "#3A423C",
+          "#576159",
+          "#79837B",
+          "#9EA7A1",
+          "#C6CDC7",
+          "#EBF0EC"
         ]
       },
       "ruled-line-dark": {
         "role": "neutral",
         "displayName": "Ruled Line (night)",
-        "canonical": "#2C352F",
-        "oklch": "oklch(31.8% 0.016 156)",
+        "canonical": "oklch(31.8% 0.016 156.2)",
         "tonalRamp": [
           "#090C0A",
-          "#212723",
-          "#3D443F",
-          "#5B645E",
-          "#7B857F",
-          "#9FA7A2",
-          "#C4CBC6",
-          "#EAF0EC"
+          "#212522",
+          "#3B423D",
+          "#57605A",
+          "#79837C",
+          "#9FA7A1",
+          "#C6CCC8",
+          "#EBF0ED"
         ]
       },
       "technical-pen-blue-dark": {
         "role": "primary",
         "displayName": "Technical Pen Blue (night)",
-        "canonical": "#9AACFF",
-        "oklch": "oklch(76.3% 0.121 274)",
+        "canonical": "oklch(76.3% 0.121 273.9)",
         "tonalRamp": [
-          "#050723",
-          "#1A204A",
-          "#333C74",
-          "#4E5AA0",
-          "#6D7CC5",
-          "#92A1E1",
-          "#B9C6FC",
-          "#E1EDFF"
+          "#06091E",
+          "#1A2044",
+          "#323B6D",
+          "#4B579A",
+          "#6C7AC3",
+          "#93A1DD",
+          "#BCC8F7",
+          "#E4EDFF"
         ]
       },
       "pen-wash-dark": {
         "role": "primary",
         "displayName": "Pen Wash (night)",
-        "canonical": "#1F2640",
-        "oklch": "oklch(27.5% 0.049 271)",
+        "canonical": "oklch(27.5% 0.049 271.4)",
         "tonalRamp": [
-          "#080A15",
-          "#1F2435",
-          "#3A4157",
-          "#58607C",
-          "#78819E",
-          "#9CA4BE",
-          "#C1C9DE",
-          "#E8EEFF"
+          "#080B13",
+          "#1F2331",
+          "#393F53",
+          "#545D77",
+          "#767F9C",
+          "#9CA4BC",
+          "#C4CADD",
+          "#EAEEFB"
         ]
       },
       "pencil-graphite-dark": {
-        "role": "neutral",
+        "role": "tertiary",
         "displayName": "Pencil Graphite (night)",
-        "canonical": "#9AA59D",
-        "oklch": "oklch(71.1% 0.017 154)",
+        "canonical": "oklch(71.1% 0.017 154.3)",
         "tonalRamp": [
           "#090C0A",
-          "#212723",
-          "#3D443F",
-          "#5B645D",
-          "#7B857E",
-          "#9FA8A1",
-          "#C4CBC6",
-          "#EAF0EC"
+          "#212522",
+          "#3B423D",
+          "#57605A",
+          "#79837C",
+          "#9FA7A1",
+          "#C6CCC8",
+          "#EBF0EC"
+        ]
+      },
+      "blueprint-dark": {
+        "role": "primary",
+        "displayName": "Blueprint (night)",
+        "canonical": "oklch(44.3% 0.200 268.8)",
+        "tonalRamp": [
+          "#03052A",
+          "#101B58",
+          "#22358A",
+          "#3650C0",
+          "#5475ED",
+          "#7F9FFF",
+          "#ADC8FF",
+          "#D9EDFF"
+        ]
+      },
+      "blueprint-soft-dark": {
+        "role": "primary",
+        "displayName": "Blueprint Soft (night)",
+        "canonical": "oklch(88.1% 0.059 276.7)",
+        "tonalRamp": [
+          "#090A14",
+          "#202334",
+          "#3A3E56",
+          "#565B7B",
+          "#777EA1",
+          "#9DA3C0",
+          "#C5C9E0",
+          "#EAEEFE"
+        ]
+      },
+      "blueprint-own-dark": {
+        "role": "primary",
+        "displayName": "Blueprint Own (night)",
+        "canonical": "oklch(47.0% 0.201 269.5)",
+        "tonalRamp": [
+          "#03052A",
+          "#111B58",
+          "#23348B",
+          "#384FC1",
+          "#5574ED",
+          "#809EFF",
+          "#AEC7FF",
+          "#DAEDFF"
         ]
       }
     },
     "typographyMeta": {
+      "hero": {
+        "displayName": "Hero",
+        "purpose": "The home headline only, about 15ch wide, the loudest type on the site."
+      },
       "display": {
         "displayName": "Display",
-        "purpose": "Hero headline and Case Study / Post titles."
+        "purpose": "Page titles of Case Studies and Posts."
       },
       "headline": {
         "displayName": "Headline",
@@ -352,11 +455,11 @@
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Home and Case Study section heads; small on purpose."
+        "purpose": "Case Study section heads."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "All reading text on the 640px measure."
+        "purpose": "All reading text, set on the 640px measure."
       },
       "body-small": {
         "displayName": "Body small",
@@ -364,23 +467,23 @@
       },
       "margin-date": {
         "displayName": "Margin date",
-        "purpose": "ISO dates and section numbers in the margin."
+        "purpose": "ISO dates (`2025-02`) right-aligned in the margin; Case Study section numbers `01`–`06`."
       },
       "figure": {
         "displayName": "Figure",
-        "purpose": "Real numbers drawn in sketches."
+        "purpose": "Real numbers drawn in sketches (500k+, 47)."
       }
     },
     "shadows": [
       {
         "name": "clipped-on",
         "value": "0 1px 0 rgb(24 32 27 / 0.06), 0 14px 32px -12px rgb(24 32 27 / 0.28)",
-        "purpose": "Index card and photo print only (light)."
+        "purpose": "The index card, the photo print and on-site prints only (light)."
       },
       {
         "name": "clipped-on-dark",
         "value": "0 1px 0 rgb(0 0 0 / 0.3), 0 16px 36px -12px rgb(0 0 0 / 0.7)",
-        "purpose": "Index card and photo print only (night)."
+        "purpose": "The index card, the photo print and on-site prints only (night)."
       }
     ],
     "motion": [
@@ -435,33 +538,31 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "The one filled action per screen, e.g. Resume (PDF).",
+      "description": "The one filled action per screen, in the brand blueprint: Resume (PDF) on home, Copy email at a Case Study's end.",
       "html": "<a class=\"ds-btn-primary\" href=\"#\">Resume (PDF)</a>",
-      "css": ":host{--color-paper:#F1F4EE;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-grid:#DFE7DB;--color-accent:#2440C4;--color-pen-wash:#E3E8F6;--color-pencil:#66706A;--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;border-radius:6px;font:500 0.9rem/1 var(--font-body);text-decoration:none;cursor:pointer;transition:transform 140ms cubic-bezier(0.23,1,0.32,1);background:var(--color-accent);color:var(--color-paper);border:1px solid var(--color-accent)} .ds-btn-primary:active{transform:scale(0.97)} .ds-btn-primary:focus-visible{outline:2px solid var(--color-ink);outline-offset:3px}"
+      "css": ":host{--color-paper:#F1F4EE;--color-paper-2:#E6ECE2;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-edge:#8E9B90;--color-grid:#DFE7DB;--color-accent:#1E34B4;--color-pen-wash:#E0E5F7;--color-pencil:#66706A;--color-blueprint:#1E34B4;--color-blueprint-ink:#F6F8FF;--color-blueprint-soft:#C9D2FF;--color-blueprint-own:#2C43C6;--color-blueprint-line:rgb(255 255 255 / 0.14);--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;border-radius:6px;font:500 0.9rem/1 var(--font-body);text-decoration:none;cursor:pointer;transition:transform 140ms cubic-bezier(0.23,1,0.32,1);background:var(--color-blueprint);color:var(--color-blueprint-ink);border:1px solid var(--color-blueprint)} .ds-btn-primary:active{transform:scale(0.97)} .ds-btn-primary:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px}"
     },
     {
       "name": "Outline Button",
       "kind": "button",
       "refersTo": "button-outline",
-      "description": "Every secondary action: GitHub, Copy email.",
+      "description": "Every secondary action (GitHub, LinkedIn, Copy email), edged in Control Edge so the button reads as a button.",
       "html": "<button class=\"ds-btn-outline\" type=\"button\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 16 16\" fill=\"none\" aria-hidden=\"true\"><rect x=\"5.5\" y=\"5.5\" width=\"8\" height=\"8\" rx=\"1.5\" stroke=\"currentColor\" stroke-width=\"1.3\"/><path d=\"M10.5 3.5v-.5A1.5 1.5 0 0 0 9 1.5H4A1.5 1.5 0 0 0 2.5 3v5A1.5 1.5 0 0 0 4 9.5h.5\" stroke=\"currentColor\" stroke-width=\"1.3\"/></svg>Copy email</button>",
-      "css": ":host{--color-paper:#F1F4EE;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-grid:#DFE7DB;--color-accent:#2440C4;--color-pen-wash:#E3E8F6;--color-pencil:#66706A;--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-btn-outline{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;border-radius:6px;font:500 0.9rem/1 var(--font-body);text-decoration:none;cursor:pointer;transition:transform 140ms cubic-bezier(0.23,1,0.32,1);background:transparent;color:var(--color-ink);border:1px solid var(--color-rule)} .ds-btn-outline:hover{border-color:var(--color-muted)} .ds-btn-outline:active{transform:scale(0.97)} .ds-btn-outline:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;}"
+      "css": ":host{--color-paper:#F1F4EE;--color-paper-2:#E6ECE2;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-edge:#8E9B90;--color-grid:#DFE7DB;--color-accent:#1E34B4;--color-pen-wash:#E0E5F7;--color-pencil:#66706A;--color-blueprint:#1E34B4;--color-blueprint-ink:#F6F8FF;--color-blueprint-soft:#C9D2FF;--color-blueprint-own:#2C43C6;--color-blueprint-line:rgb(255 255 255 / 0.14);--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-btn-outline{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 16px;border-radius:6px;font:500 0.9rem/1 var(--font-body);text-decoration:none;cursor:pointer;transition:transform 140ms cubic-bezier(0.23,1,0.32,1);background:transparent;color:var(--color-ink);border:1px solid var(--color-edge)} .ds-btn-outline:hover{border-color:var(--color-ink-2)} .ds-btn-outline:active{transform:scale(0.97)} .ds-btn-outline:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px}"
     },
     {
       "name": "Top Navigation",
       "kind": "nav",
-      "refersTo": null,
-      "description": "Wordmark, three section links, the Index trigger and theme toggle.",
-      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-mark\" href=\"#\">Chinnapat Limprathan</a><span class=\"ds-nav-links\"><a href=\"#\">Work</a><a href=\"#\">Writing</a><a href=\"#\">Contact</a><button class=\"ds-nav-ix\" type=\"button\">Index <kbd>⌘K</kbd></button></span></nav>",
-      "css": ":host{--color-paper:#F1F4EE;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-grid:#DFE7DB;--color-accent:#2440C4;--color-pen-wash:#E3E8F6;--color-pencil:#66706A;--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:var(--font-body);background:var(--color-paper);padding:8px 16px} .ds-nav-mark{color:var(--color-ink);font-weight:600;text-decoration:none;min-height:44px;display:inline-flex;align-items:center} .ds-nav-links{display:flex;align-items:center;gap:4px} .ds-nav-links a,.ds-nav-ix{color:var(--color-ink-2);font-size:0.9rem;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 8px;background:none;border:0;font-family:inherit;cursor:pointer;border-radius:6px} .ds-nav-links a:hover,.ds-nav-ix:hover{color:var(--color-ink)} .ds-nav-links a:focus-visible,.ds-nav-ix:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;} .ds-nav-ix kbd{font:0.75rem/1 var(--font-body);color:var(--color-muted);border:1px solid var(--color-rule);border-bottom-width:2px;border-radius:3px;padding:3px 4px;background:var(--color-card)}"
+      "description": "Wordmark, section links, the Search trigger (it opens the index card) and the theme toggle. Under 40rem the trigger reads Menu.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-mark\" href=\"#\">Chinnapat Limprathan</a><span class=\"ds-nav-links\"><a href=\"#\">Work</a><a href=\"#\">Writing</a><a href=\"#\">Contact</a><button class=\"ds-nav-ix\" type=\"button\">Search <kbd>⌘K</kbd></button></span></nav>",
+      "css": ":host{--color-paper:#F1F4EE;--color-paper-2:#E6ECE2;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-edge:#8E9B90;--color-grid:#DFE7DB;--color-accent:#1E34B4;--color-pen-wash:#E0E5F7;--color-pencil:#66706A;--color-blueprint:#1E34B4;--color-blueprint-ink:#F6F8FF;--color-blueprint-soft:#C9D2FF;--color-blueprint-own:#2C43C6;--color-blueprint-line:rgb(255 255 255 / 0.14);--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:var(--font-body);background:var(--color-paper);padding:8px 16px} .ds-nav-mark{color:var(--color-ink);font-weight:600;text-decoration:none;min-height:44px;display:inline-flex;align-items:center} .ds-nav-links{display:flex;align-items:center;gap:4px} .ds-nav-links a,.ds-nav-ix{color:var(--color-ink-2);font-size:0.9rem;text-decoration:none;min-height:44px;display:inline-flex;align-items:center;gap:8px;padding:0 8px;background:none;border:0;font-family:inherit;cursor:pointer;border-radius:6px} .ds-nav-links a:hover,.ds-nav-ix:hover{color:var(--color-ink)} .ds-nav-links a:focus-visible,.ds-nav-ix:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;} .ds-nav-ix kbd{font:0.75rem/1 var(--font-body);color:var(--color-muted);border:1px solid var(--color-rule);border-bottom-width:2px;border-radius:3px;padding:3px 4px;background:var(--color-card)}"
     },
     {
-      "name": "Log Entry",
+      "name": "Selected Work Group",
       "kind": "custom",
-      "refersTo": null,
-      "description": "A dated entry: ISO date in the margin, content on the measure.",
-      "html": "<div class=\"ds-entry\"><time class=\"ds-stamp\">2025-02</time><div><h3 class=\"ds-entry-t\"><a href=\"#\">Local Election 68 live results</a></h3><p class=\"ds-entry-m\">Thai PBS, sole backend developer</p><p class=\"ds-entry-d\">Real-time results for 47 provincial chief races, holding 500k+ concurrent requests on election night.</p></div></div>",
-      "css": ":host{--color-paper:#F1F4EE;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-grid:#DFE7DB;--color-accent:#2440C4;--color-pen-wash:#E3E8F6;--color-pencil:#66706A;--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-entry{display:grid;grid-template-columns:120px minmax(0,1fr);gap:24px;font-family:var(--font-body);background:var(--color-paper);padding:16px;max-width:640px} .ds-stamp{font:0.8125rem/1.5 var(--font-mono);color:var(--color-muted);text-align:right;padding-top:0.3em;font-variant-numeric:tabular-nums} .ds-entry-t{margin:0;font-size:1.0625rem;font-weight:600} .ds-entry-t a{color:var(--color-ink);text-decoration:underline;text-decoration-color:var(--color-rule);text-underline-offset:0.2em} .ds-entry-t a:hover{color:var(--color-accent);text-decoration-color:var(--color-accent)} .ds-entry-t a:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;} .ds-entry-m{margin:2px 0 0;color:var(--color-muted);font-size:0.9rem} .ds-entry-d{margin:8px 0 0;color:var(--color-ink-2);line-height:1.6}"
+      "description": "A Selected Work group: a quiet ruled head on the measure, then dated entries with the year in the margin.",
+      "html": "<div class=\"ds-wg\"><h3 class=\"ds-wg-h\">Election coverage</h3><div class=\"ds-entry\"><time class=\"ds-stamp\">2026</time><div><h4 class=\"ds-entry-t\">Election 69 national results</h4><p class=\"ds-entry-m\">Thai PBS, UI contributions</p><p class=\"ds-entry-d\">National results for Thailand's 2026 general election. I added the animated vote counters and fixed seat-summary filtering by region.</p></div></div></div>",
+      "css": ":host{--color-paper:#F1F4EE;--color-paper-2:#E6ECE2;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-edge:#8E9B90;--color-grid:#DFE7DB;--color-accent:#1E34B4;--color-pen-wash:#E0E5F7;--color-pencil:#66706A;--color-blueprint:#1E34B4;--color-blueprint-ink:#F6F8FF;--color-blueprint-soft:#C9D2FF;--color-blueprint-own:#2C43C6;--color-blueprint-line:rgb(255 255 255 / 0.14);--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-wg{font-family:var(--font-body);background:var(--color-paper);padding:16px;max-width:820px} .ds-wg-h{margin:0 0 40px 144px;padding-top:12px;border-top:1px solid var(--color-rule);font-size:1.0625rem;font-weight:600;line-height:1.4;color:var(--color-ink-2)} .ds-entry{display:grid;grid-template-columns:120px minmax(0,1fr);gap:24px} .ds-stamp{font:0.8125rem/1.5 var(--font-mono);color:var(--color-muted);text-align:right;padding-top:0.3em;font-variant-numeric:tabular-nums} .ds-entry-t{margin:0;font-size:1.0625rem;font-weight:600;color:var(--color-ink)} .ds-entry-m{margin:2px 0 0;color:var(--color-muted);font-size:0.9rem} .ds-entry-d{margin:8px 0 0;color:var(--color-ink-2);line-height:1.6}"
     },
     {
       "name": "Link Preview",
@@ -469,7 +570,7 @@
       "refersTo": "link-preview",
       "description": "A project's own og:image pasted in like a link in chat; on home, only the entry with a Case Study gets this large one.",
       "html": "<a class=\"ds-unfurl\" href=\"#\"><span class=\"ds-unfurl-img\" aria-hidden=\"true\"></span><span class=\"ds-unfurl-txt\"><span class=\"ds-unfurl-t\">Next Station BKK</span><span class=\"ds-unfurl-h\">thaipbs.or.th/bkkelection69/review</span></span></a>",
-      "css": ":host{--color-paper:#F1F4EE;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-grid:#DFE7DB;--color-accent:#2440C4;--color-pen-wash:#E3E8F6;--color-pencil:#66706A;--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-unfurl{display:grid;max-width:26rem;overflow:hidden;border:1px solid var(--color-rule);border-radius:6px;background:var(--color-card);color:var(--color-ink);text-decoration:none;font-family:var(--font-body);transition:border-color 150ms ease} .ds-unfurl-img{display:block;aspect-ratio:40/21;background:var(--color-grid);border-bottom:1px solid var(--color-rule)} .ds-unfurl-txt{display:grid;gap:2px;padding:8px 12px 12px} .ds-unfurl-t{font-size:0.9rem;font-weight:500} .ds-unfurl-h{font-size:0.8125rem;color:var(--color-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .ds-unfurl:hover{border-color:var(--color-accent)} .ds-unfurl:hover .ds-unfurl-t{color:var(--color-accent)} .ds-unfurl:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;} .ds-unfurl:active{transform:scale(0.99)}"
+      "css": ":host{--color-paper:#F1F4EE;--color-paper-2:#E6ECE2;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-edge:#8E9B90;--color-grid:#DFE7DB;--color-accent:#1E34B4;--color-pen-wash:#E0E5F7;--color-pencil:#66706A;--color-blueprint:#1E34B4;--color-blueprint-ink:#F6F8FF;--color-blueprint-soft:#C9D2FF;--color-blueprint-own:#2C43C6;--color-blueprint-line:rgb(255 255 255 / 0.14);--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-unfurl{display:grid;max-width:26rem;overflow:hidden;border:1px solid var(--color-rule);border-radius:6px;background:var(--color-card);color:var(--color-ink);text-decoration:none;font-family:var(--font-body);transition:border-color 150ms ease} .ds-unfurl-img{display:block;aspect-ratio:40/21;background:var(--color-grid);border-bottom:1px solid var(--color-rule)} .ds-unfurl-txt{display:grid;gap:2px;padding:8px 12px 12px} .ds-unfurl-t{font-size:0.9rem;font-weight:500} .ds-unfurl-h{font-size:0.8125rem;color:var(--color-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .ds-unfurl:hover{border-color:var(--color-accent)} .ds-unfurl:hover .ds-unfurl-t{color:var(--color-accent)} .ds-unfurl:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;} .ds-unfurl:active{transform:scale(0.99)}"
     },
     {
       "name": "Link Preview (compact)",
@@ -477,7 +578,7 @@
       "refersTo": "link-preview-compact",
       "description": "The same clipping with a 9rem thumbnail beside the title, for Selected Work entries without a Case Study.",
       "html": "<a class=\"ds-unfurl-c\" href=\"#\"><span class=\"ds-unfurl-c-img\" aria-hidden=\"true\"></span><span class=\"ds-unfurl-c-txt\"><span class=\"ds-unfurl-c-t\">Election 69 national results</span><span class=\"ds-unfurl-c-h\">thaipbs.or.th/election69/result/geo</span></span></a>",
-      "css": ":host{--color-paper:#F1F4EE;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-grid:#DFE7DB;--color-accent:#2440C4;--color-pen-wash:#E3E8F6;--color-pencil:#66706A;--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-unfurl-c{display:grid;grid-template-columns:9rem minmax(0,1fr);max-width:26rem;overflow:hidden;border:1px solid var(--color-rule);border-radius:6px;background:var(--color-card);color:var(--color-ink);text-decoration:none;font-family:var(--font-body);transition:border-color 150ms ease,transform 140ms cubic-bezier(0.23,1,0.32,1)} .ds-unfurl-c-img{display:block;aspect-ratio:40/21;background:var(--color-grid);border-right:1px solid var(--color-rule)} .ds-unfurl-c-txt{display:grid;align-content:center;gap:2px;padding:8px 12px;min-width:0} .ds-unfurl-c-t{font-size:0.9rem;font-weight:500} .ds-unfurl-c-h{font-size:0.8125rem;color:var(--color-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .ds-unfurl-c:hover{border-color:var(--color-accent)} .ds-unfurl-c:hover .ds-unfurl-c-t{color:var(--color-accent)} .ds-unfurl-c:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px} .ds-unfurl-c:active{transform:scale(0.99)}"
+      "css": ":host{--color-paper:#F1F4EE;--color-paper-2:#E6ECE2;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-edge:#8E9B90;--color-grid:#DFE7DB;--color-accent:#1E34B4;--color-pen-wash:#E0E5F7;--color-pencil:#66706A;--color-blueprint:#1E34B4;--color-blueprint-ink:#F6F8FF;--color-blueprint-soft:#C9D2FF;--color-blueprint-own:#2C43C6;--color-blueprint-line:rgb(255 255 255 / 0.14);--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-unfurl-c{display:grid;grid-template-columns:9rem minmax(0,1fr);max-width:26rem;overflow:hidden;border:1px solid var(--color-rule);border-radius:6px;background:var(--color-card);color:var(--color-ink);text-decoration:none;font-family:var(--font-body);transition:border-color 150ms ease,transform 140ms cubic-bezier(0.23,1,0.32,1)} .ds-unfurl-c-img{display:block;aspect-ratio:40/21;background:var(--color-grid);border-right:1px solid var(--color-rule)} .ds-unfurl-c-txt{display:grid;align-content:center;gap:2px;padding:8px 12px;min-width:0} .ds-unfurl-c-t{font-size:0.9rem;font-weight:500} .ds-unfurl-c-h{font-size:0.8125rem;color:var(--color-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .ds-unfurl-c:hover{border-color:var(--color-accent)} .ds-unfurl-c:hover .ds-unfurl-c-t{color:var(--color-accent)} .ds-unfurl-c:focus-visible{outline:2px solid var(--color-accent);outline-offset:3px} .ds-unfurl-c:active{transform:scale(0.99)}"
     },
     {
       "name": "Open Item",
@@ -485,40 +586,52 @@
       "refersTo": "open-item",
       "description": "A missing fact, shown as an unchecked entry for Chin to write or confirm.",
       "html": "<p class=\"ds-gap\"><span><strong>Chin to confirm:</strong> the rest of the stack.</span></p>",
-      "css": ":host{--color-paper:#F1F4EE;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-grid:#DFE7DB;--color-accent:#2440C4;--color-pen-wash:#E3E8F6;--color-pencil:#66706A;--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-gap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start;margin:0;padding:12px 16px;border:1px dashed var(--color-muted);border-radius:6px;color:var(--color-ink-2);font:0.9rem/1.5 var(--font-body);background:var(--color-paper);max-width:640px} .ds-gap::before{content:'';width:12px;height:12px;margin-top:0.38em;border:1.5px solid var(--color-muted);border-radius:2px} .ds-gap strong{font-weight:500;color:var(--color-ink)}"
+      "css": ":host{--color-paper:#F1F4EE;--color-paper-2:#E6ECE2;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-edge:#8E9B90;--color-grid:#DFE7DB;--color-accent:#1E34B4;--color-pen-wash:#E0E5F7;--color-pencil:#66706A;--color-blueprint:#1E34B4;--color-blueprint-ink:#F6F8FF;--color-blueprint-soft:#C9D2FF;--color-blueprint-own:#2C43C6;--color-blueprint-line:rgb(255 255 255 / 0.14);--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-gap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start;margin:0;padding:12px 16px;border:1px dashed var(--color-muted);border-radius:6px;color:var(--color-ink-2);font:0.9rem/1.5 var(--font-body);background:var(--color-paper);max-width:640px} .ds-gap::before{content:'';width:12px;height:12px;margin-top:0.38em;border:1.5px solid var(--color-muted);border-radius:2px} .ds-gap strong{font-weight:500;color:var(--color-ink)}"
     },
     {
-      "name": "Index Card (⌘K)",
+      "name": "Index Card (Search ⌘K)",
       "kind": "custom",
       "refersTo": "index-card",
-      "description": "The command palette, clipped onto the page like a ruled index card.",
-      "html": "<div class=\"ds-ix\" role=\"dialog\" aria-label=\"Index\"><div class=\"ds-ix-s\"><input placeholder=\"Find a section, page or action\" aria-label=\"Search\"></div><p class=\"ds-ix-g\">Go to</p><div class=\"ds-ix-o\" aria-selected=\"true\">Selected Work<span>Section</span></div><div class=\"ds-ix-o\">Experience<span>Section</span></div><div class=\"ds-ix-o\">Resume<span>PDF</span></div></div>",
-      "css": ":host{--color-paper:#F1F4EE;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-grid:#DFE7DB;--color-accent:#2440C4;--color-pen-wash:#E3E8F6;--color-pencil:#66706A;--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-ix{width:min(100%,560px);background:var(--color-card);border:1px solid var(--color-rule);border-radius:6px;box-shadow:var(--shadow-card);font-family:var(--font-body);overflow:hidden} .ds-ix-s{border-bottom:1.25px solid var(--color-accent);padding:0 16px} .ds-ix-s input{width:100%;min-height:56px;border:0;background:transparent;color:var(--color-ink);font:inherit;font-size:1.0625rem;outline:none} .ds-ix-g{margin:0;padding:8px 16px 4px;font-size:0.8125rem;color:var(--color-muted)} .ds-ix-o{display:flex;justify-content:space-between;align-items:center;min-height:44px;padding:0 16px;color:var(--color-ink-2);border-bottom:1px solid #E6ECE2;position:relative;cursor:pointer} .ds-ix-o span{font-size:0.8125rem;color:var(--color-muted)} .ds-ix-o[aria-selected=true]{background:var(--color-pen-wash);color:var(--color-ink)} .ds-ix-o[aria-selected=true]::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--color-accent)} .ds-ix-o:hover{color:var(--color-ink)}"
+      "description": "The command palette behind the Search trigger, clipped onto the page like a ruled index card.",
+      "html": "<div class=\"ds-ix\" role=\"dialog\" aria-label=\"Search\"><div class=\"ds-ix-s\"><input placeholder=\"Find a section, page or action\" aria-label=\"Search\"></div><p class=\"ds-ix-g\">Go to</p><div class=\"ds-ix-o\" aria-selected=\"true\">Selected Work<span>Section</span></div><div class=\"ds-ix-o\">Experience<span>Section</span></div><div class=\"ds-ix-o\">Resume<span>PDF</span></div></div>",
+      "css": ":host{--color-paper:#F1F4EE;--color-paper-2:#E6ECE2;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-edge:#8E9B90;--color-grid:#DFE7DB;--color-accent:#1E34B4;--color-pen-wash:#E0E5F7;--color-pencil:#66706A;--color-blueprint:#1E34B4;--color-blueprint-ink:#F6F8FF;--color-blueprint-soft:#C9D2FF;--color-blueprint-own:#2C43C6;--color-blueprint-line:rgb(255 255 255 / 0.14);--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-ix{width:min(100%,560px);background:var(--color-card);border:1px solid var(--color-rule);border-radius:6px;box-shadow:var(--shadow-card);font-family:var(--font-body);overflow:hidden} .ds-ix-s{border-bottom:1.25px solid var(--color-accent);padding:0 16px} .ds-ix-s input{width:100%;min-height:56px;border:0;background:transparent;color:var(--color-ink);font:inherit;font-size:1.0625rem;outline:none} .ds-ix-g{margin:0;padding:8px 16px 4px;font-size:0.8125rem;color:var(--color-muted)} .ds-ix-o{display:flex;justify-content:space-between;align-items:center;min-height:44px;padding:0 16px;color:var(--color-ink-2);border-bottom:1px solid var(--color-paper-2);position:relative;cursor:pointer} .ds-ix-o span{font-size:0.8125rem;color:var(--color-muted)} .ds-ix-o[aria-selected=true]{background:var(--color-pen-wash);color:var(--color-ink)} .ds-ix-o[aria-selected=true]::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--color-accent)} .ds-ix-o:hover{color:var(--color-ink)}"
     },
     {
-      "name": "Pen Sketch Node",
+      "name": "Pen Sketch",
       "kind": "custom",
       "refersTo": "sketch-node",
-      "description": "One node of the system sketch on graph paper; pen for facts, Pen Wash for the part Chin owns.",
-      "html": "<div class=\"ds-sk\"><div class=\"ds-sk-n\"><span class=\"ds-sk-k\">traffic</span><span class=\"ds-sk-v\">500k+</span><span class=\"ds-sk-d\">peak concurrent requests</span></div><div class=\"ds-sk-n ds-sk-own\"><span class=\"ds-sk-k\">backend</span><span class=\"ds-sk-v ds-sk-txt\">Built solo</span><span class=\"ds-sk-d\">TypeScript and Node.js</span></div></div>",
-      "css": ":host{--color-paper:#F1F4EE;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-grid:#DFE7DB;--color-accent:#2440C4;--color-pen-wash:#E3E8F6;--color-pencil:#66706A;--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-sk{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:16px;border-radius:3px;background-color:var(--color-paper);background-image:linear-gradient(var(--color-grid) 1px,transparent 1px),linear-gradient(90deg,var(--color-grid) 1px,transparent 1px);background-size:16px 16px;font-family:var(--font-body)} .ds-sk-n{display:grid;gap:2px;padding:12px;border:1.25px solid var(--color-accent);border-radius:3px;background:var(--color-paper)} .ds-sk-own{background:var(--color-pen-wash);box-shadow:inset 0 0 0 1.25px var(--color-accent)} .ds-sk-k{font:0.75rem/1.4 var(--font-mono);color:var(--color-accent)} .ds-sk-v{font:500 2rem/1.1 var(--font-mono);letter-spacing:-0.03em;color:var(--color-ink)} .ds-sk-txt{font:600 1.25rem/1.3 var(--font-body)} .ds-sk-d{font-size:0.8125rem;color:var(--color-ink-2)}"
+      "description": "The system as the first log entry: white-pen nodes on a blueprint sheet; the node Chin built gets the lighter Blueprint Own fill.",
+      "html": "<div class=\"ds-sk\"><div class=\"ds-sk-n ds-sk-own\"><span class=\"ds-sk-k\">results worker</span><span class=\"ds-sk-v ds-sk-txt\">Built by me</span><span class=\"ds-sk-d\">SeaTable to versioned JSON</span></div><span class=\"ds-sk-l\" aria-hidden=\"true\"></span><div class=\"ds-sk-n\"><span class=\"ds-sk-k\">S3 + CloudFront</span><span class=\"ds-sk-v\">47</span><span class=\"ds-sk-d\">races served as cached JSON</span></div></div>",
+      "css": ":host{--color-paper:#F1F4EE;--color-paper-2:#E6ECE2;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-edge:#8E9B90;--color-grid:#DFE7DB;--color-accent:#1E34B4;--color-pen-wash:#E0E5F7;--color-pencil:#66706A;--color-blueprint:#1E34B4;--color-blueprint-ink:#F6F8FF;--color-blueprint-soft:#C9D2FF;--color-blueprint-own:#2C43C6;--color-blueprint-line:rgb(255 255 255 / 0.14);--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-sk{display:grid;grid-template-columns:1fr 32px 1fr;align-items:center;padding:24px;border-radius:3px;background-color:var(--color-blueprint);background-image:linear-gradient(var(--color-blueprint-line) 1px,transparent 1px),linear-gradient(90deg,var(--color-blueprint-line) 1px,transparent 1px);background-size:16px 16px;background-position:-1px -1px;font-family:var(--font-body);color:var(--color-blueprint-ink)} .ds-sk-n{display:grid;gap:2px;padding:12px;border-radius:3px;background:var(--color-blueprint);box-shadow:inset 0 0 0 1.25px var(--color-blueprint-ink)} .ds-sk-own{background:var(--color-blueprint-own)} .ds-sk-k{font:0.75rem/1.4 var(--font-mono);color:var(--color-blueprint-soft)} .ds-sk-v{font:500 2rem/1.1 var(--font-mono);letter-spacing:-0.035em} .ds-sk-txt{font:600 1.25rem/1.3 var(--font-body);padding-block:0.25em} .ds-sk-d{font-size:0.8125rem;line-height:1.4;color:var(--color-blueprint-soft)} .ds-sk-l{height:1.25px;background:var(--color-blueprint-ink)}"
+    },
+    {
+      "name": "Contact Sheet",
+      "kind": "card",
+      "description": "The page's closing bookend, the second blueprint sheet: head, availability, the email set large with Copy email, then white links.",
+      "html": "<section class=\"ds-cs\"><h2 class=\"ds-cs-h\">Contact</h2><p class=\"ds-cs-l\">Open to full-stack or backend roles, hybrid or remote.</p><p class=\"ds-cs-e\"><a href=\"#\">MR.Chinnapat@hotmail.com</a></p><p class=\"ds-cs-x\"><a href=\"#\">GitHub</a><a href=\"#\">LinkedIn</a><a href=\"#\">Resume (PDF)</a></p></section>",
+      "css": ":host{--color-paper:#F1F4EE;--color-paper-2:#E6ECE2;--color-card:#FAFBF8;--color-ink:#18201B;--color-ink-2:#36423A;--color-muted:#59665E;--color-rule:#CBD6C8;--color-edge:#8E9B90;--color-grid:#DFE7DB;--color-accent:#1E34B4;--color-pen-wash:#E0E5F7;--color-pencil:#66706A;--color-blueprint:#1E34B4;--color-blueprint-ink:#F6F8FF;--color-blueprint-soft:#C9D2FF;--color-blueprint-own:#2C43C6;--color-blueprint-line:rgb(255 255 255 / 0.14);--font-body:'Schibsted Grotesk',ui-sans-serif,system-ui,sans-serif;--font-mono:'IBM Plex Mono',ui-monospace,monospace;--shadow-card:0 1px 0 rgb(24 32 27 / 0.06),0 14px 32px -12px rgb(24 32 27 / 0.28)} .ds-cs{padding:40px;border-radius:3px;background-color:var(--color-blueprint);background-image:linear-gradient(var(--color-blueprint-line) 1px,transparent 1px),linear-gradient(90deg,var(--color-blueprint-line) 1px,transparent 1px);background-size:16px 16px;background-position:-1px -1px;color:var(--color-blueprint-ink);font-family:var(--font-body);max-width:640px} .ds-cs-h{margin:0 0 16px;font-size:1.5rem;font-weight:600;letter-spacing:-0.015em} .ds-cs-l{margin:0;color:var(--color-blueprint-soft);line-height:1.6} .ds-cs-e{margin:24px 0 0;font-size:clamp(1.5rem,1.1rem + 1.5vw,2.5rem);font-weight:600;letter-spacing:-0.02em} .ds-cs a{color:var(--color-blueprint-ink);text-underline-offset:0.18em} .ds-cs a:focus-visible{outline:2px solid var(--color-blueprint-ink);outline-offset:3px} .ds-cs-x{margin:24px 0 0;display:flex;gap:24px;font-size:0.9rem}"
     }
   ],
   "narrative": {
     "northStar": "The Engineering Notebook",
-    "overview": "**Creative North Star: \"The Engineering Notebook\"**\n\nThe site is a well-kept engineering pad. Every entry is dated in the left margin, the way a working log is kept, and the writing sits on one narrow ruled column beside it. What is on the record is drawn in technical pen; what Chin still has to confirm is drawn in pencil and left visibly open. Instruments are clipped onto the pages rather than built into them: an index card for navigation (⌘K), a pen sketch of the system on a graph-paper patch, a technical drawing with lettered parts for a Case Study, a small print of Chin himself, and link previews pasted in like clippings.\n\nThe mood is precise, honest and unhurried. Type does almost all the work; colour is nearly absent except for one pen blue. The page holds still: motion only settles the first view once and answers what the visitor does. Density is low on purpose: one idea per entry, generous gaps between sections, and the margin dates carrying the structure so headings can stay small.\n\nHonesty is a visual rule here, not just a content rule. A missing fact is drawn as an open item (an unchecked box with \"Chin to write\" or \"Chin to confirm\"), never smoothed over with filler.",
+    "overview": "**Creative North Star: \"The Engineering Notebook\"**\n\nThe site is a well-kept engineering pad. Every entry is dated in the left margin, the way a working log is kept, and the writing sits on one narrow ruled column beside it. What is on the record is drawn in technical pen; what Chin still has to confirm is drawn in pencil and left visibly open. Instruments are clipped onto the pages rather than built into them: an index card for navigation (⌘K), a white-pen sketch of the system on a blueprint sheet, a technical drawing with lettered parts for a Case Study, a small print of Chin himself, and link previews pasted in like clippings.\n\nThe mood is precise, honest and unhurried. Type does most of the work, and one colour carries the brand: blueprint ultramarine, used as ink for links and the primary action and as a full sheet twice, for the system sketch that opens the page and the Contact block that closes it. The page holds still: motion only settles the first view once and answers what the visitor does. Density is low on purpose: one idea per entry, generous gaps between sections, and the margin dates carrying the structure so headings can stay small.\n\nHonesty is a visual rule here, not just a content rule. A missing fact is drawn as an open item (an unchecked box with \"Chin to write\" or \"Chin to confirm\"), never smoothed over with filler.",
     "keyCharacteristics": [
       "One 640px measure with a 168px date margin; everything hangs off that sheet.",
       "Light first (engineering pad); dark is the same notebook at night, never a different world.",
-      "One accent: technical pen blue, for links, the single primary action and pen strokes.",
+      "One brand colour: blueprint ultramarine `#1E34B4`, as pen ink (links, the primary action, drawing strokes) and as two blueprint sheets on home (the sketch and Contact).",
       "Pen (solid) means on the record; pencil (dashed, graphite) means draft.",
       "Mono only where an engineer would write mono: margin dates, figures, code, drawing labels.",
       "Flat pages; only clipped-on objects lift."
     ],
     "rules": [
       {
-        "name": "The One Pen Rule",
-        "body": "Technical Pen Blue is the only chromatic colour on the page. If something else wants colour, it gets ink weight instead.",
+        "name": "The One Colour Rule",
+        "body": "Blueprint ultramarine is the only chromatic colour on the page, as ink or as a sheet. If something else wants colour, it gets ink weight instead.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Sheets Rule",
+        "body": "The blueprint surface appears twice on home and nowhere else: the opening sketch and the closing Contact block, so the page starts and ends on the brand colour. A third blue region dilutes both.",
         "section": "colors"
       },
       {
@@ -538,7 +651,7 @@
       },
       {
         "name": "The Quiet Heading Rule",
-        "body": "Section heads stay at Title size against a Display hero. Hierarchy comes from the margin and the gaps, not from shouting.",
+        "body": "Section heads stay at Headline size against a Hero headline three times their size. Hierarchy comes from that jump, the margin and the gaps, not from shouting.",
         "section": "typography"
       },
       {
@@ -553,22 +666,22 @@
       }
     ],
     "dos": [
-      "**Do** hang every date, number or sequence marker in the 168px margin, in IBM Plex Mono with tabular figures, including how long a role lasted (LinkedIn-style \"2 yrs 7 mos\", both months counted).",
-      "**Do** keep one filled pen-blue primary button per screen; everything else is outline or a link.",
-      "**Do** draw unconfirmed facts in dashed pencil graphite and label them \"Chin to confirm\".",
-      "**Do** show missing content as an Open Item with an empty checkbox.",
-      "**Do** animate only `transform` and `opacity`, under 300ms for UI (enter ease-out, exit faster), with a `prefers-reduced-motion` fallback for everything.",
-      "**Do** keep hover effects inside `@media (hover: hover) and (pointer: fine)` and every target at 44px; an inline link grows its hit area vertically (padding of `(44px - 1.15em) / 2`, cancelled by a negative margin) so the line never moves.",
-      "**Do** use a project's own og:image for its preview, and only screenshots of public pages."
+      "hang every date, number or sequence marker in the 168px margin, in IBM Plex Mono with tabular figures, including how long a role lasted (LinkedIn-style \"2 yrs 7 mos\", both months counted).",
+      "keep one filled pen-blue primary button per screen; everything else is outline or a link.",
+      "draw unconfirmed facts in dashed pencil graphite and label them \"Chin to confirm\".",
+      "show missing content as an Open Item with an empty checkbox.",
+      "animate only `transform` and `opacity`, under 300ms for UI (enter ease-out, exit faster), with a `prefers-reduced-motion` fallback for everything.",
+      "keep hover effects inside `@media (hover: hover) and (pointer: fine)` and every target at 44px; an inline link grows its hit area vertically (padding of `(44px - 1.15em) / 2`, cancelled by a negative margin) so the line never moves.",
+      "use a project's own og:image for its preview, and only screenshots of public pages."
     ],
     "donts": [
-      "**Don't** introduce a second accent colour, gradients or tinted section backgrounds.",
-      "**Don't** use mono for labels, nav, buttons or tags.",
-      "**Don't** put a shadow on anything that is part of the page; only clipped-on objects lift.",
-      "**Don't** use pills, large radii (the round portrait is the only exception), card grids of identical rounded boxes, or cards inside cards.",
-      "**Don't** add eyebrow labels, tracked capitals, middle-dot meta strings or arrows glued to link text.",
-      "**Don't** invent a number, quote, logo, latency figure or architecture detail to fill a gap.",
-      "**Don't** make dark mode a different design; it is the same notebook at night."
+      "introduce a second accent colour, gradients or tinted section backgrounds.",
+      "use mono for labels, nav, buttons or tags.",
+      "put a shadow on anything that is part of the page; only clipped-on objects lift.",
+      "use pills, large radii (the round portrait is the only exception), card grids of identical rounded boxes, or cards inside cards.",
+      "add eyebrow labels, tracked capitals, middle-dot meta strings or arrows glued to link text.",
+      "invent a number, quote, logo, latency figure or architecture detail to fill a gap.",
+      "make dark mode a different design; it is the same notebook at night."
     ]
   }
 }

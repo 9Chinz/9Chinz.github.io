@@ -271,7 +271,7 @@ An honest hole in the record.
 - Used for every TODO in content. Never replaced with placeholder prose.
 
 ### Navigation
-- **Top bar:** wordmark (name, shortened to "Chin" under 24rem), then Work, Writing, Contact in body-small Ink Soft, the "Index ⌘K" trigger and the theme toggle. All targets 44px.
+- **Top bar:** wordmark (name, shortened to "Chin" under 24rem), then Work, Writing, Contact in body-small Ink Soft, the "Search ⌘K" trigger (named for what a visitor expects; inside, the card is still the index) and the theme toggle. All targets 44px. The footer says "Press ⌘K to search".
 - **Mobile:** the section links hide and the same trigger reads "Menu"; without JS the plain links stay. On touch the card opens without focusing the search field (so the keyboard stays down) and lists the "Do" group (Copy email address, theme) first; long labels wrap. The writing index appears in the card only once a Post exists, like the nav link.
 - **Index card (⌘K):** a 560px Clipped Card with the clipped-on shadow, a pen-blue rule under the search field, entries on ruled lines grouped "Go to" and "Open"; the selected row gets Pen Wash and a 2px pen-blue edge. Enters in 180ms ease-out (fade, scale 0.98, 6px drop) with its scrim on the same timing, exits in 120ms; opacity only under reduced motion. Full keyboard support, focus trapped and returned. A tap on "Menu" before the card's island has hydrated is kept and opens the card once it is ready.
 
@@ -285,7 +285,7 @@ The page's closing bookend, a second blueprint sheet on the measure: the "Contac
 Where a convinced reader acts. A ruled line, then "Talk to me about this system" at Headline size, then Copy email (the one primary), Resume (PDF) and LinkedIn as buttons, then "Open the live results" and "Back to home" as text links.
 
 ### Technical Drawing (Case Study)
-A drafting sheet spanning margin and measure: lettered parts A–D as buttons (44px+), pen for facts, dashed pencil for drafts, a legend and a title block, a note panel that changes when a part is hovered, focused or tapped (the other parts recede: pen lines fade and their text drops to Margin Grey, never below 4.5:1), and "The drawing as text" disclosure as the accessible equivalent.
+A drafting sheet spanning margin and measure: lettered parts A–D as buttons (44px+), pen for facts, dashed pencil for drafts, a legend and a title block, a note panel that opens on the part Chin built (`own`) and changes when a part is hovered, focused or tapped (the other parts recede: pen lines fade and their text drops to Margin Grey, never below 4.5:1), and "The drawing as text" disclosure as the accessible equivalent.
 - **Chips** inside a part follow the part: a solid Ruled Line border and Ink Soft text on the record, dashed Pencil Graphite in a draft. The legend and the help line mention pencil only when the drawing has a draft part.
 - **Note panel:** every note sits in one grid cell, so the panel is as tall as the longest note and nothing below it moves; the 1px pen rule belongs to the note on show and ends where it ends. The old note fades out in 90ms, the new one fades in with a 3px rise in 160ms after 60ms (ease-out; no rise under reduced motion). Without scripting every note is listed. On a phone, where the parts stack, a tap brings the note into view when it is off screen.
 

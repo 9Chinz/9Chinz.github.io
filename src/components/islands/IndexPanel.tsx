@@ -256,7 +256,7 @@ export default function Card({ open, onClose, email, github, linkedin, resume, s
             ref={cardRef}
             role="dialog"
             aria-modal="true"
-            aria-label="Index"
+            aria-label="Search"
             tabIndex={-1}
             className="ix"
             onKeyDown={onKeyDown}
@@ -286,7 +286,7 @@ export default function Card({ open, onClose, email, github, linkedin, resume, s
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
               />
-              <button type="button" data-stop className="ix-close" onClick={onClose} aria-label="Close the index">
+              <button type="button" data-stop className="ix-close" onClick={onClose} aria-label="Close search">
                 <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" aria-hidden="true">
                   <path d="M4 4l8 8M12 4l-8 8" />
                 </svg>
